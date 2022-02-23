@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class ViewController extends Controller
 {
     public function listado()
@@ -447,5 +449,10 @@ class ViewController extends Controller
         if ( $table_name ) {
             return view('tablas/'.$table_name, ['tablas' => $tablas]);
         }
+    }
+
+    public function pruebas( $table_name )
+    {
+        dd( DB::table( $table_name )->get()->toArray() );
     }
 }

@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>action</b></h2>
+                <h2>Tabla: <b>action_intervenants_fiabilis</b></h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -13,26 +13,15 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>ALARME</th>
-                                    <th>CATEGORIE</th>
-                                    <th>CIVILITE</th>
-                                    <th>DATE_ALARME</th>
-                                    <th>DATE_DEBUT</th>
-                                    <th>DATE_FIN</th>
-                                    <th>EMPLACEMENT</th>
-                                    <th>E_MAIL</th>
-                                    <th>FAIT</th>
-                                    <th>ID_ACTION</th>
-                                    <th>NOM</th>
-                                    <th>NOTE</th>
-                                    <th>PID_CONTACT</th>
-                                    <th>PID_IDENTIFICATION</th>
-                                    <th>RESULTAT</th>
-                                    <th>SUIVI_PAR</th>
+                                    <th>ID_ACTION_INTERVENANTS_FIABILIS</th>
+                                    <th>LOGIN</th>
+                                    <th>PID_ACTION</th>
                                     <th>SYS_DATE_CREATION</th>
                                     <th>SYS_DATE_MODIFICATION</th>
                                     <th>SYS_HEURE_CREATION</th>
                                     <th>SYS_HEURE_MODIFICATION</th>
+                                    <th>SYS_USER_CREATION</th>
+                                    <th>SYS_USER_MODIFICATION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,35 +46,21 @@
                 serverSide: true,
                 processing: true,
                 ajax: {
-                    url: "{{ route('get_tabla_action') }}",
-                    // error: function(jqXHR, ajaxOptions, thrownError) {
-                    //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
-                    // },
+                    url: "{{ route('get_tabla_action_intervenants_fiabilis') }}",
                     data: function ( d ) {
                         //
                     }
                 },
                 columns: [
-                    { data: "ALARME"},
-                    { data: "CATEGORIE"},
-                    { data: "CIVILITE"},
-                    { data: "DATE_ALARME"},
-                    { data: "DATE_DEBUT"},
-                    { data: "DATE_FIN"},
-                    { data: "EMPLACEMENT"},
-                    { data: "E_MAIL"},
-                    { data: "FAIT"},
-                    { data: "ID_ACTION"},
-                    { data: "NOM"},
-                    { data: "NOTE"},
-                    { data: "PID_CONTACT"},
-                    { data: "PID_IDENTIFICATION"},
-                    { data: "RESULTAT"},
-                    { data: "SUIVI_PAR"},
+                    { data: "ID_ACTION_INTERVENANTS_FIABILIS"},
+                    { data: "LOGIN"},
+                    { data: "PID_ACTION"},
                     { data: "SYS_DATE_CREATION"},
                     { data: "SYS_DATE_MODIFICATION"},
                     { data: "SYS_HEURE_CREATION"},
                     { data: "SYS_HEURE_MODIFICATION"},
+                    { data: "SYS_USER_CREATION"},
+                    { data: "SYS_USER_MODIFICATION"},
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
@@ -148,33 +123,6 @@
             }
 
         });
-
-
-        // Refilter the table
-        // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
-        //     TABLA_ORDENES.draw();
-        // });
-
-        // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
-
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
 
     </script>
 @endsection

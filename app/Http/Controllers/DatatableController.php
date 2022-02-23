@@ -8,6 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\Action;
+use App\Models\ActionIntervenantsFiabilis;
 
 class DatatableController extends Controller
 {
@@ -15,16 +16,59 @@ class DatatableController extends Controller
     {
         $columns = [
             'ALARME', 
-            'BITRIX_CONTACT', 
-            'BITRIX_KEY'
+            'CATEGORIE', 
+            'CIVILITE', 
+            'DATE_ALARME', 
+            'DATE_DEBUT', 
+            'DATE_FIN', 
+            'EMPLACEMENT', 
+            'E_MAIL', 
+            'FAIT', 
+            'ID_ACTION', 
+            'NOM', 
+            'NOTE', 
+            'PID_CONTACT', 
+            'PID_IDENTIFICATION', 
+            'RESULTAT', 
+            'SUIVI_PAR', 
+            'SYS_DATE_CREATION', 
+            'SYS_DATE_MODIFICATION', 
+            'SYS_HEURE_CREATION', 
+            'SYS_HEURE_MODIFICATION', 
         ];
 
         $relations = [
             // 'tutor',
         ];
 
-        // $datos = DB::table( 'action' )->select( $columns );
         $datos = Action::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_action_intervenants_fiabilis( Request $request )
+    {
+        $columns = [
+            'ID_ACTION_INTERVENANTS_FIABILIS', 
+            'LOGIN', 
+            'PID_ACTION', 
+            'SYS_DATE_CREATION', 
+            'SYS_DATE_MODIFICATION', 
+            'SYS_HEURE_CREATION', 
+            'SYS_HEURE_MODIFICATION', 
+            'SYS_USER_CREATION', 
+            'SYS_USER_MODIFICATION', 
+        ];
+
+        $relations = [
+            // 'tutor',
+        ];
+
+        $datos = ActionIntervenantsFiabilis::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request) {
