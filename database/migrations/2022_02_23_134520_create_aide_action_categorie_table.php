@@ -29,7 +29,7 @@ class CreateAideActionCategorieTable extends Migration
             $table->string('SYS_USER_CREATION', 20)->default('');
             $table->string('SYS_USER_MODIFICATION', 20)->default('');
             $table->string('TYPE_EVENEMENT', 10)->default('');
-            $table->prospect`('QUALIFIED');
+            $table->string('QUALIFIED PROSPECT');
         });
     }
 

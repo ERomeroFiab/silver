@@ -28,7 +28,7 @@ class CreateContratFournisseurTable extends Migration
             $table->string('ID_CONTRAT_FOURNISSEUR', 32)->default('')->primary();
             $table->binary('NOTES');
             $table->double('NUMBER_OF_DAYS_BEFORE_CANCELLATION')->default(0);
-            $table->method`('PAYMENT');
+            $table->string('PAYMENT METHOD');
             $table->string('PID_CONTACT', 32)->default('')->index('PID_CONTACT');
             $table->string('PID_IDENTIFICATION', 32)->default('')->index('PID_IDENTIFICATION');
             $table->string('SUBJECT', 100)->default('');
@@ -38,7 +38,7 @@ class CreateContratFournisseurTable extends Migration
             $table->time('SYS_HEURE_MODIFICATION')->default('00:00:00')->index('SYS_HEURE_MODIFICATION');
             $table->string('SYS_USER_CREATION', 20)->default('')->index('SYS_USER_CREATION');
             $table->string('SYS_USER_MODIFICATION', 20)->default('')->index('SYS_USER_MODIFICATION');
-            $table->renewal`('TACIT');
+            $table->string('TACIT RENEWAL');
         });
     }
 
