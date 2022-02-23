@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>action_intervenants_fiabilis</b></h2>
+                <h2>Tabla: <b>contrat</b></h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -13,15 +13,12 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>ID_ACTION_INTERVENANTS_FIABILIS</th>
-                                    <th>LOGIN</th>
-                                    <th>PID_ACTION</th>
-                                    <th>SYS_DATE_CREATION</th>
-                                    <th>SYS_DATE_MODIFICATION</th>
-                                    <th>SYS_HEURE_CREATION</th>
-                                    <th>SYS_HEURE_MODIFICATION</th>
-                                    <th>SYS_USER_CREATION</th>
-                                    <th>SYS_USER_MODIFICATION</th>
+                                    <th>PID_IDENTIFICATION</th>
+                                    <th>NO_CONTRAT</th>
+                                    <th>NO_ENTITY</th>
+                                    <th>DATE_SIGNATURE_CLIENT</th>
+                                    <th>DATE_SIGNATURE_INTERNE</th>
+                                    <th>VALEUR</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,21 +43,21 @@
                 serverSide: true,
                 processing: true,
                 ajax: {
-                    url: "{{ route('get_tabla_action_intervenants_fiabilis') }}",
+                    url: "{{ route('get_tabla_contrat') }}",
+                    // error: function(jqXHR, ajaxOptions, thrownError) {
+                    //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
+                    // },
                     data: function ( d ) {
                         //
                     }
                 },
                 columns: [
-                    { data: "ID_ACTION_INTERVENANTS_FIABILIS"},
-                    { data: "LOGIN"},
-                    { data: "PID_ACTION"},
-                    { data: "SYS_DATE_CREATION"},
-                    { data: "SYS_DATE_MODIFICATION"},
-                    { data: "SYS_HEURE_CREATION"},
-                    { data: "SYS_HEURE_MODIFICATION"},
-                    { data: "SYS_USER_CREATION"},
-                    { data: "SYS_USER_MODIFICATION"},
+                    { data: "PID_IDENTIFICATION"},
+                    { data: "NO_CONTRAT"},
+                    { data: "NO_ENTITY"},
+                    { data: "DATE_SIGNATURE_CLIENT"},
+                    { data: "DATE_SIGNATURE_INTERNE"},
+                    { data: "VALEUR"},
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
@@ -70,7 +67,7 @@
                 dom: 'Bfrtip',
                 buttons: [{
                     extend: 'excelHtml5',
-                    title: "tabla action_intervenants_fiabilis - " + new Date().toLocaleString(),
+                    title: "tabla affaire - " + new Date().toLocaleString(),
                     className: "bg-info",
                     exportOptions: {
                         columns: ':not(.no_exportar)'
@@ -123,6 +120,33 @@
             }
 
         });
+
+
+        // Refilter the table
+        // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
+        //     TABLA_ORDENES.draw();
+        // });
+
+        // Pintar en verde los inputs que contienen algo
+        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
+        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
+        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
+        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
+        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
+        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
+        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
+        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+
+        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
+        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
+
+        // function agregar_quitar_bg_success(id){
+        //     if ( $(`#${id}`).val() !== "" ) {
+        //         $(`#${id}`).addClass('bg-success');
+        //     } else {
+        //         $(`#${id}`).removeClass('bg-success');
+        //     }
+        // }
 
     </script>
 @endsection
