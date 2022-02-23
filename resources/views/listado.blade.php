@@ -20,7 +20,7 @@
     {{-- datatables styles --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-    
+
     {{-- custom links --}}
     @yield('custom_links_css')
     {{-- customcss --}}
@@ -54,7 +54,7 @@
                         <li class="{{ request()->is('tablas/vista/'.$tabla) ? 'active' : '' }}">
                             <a href="{{ route('vistas', ['table_name' => $tabla]) }}">
                                 {{-- <span class="sidebar-mini-icon">{{ $loop->iteration }}</span> --}}
-                                <p class="sidebar-normal">{{ $loop->iteration }} {{ $tabla }}</p>
+                                <p class="sidebar-normal">{{ $loop->iteration }}) {{ $tabla }}</p>
                             </a>
                         </li>
                     @endforeach
