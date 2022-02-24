@@ -24,3 +24,4 @@ Route::get('/tablas/datatable/get_tabla_action_intervenants_fiabilis', [App\Http
 Route::get('/tablas/datatable/get_tabla_affaire', [App\Http\Controllers\DatatableController::class, 'get_tabla_affaire'])->name('get_tabla_affaire');
 Route::get('/tablas/datatable/get_tabla_identification', [App\Http\Controllers\DatatableController::class, 'get_tabla_identification'])->name('get_tabla_identification');
 Route::get('/tablas/datatable/get_tabla_contrat', [App\Http\Controllers\DatatableController::class, 'get_tabla_contrat'])->name('get_tabla_contrat');
+Route::get('/tablas/datatable/get_tabla_documents', [App\Http\Controllers\DatatableController::class, 'get_tabla_documents'])->name('get_tabla_documents');

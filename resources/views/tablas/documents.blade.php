@@ -13,7 +13,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>action</b> (54 columnas)</h2>
+                <h2>Tabla: <b>documents</b> (30 columnas)</h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -21,15 +21,15 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1 ID_ACTION</th>
-                                    <th>2 CATEGORIE</th>
-                                    <th>3 EMPLACEMENT</th>
-                                    <th>4 E_MAIL</th>
-                                    <th>5 NOM</th>
-                                    <th>6 NOTE</th>
-                                    <th>7 RESULTAT</th>
-                                    <th>8 SUIVI_PAR</th>
-                                    <th>9 TYPE_EVENEMENT</th>
+                                    <th>1 ID_DOCUMENTS</th>
+                                    <th>2 DOCUMENT_FICHIER_NOM</th>
+                                    <th>3 DOCUMENT_FICHIER_DATE</th>
+                                    <th>4 DOCUMENT_FICHIER_TAILLE</th>
+                                    <th>5 DOCUMENT_FICHIER_TYPE</th>
+                                    <th>6 ORIGINE</th>
+                                    <th>7 SYS_DATE_CREATION</th>
+                                    <th>8 SYS_USER_CREATION</th>
+                                    <th>9 SYS_USER_MODIFICATION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,7 +54,7 @@
                 serverSide: true,
                 processing: true,
                 ajax: {
-                    url: "{{ route('get_tabla_action') }}",
+                    url: "{{ route('get_tabla_documents') }}",
                     // error: function(jqXHR, ajaxOptions, thrownError) {
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
@@ -63,15 +63,15 @@
                     }
                 },
                 columns: [
-                    { data: "ID_ACTION"},
-                    { data: "CATEGORIE"},
-                    { data: "EMPLACEMENT"},
-                    { data: "E_MAIL"},
-                    { data: "NOM"},
-                    { data: "NOTE"},
-                    { data: "RESULTAT"},
-                    { data: "SUIVI_PAR"},
-                    { data: "TYPE_EVENEMENT"},
+                    { data: "ID_DOCUMENTS"},
+                    { data: "DOCUMENT_FICHIER_NOM"},
+                    { data: "DOCUMENT_FICHIER_DATE"},
+                    { data: "DOCUMENT_FICHIER_TAILLE"},
+                    { data: "DOCUMENT_FICHIER_TYPE"},
+                    { data: "ORIGINE"},
+                    { data: "SYS_DATE_CREATION"},
+                    { data: "SYS_USER_CREATION"},
+                    { data: "SYS_USER_MODIFICATION"},
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
@@ -81,7 +81,7 @@
                 dom: 'Bfrtip',
                 buttons: [{
                     extend: 'excelHtml5',
-                    title: "tabla action - " + new Date().toLocaleString(),
+                    title: "tabla documents - " + new Date().toLocaleString(),
                     className: "bg-info",
                     exportOptions: {
                         columns: ':not(.no_exportar)'

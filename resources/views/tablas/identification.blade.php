@@ -1,11 +1,19 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_action_filter {
+            display: none;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>identification</b></h2>
+                <h2>Tabla: <b>identification</b> (192 columnas)</h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -26,24 +34,20 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>ID_IDENTIFICATION</th>
-                                    <th>ADRESSE1</th>
-                                    <th>AUDITEUR</th>
-                                    <th>CODE_POSTAL</th>
-                                    <th>EFFECTIF</th>
-                                    <th>GROUP</th>
-                                    <th>PAYS</th>
-                                    <th>PERS_MORALE_OU_PERS_PHYSIQUE</th>
-                                    <th>RAISON_SOC</th>
-                                    <th>SIRET</th>
-                                    <th>TYPE_FICHE</th>
-                                    <th>VILLE</th>
-                                    <th>TGG_2019_B</th>
-                                    <th>PID_GROUP</th>
-                                    <th>PID_INTERNATIONAL_GROUP</th>
-                                    <th>PID_PARTNER</th>
-                                    <th>PID_REVENDEUR</th>
-                                    <th>PID_SUSPECTS</th>
+                                    <th>1 ID_IDENTIFICATION</th>
+                                    <th>2 SIRET</th>
+                                    <th>3 ADRESSE1</th>
+                                    <th>4 AUDITEUR</th>
+                                    <th>5 CODE_POSTAL</th>
+                                    <th>6 EFFECTIF</th>
+                                    <th>7 GROUP</th>
+                                    <th>8 PAYS</th>
+                                    <th>9 PERS_MORALE_OU_PERS_PHYSIQUE</th>
+                                    <th>10 RAISON_SOC</th>
+                                    <th>11 SIRET</th>
+                                    <th>12 TYPE_FICHE</th>
+                                    <th>13 VILLE</th>
+                                    <th>14 TGG_2019_B</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,6 +82,7 @@
                 },
                 columns: [
                     { data: "ID_IDENTIFICATION"},
+                    { data: "SIRET"},
                     { data: "ADRESSE1"},
                     { data: "AUDITEUR"},
                     { data: "CODE_POSTAL"},
@@ -90,11 +95,6 @@
                     { data: "TYPE_FICHE"},
                     { data: "VILLE"},
                     { data: "TGG_2019_B"},
-                    { data: "PID_GROUP"},
-                    { data: "PID_INTERNATIONAL_GROUP"},
-                    { data: "PID_PARTNER"},
-                    { data: "PID_REVENDEUR"},
-                    { data: "PID_SUSPECTS"},
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

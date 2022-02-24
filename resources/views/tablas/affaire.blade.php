@@ -1,11 +1,19 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_action_filter {
+            display: none;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>affaire</b></h2>
+                <h2>Tabla: <b>affaire</b> (38 columnas)</h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -13,27 +21,20 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>CIVILITE</th>
-                                    <th>DATE_PREVISIONNEL</th>
-                                    <th>DATE_SIGNATURE</th>
-                                    <th>EMAIL</th>
-                                    <th>FAMILLE</th>
-                                    <th>ID_AFFAIRE</th>
-                                    <th>MONTANT_PONDERE</th>
-                                    <th>NOM</th>
-                                    <th>NO_AFFAIRE</th>
-                                    <th>PHASE</th>
-                                    <th>PID_CONTACT</th>
-                                    <th>PID_IDENTIFICATION</th>
-                                    <th>PRENOM</th>
-                                    <th>PROBABILITE</th>
-                                    <th>PRODUIT</th>
-                                    <th>STATUT</th>
-                                    <th>SUIVI_PAR</th>
-                                    <th>SYS_DATE_CREATION</th>
-                                    <th>SYS_DATE_MODIFICATION</th>
-                                    <th>SYS_USER_CREATION</th>
-                                    <th>TOTAL_PREVISIONNEL</th>
+                                    <th>1 ID_AFFAIRE</th>
+                                    <th>2 CIVILITE</th>
+                                    <th>3 DATE_PREVISIONNEL</th>
+                                    <th>4 DATE_SIGNATURE</th>
+                                    <th>5 FAMILLE</th>
+                                    <th>6 PRENOM</th>
+                                    <th>7 NOM</th>
+                                    <th>8 NO_AFFAIRE</th>
+                                    <th>9 PHASE</th>
+                                    <th>10 PROBABILITE</th>
+                                    <th>11 PRODUIT</th>
+                                    <th>12 STATUT</th>
+                                    <th>13 SUIVI_PAR</th>
+                                    <th>14 TOTAL_PREVISIONNEL</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,26 +68,19 @@
                     }
                 },
                 columns: [
+                    { data: "ID_AFFAIRE"},
                     { data: "CIVILITE"},
                     { data: "DATE_PREVISIONNEL"},
                     { data: "DATE_SIGNATURE"},
-                    { data: "EMAIL"},
                     { data: "FAMILLE"},
-                    { data: "ID_AFFAIRE"},
-                    { data: "MONTANT_PONDERE"},
+                    { data: "PRENOM"},
                     { data: "NOM"},
                     { data: "NO_AFFAIRE"},
                     { data: "PHASE"},
-                    { data: "PID_CONTACT"},
-                    { data: "PID_IDENTIFICATION"},
-                    { data: "PRENOM"},
                     { data: "PROBABILITE"},
                     { data: "PRODUIT"},
                     { data: "STATUT"},
                     { data: "SUIVI_PAR"},
-                    { data: "SYS_DATE_CREATION"},
-                    { data: "SYS_DATE_MODIFICATION"},
-                    { data: "SYS_USER_CREATION"},
                     { data: "TOTAL_PREVISIONNEL"},
                 ],
                 // order: [[ 1, 'desc' ]],

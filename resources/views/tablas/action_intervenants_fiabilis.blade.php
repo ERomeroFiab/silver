@@ -1,11 +1,19 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_action_filter {
+            display: none;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>action_intervenants_fiabilis</b></h2>
+                <h2>Tabla: <b>action_intervenants_fiabilis</b> (9 columnas)</h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -13,15 +21,15 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>ID_ACTION_INTERVENANTS_FIABILIS</th>
-                                    <th>LOGIN</th>
-                                    <th>PID_ACTION</th>
-                                    <th>SYS_DATE_CREATION</th>
-                                    <th>SYS_DATE_MODIFICATION</th>
-                                    <th>SYS_HEURE_CREATION</th>
-                                    <th>SYS_HEURE_MODIFICATION</th>
-                                    <th>SYS_USER_CREATION</th>
-                                    <th>SYS_USER_MODIFICATION</th>
+                                    <th>1 ID_ACTION_INTERVENANTS_FIABILIS</th>
+                                    <th>2 LOGIN</th>
+                                    <th>3 PID_ACTION</th>
+                                    <th>4 SYS_DATE_CREATION</th>
+                                    <th>5 SYS_DATE_MODIFICATION</th>
+                                    <th>6 SYS_HEURE_CREATION</th>
+                                    <th>7 SYS_HEURE_MODIFICATION</th>
+                                    <th>8 SYS_USER_CREATION</th>
+                                    <th>9 SYS_USER_MODIFICATION</th>
                                 </tr>
                             </thead>
                             <tbody>

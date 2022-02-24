@@ -239,6 +239,6 @@ class ViewController extends Controller
 
     public function pruebas( $table_name )
     {
-        dd( DB::table( $table_name )->get()->toArray() );
+        dd( DB::table( $table_name )->paginate('5')->toArray() );
     }
 }

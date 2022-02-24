@@ -1,11 +1,19 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_action_filter {
+            display: none;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>contrat</b></h2>
+                <h2>Tabla: <b>contrat</b> (54 columnas)</h2>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -13,12 +21,22 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>PID_IDENTIFICATION</th>
-                                    <th>NO_CONTRAT</th>
-                                    <th>NO_ENTITY</th>
-                                    <th>DATE_SIGNATURE_CLIENT</th>
-                                    <th>DATE_SIGNATURE_INTERNE</th>
-                                    <th>VALEUR</th>
+                                    <th>1 ID_CONTRAT</th>
+                                    <th>2 E_MAIL</th>
+                                    <th>3 E_MAIL_FACTURATION</th>
+                                    <th>4 FIABILIS_GROUP_ENTITY</th>
+                                    <th>5 MULTI_ENTITY</th>
+                                    <th>6 NOM</th>
+                                    <th>7 NOM_FACTURATION</th>
+                                    <th>8 NO_CONTRAT</th>
+                                    <th>9 NO_CONTRAT_ORIGINE</th>
+                                    <th>10 NO_ENTITY</th>
+                                    <th>11 STATUT</th>
+                                    <th>12 SUIVI_PAR</th>
+                                    <th>13 VALEUR</th>
+                                    <th>14 DATE_FIN_CONTRAT</th>
+                                    <th>15 DATE_SIGNATURE_CLIENT</th>
+                                    <th>16 DATE_SIGNATURE_INTERNE</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,12 +70,22 @@
                     }
                 },
                 columns: [
-                    { data: "PID_IDENTIFICATION"},
+                    { data: "ID_CONTRAT"},
+                    { data: "E_MAIL"},
+                    { data: "E_MAIL_FACTURATION"},
+                    { data: "FIABILIS_GROUP_ENTITY"},
+                    { data: "MULTI_ENTITY"},
+                    { data: "NOM"},
+                    { data: "NOM_FACTURATION"},
                     { data: "NO_CONTRAT"},
+                    { data: "NO_CONTRAT_ORIGINE"},
                     { data: "NO_ENTITY"},
+                    { data: "STATUT"},
+                    { data: "SUIVI_PAR"},
+                    { data: "VALEUR"},
+                    { data: "DATE_FIN_CONTRAT"},
                     { data: "DATE_SIGNATURE_CLIENT"},
                     { data: "DATE_SIGNATURE_INTERNE"},
-                    { data: "VALEUR"},
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

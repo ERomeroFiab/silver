@@ -12,6 +12,7 @@ use App\Models\ActionIntervenantsFiabilis;
 use App\Models\Affaire;
 use App\Models\Identification;
 use App\Models\Contrat;
+use App\Models\Document;
 
 class DatatableController extends Controller
 {
@@ -370,13 +371,13 @@ class DatatableController extends Controller
         $relations = [
             // '',
         ];
-
+        
         $datos = Identification::select( $columns )->with( $relations );
         
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request) {
                                 
-                                if ( $request->get('search_by_id_identification') ) {
+                                if ( $request->get('search_by_id_identification') !== null ) {
                                     $query->where('ID_IDENTIFICATION', intval($request->get('search_by_id_identification')));
                                 }
                             })
@@ -447,6 +448,54 @@ class DatatableController extends Controller
         ];
 
         $datos = Contrat::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_documents( Request $request )
+    {
+        $columns = [
+            'ID_DOCUMENTS',  
+            'PID_ACTION',  
+            'PID_AFFAIRE',  
+            'PID_CONTACT',  
+            'PID_CONTRAT',  
+            'PID_ECHANTILLON',  
+            'PID_EMAIL',  
+            'PID_IDENTIFICATION',  
+            'PID_INVOICE',  
+            'PID_MISSION',  
+            'PID_MISSION_AUDIT_REPORT',  
+            'PID_OFFRE_ENTETE',  
+            'PID_RECLAMATION',  
+            'PID_CONTRAT_FOURNISSEUR',  
+            'ARCHIVE',  
+            // 'DOCUMENT_FICHIER_CONTENU',  // Contiene el archivo en formato base64
+            'DOCUMENT_FICHIER_DATE',  
+            'DOCUMENT_FICHIER_NOM',  
+            'DOCUMENT_FICHIER_TAILLE',  
+            'DOCUMENT_FICHIER_TYPE',  
+            'ORIGINE',  
+            'SYS_DATE_CREATION',  
+            'SYS_DATE_MODIFICATION',  
+            'SYS_HEURE_CREATION',  
+            'SYS_HEURE_MODIFICATION',  
+            'SYS_SYNCHRO_CODE_POSTE',  
+            'SYS_SYNCHRO_DATE_ENREG',  
+            'SYS_USER_CREATION',  
+            'SYS_USER_MODIFICATION',  
+            'TEMPO_VP',  
+        ];
+
+        $relations = [
+            // '',
+        ];
+
+        $datos = Document::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request) {
