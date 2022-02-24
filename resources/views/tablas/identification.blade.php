@@ -9,6 +9,19 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label>
+                                ID_identification:
+                                <input id="input__id_identification" type="number" class="form-control">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-success" type="button" onclick="buscar()">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
@@ -48,10 +61,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_ORDENES;
+        let TABLA;
         $(document).ready(function() {
 
-            TABLA_ORDENES = $('#tabla_action').DataTable({
+            TABLA = $('#tabla_action').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -60,7 +73,7 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.search_by_id_identification = $('#input__id_identification').val();
                     }
                 },
                 columns: [
@@ -143,7 +156,12 @@
                 dt.ajax.reload();
             }
 
+
         });
+
+        function buscar(){
+            TABLA.draw();
+        }
 
 
         // Refilter the table
