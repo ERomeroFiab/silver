@@ -118,13 +118,46 @@ class DatatableController extends Controller
         ];
         
         $datos = Identification::select( $columns )->with( $relations );
-        
+        // dd( $request->get('SEARCH_BY_VILLE') );
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request) {
                                 
-                                if ( $request->get('search_by_id_identification') !== null ) {
-                                    $query->where('ID_IDENTIFICATION', intval($request->get('search_by_id_identification')));
+                                if ( $request->get('SEARCH_BY_ID_IDENTIFICATION') !== null ) {
+                                    $query->where('ID_IDENTIFICATION', $request->get('SEARCH_BY_ID_IDENTIFICATION'));
                                 }
+                                
+                                if ( $request->get('SEARCH_BY_SIRET') !== null ) {
+                                    $query->where('SIRET', $request->get('SEARCH_BY_SIRET'));
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_ADRESSE1') !== null ) {
+                                    $query->where('ADRESSE1', 'like', "%".$request->get('SEARCH_BY_ADRESSE1')."%");
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_AUDITEUR') !== null ) {
+                                    $query->where('AUDITEUR', 'like', "%".$request->get('SEARCH_BY_AUDITEUR')."%");
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_EFFECTIF') !== null ) {
+                                    $query->where('EFFECTIF', $request->get('SEARCH_BY_EFFECTIF'));
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_GROUP') !== null ) {
+                                    $query->where('GROUP', 'like', "%".$request->get('SEARCH_BY_GROUP')."%");
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_RAISON_SOC') !== null ) {
+                                    $query->where('RAISON_SOC', 'like', "%".$request->get('SEARCH_BY_RAISON_SOC')."%");
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_TYPE_FICHE') !== null ) {
+                                    $query->where('TYPE_FICHE', $request->get('SEARCH_BY_TYPE_FICHE'));
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_VILLE') !== null ) {
+                                    $query->where('VILLE', $request->get('SEARCH_BY_VILLE'));
+                                }
+
                             })
                             ->toJson();
     }

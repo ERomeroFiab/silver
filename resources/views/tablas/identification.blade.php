@@ -2,7 +2,7 @@
 
 @section('customcss')
     <style>
-        #tabla_action_filter {
+        #tabla_identification_filter {
             display: none;
         }
     </style>
@@ -13,41 +13,69 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>identification</b> (192 columnas)</h2>
+                <h3 class="my-0">Tabla: <b>identification</b></h3>
+                <p>(total: {{ count( config('tablas')['identification'] ) }} columnas)</p>
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label>
-                                ID_identification:
-                                <input id="input__id_identification" type="number" class="form-control">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-sm btn-success" type="button" onclick="buscar()">Buscar</button>
-                        </div>
+
+                    <div class="col-3 form-group">
+                        <label>ID_IDENTIFICATION:</label>
+                        <input id="input__ID_IDENTIFICATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SIRET:</label>
+                        <input id="input__SIRET" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ADRESSE1:</label>
+                        <input id="input__ADRESSE1" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>AUDITEUR:</label>
+                        <input id="input__AUDITEUR" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>EFFECTIF:</label>
+                        <input id="input__EFFECTIF" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>GROUP:</label>
+                        <input id="input__GROUP" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAISON_SOC:</label>
+                        <input id="input__RAISON_SOC" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>TYPE_FICHE:</label>
+                        <input id="input__TYPE_FICHE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>VILLE:</label>
+                        <input id="input__VILLE" type="text" class="form-control">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
-                        <table id="tabla_action" class="table-hover" style="width:100%;">
+                        <table id="tabla_identification" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1 ID_IDENTIFICATION</th>
-                                    <th>2 SIRET</th>
-                                    <th>3 ADRESSE1</th>
-                                    <th>4 AUDITEUR</th>
-                                    <th>5 CODE_POSTAL</th>
-                                    <th>6 EFFECTIF</th>
-                                    <th>7 GROUP</th>
-                                    <th>8 PAYS</th>
-                                    <th>9 PERS_MORALE_OU_PERS_PHYSIQUE</th>
-                                    <th>10 RAISON_SOC</th>
-                                    <th>11 SIRET</th>
-                                    <th>12 TYPE_FICHE</th>
-                                    <th>13 VILLE</th>
-                                    <th>14 TGG_2019_B</th>
+                                    <th>1  ID_IDENTIFICATION</th>
+                                    <th>2  SIRET</th>
+                                    <th>3  ADRESSE1</th>
+                                    <th>4  AUDITEUR</th>
+                                    <th>5  EFFECTIF</th>
+                                    <th>6  GROUP</th>
+                                    <th>7  RAISON_SOC</th>
+                                    <th>8  TYPE_FICHE</th>
+                                    <th>9  VILLE</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,10 +93,10 @@
 @section('customjs')
     
     <script>
-        let TABLA;
+        let TABLA_IDENTIFICATION;
         $(document).ready(function() {
 
-            TABLA = $('#tabla_action').DataTable({
+            TABLA_IDENTIFICATION = $('#tabla_identification').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -77,7 +105,15 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        d.search_by_id_identification = $('#input__id_identification').val();
+                        d.SEARCH_BY_ID_IDENTIFICATION = $('#input__ID_IDENTIFICATION').val();
+                        d.SEARCH_BY_SIRET             = $('#input__SIRET').val();
+                        d.SEARCH_BY_ADRESSE1          = $('#input__ADRESSE1').val();
+                        d.SEARCH_BY_AUDITEUR          = $('#input__AUDITEUR').val();
+                        d.SEARCH_BY_EFFECTIF          = $('#input__EFFECTIF').val();
+                        d.SEARCH_BY_GROUP             = $('#input__GROUP').val();
+                        d.SEARCH_BY_RAISON_SOC        = $('#input__RAISON_SOC').val();
+                        d.SEARCH_BY_TYPE_FICHE        = $('#input__TYPE_FICHE').val();
+                        d.SEARCH_BY_VILLE             = $('#input__VILLE').val();
                     }
                 },
                 columns: [
@@ -85,16 +121,11 @@
                     { data: "SIRET"},
                     { data: "ADRESSE1"},
                     { data: "AUDITEUR"},
-                    { data: "CODE_POSTAL"},
                     { data: "EFFECTIF"},
                     { data: "GROUP"},
-                    { data: "PAYS"},
-                    { data: "PERS_MORALE_OU_PERS_PHYSIQUE"},
                     { data: "RAISON_SOC"},
-                    { data: "SIRET"},
                     { data: "TYPE_FICHE"},
                     { data: "VILLE"},
-                    { data: "TGG_2019_B"},
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
@@ -160,7 +191,7 @@
         });
 
         function buscar(){
-            TABLA.draw();
+            TABLA_IDENTIFICATION.draw();
         }
 
 
@@ -170,25 +201,23 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__ID_IDENTIFICATION" ).change(function() { agregar_quitar_bg_success('input__ID_IDENTIFICATION'); });
+        $( "#input__SIRET" ).change(function() { agregar_quitar_bg_success('input__SIRET'); });
+        $( "#input__ADRESSE1" ).change(function() { agregar_quitar_bg_success('input__ADRESSE1'); });
+        $( "#input__AUDITEUR" ).change(function() { agregar_quitar_bg_success('input__AUDITEUR'); });
+        $( "#input__EFFECTIF" ).change(function() { agregar_quitar_bg_success('input__EFFECTIF'); });
+        $( "#input__GROUP" ).change(function() { agregar_quitar_bg_success('input__GROUP'); });
+        $( "#input__RAISON_SOC" ).change(function() { agregar_quitar_bg_success('input__RAISON_SOC'); });
+        $( "#input__TYPE_FICHE" ).change(function() { agregar_quitar_bg_success('input__TYPE_FICHE'); });
+        $( "#input__VILLE" ).change(function() { agregar_quitar_bg_success('input__VILLE'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
