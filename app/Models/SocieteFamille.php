@@ -18,4 +18,9 @@ class SocieteFamille extends Model
     {
         return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
     }
+
+    // public function indicators()
+    // {
+    //     return $this->hasMany('App\Models\Indicator', 'PID_SOCIETE_FAMILLE', 'ID_SOCIETE_FAMILLE');
+    // }
 }

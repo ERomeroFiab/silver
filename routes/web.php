@@ -23,6 +23,7 @@ Route::get('/tablas/vista/{table_name}', [App\Http\Controllers\ViewController::c
 // RESOURCES
 Route::get('/models/mission/show/{id_mission}', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
 Route::get('/models/contrat/show/{id_contrat}', [App\Http\Controllers\ContratController::class, 'show'])->name('contrat.show');
+Route::get('/models/societe_famille/show/{id_societe_famille}', [App\Http\Controllers\SocieteFamilleController::class, 'show'])->name('societe_famille.show');
 
 // AJAX
 Route::get('/tablas/datatable/get_tabla_action', [App\Http\Controllers\DatatableController::class, 'get_tabla_action'])->name('get_tabla_action');
