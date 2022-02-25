@@ -16,6 +16,6 @@ class AffaireObjection extends Model
 
     public function affaire()
     {
-        return $this->belongsTo('App\Models\Affaire', 'ID_AFFAIRE', 'PID_AFFAIRE');
+        return $this->belongsTo('App\Models\Affaire', 'PID_AFFAIRE', 'ID_AFFAIRE');
     }
 }

@@ -27,6 +27,7 @@ use App\Models\AffaireConditionsFinanciere;
 use App\Models\AffaireObjection;
 use App\Models\HistoriqueMajAffaire;
 use App\Models\MissionMotiveEco;
+use App\Models\Article;
 
 class DatatableController extends Controller
 {
@@ -65,7 +66,7 @@ class DatatableController extends Controller
 
     public function get_tabla_action_intervenants_fiabilis( Request $request )
     {
-        $columns = config('tablas')['intervenants_fiabilis'];
+        $columns = config('tablas')['action_intervenants_fiabilis'];
 
         $relations = [
             // '',
@@ -242,7 +243,8 @@ class DatatableController extends Controller
         $columns = config('tablas')['contrat_detail_produit'];
         
         $relations = [
-            // '',
+            'identification',
+            'contrat',
         ];
 
         $datos = ContratDetailProduit::select( $columns )->with( $relations );
@@ -258,6 +260,12 @@ class DatatableController extends Controller
                                     $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
                                 
+                            })
+                            ->addColumn('identification', function($dato){
+                                return $dato->identification->ID_IDENTIFICATION;
+                            })
+                            ->addColumn('contrat', function($dato){
+                                return $dato->contrat->ID_CONTRAT;
                             })
                             ->toJson();
     }
@@ -518,6 +526,27 @@ class DatatableController extends Controller
         ];
 
         $datos = MissionMotiveEco::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_MISSION_MOTIVE') !== null ) {
+                                    $query->where('PID_MISSION_MOTIVE', $request->get('SEARCH_BY_PID_MISSION_MOTIVE'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_article( Request $request )
+    {
+        $columns = config('tablas')['article'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = Article::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request) {

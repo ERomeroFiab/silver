@@ -2,7 +2,7 @@
 
 @section('customcss')
     <style>
-        #tabla_action_filter {
+        #tabla_article_filter {
             display: none;
         }
     </style>
@@ -13,24 +13,19 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="my-0">Tabla: <b>action_intervenants_fiabilis</b> (9 columnas)</h4>
-                <p>(Total: {{ count( config('tablas')['action_intervenants_fiabilis'] ) }} columnas)</p>
+                <h4 class="my-0">Tabla: <b>article</b></h4>
+                <p>(Total: {{ count( config('tablas')['article'] ) }} columnas)</p>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
-                        <table id="tabla_action" class="table-hover" style="width:100%;">
+                        <table id="tabla_article" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1 ID_ACTION_INTERVENANTS_FIABILIS</th>
-                                    <th>2 LOGIN</th>
-                                    <th>3 PID_ACTION</th>
-                                    <th>4 SYS_DATE_CREATION</th>
-                                    <th>5 SYS_DATE_MODIFICATION</th>
-                                    <th>6 SYS_HEURE_CREATION</th>
-                                    <th>7 SYS_HEURE_MODIFICATION</th>
-                                    <th>8 SYS_USER_CREATION</th>
-                                    <th>9 SYS_USER_MODIFICATION</th>
+                                    <th>1 DESIGNATION</th>
+                                    <th>2 FAMILLE</th>
+                                    <th>3 PRIX_ACHAT</th>
+                                    <th>4 PRIX_VENTE</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,28 +43,26 @@
 @section('customjs')
     
     <script>
-        let TABLA_ORDENES;
+        let TABLA_article;
         $(document).ready(function() {
 
-            TABLA_ORDENES = $('#tabla_action').DataTable({
+            TABLA_article = $('#tabla_article').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
-                    url: "{{ route('get_tabla_action_intervenants_fiabilis') }}",
+                    url: "{{ route('get_tabla_article') }}",
+                    // error: function(jqXHR, ajaxOptions, thrownError) {
+                    //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
+                    // },
                     data: function ( d ) {
                         //
                     }
                 },
                 columns: [
-                    { data: "ID_ACTION_INTERVENANTS_FIABILIS"},
-                    { data: "LOGIN"},
-                    { data: "PID_ACTION"},
-                    { data: "SYS_DATE_CREATION"},
-                    { data: "SYS_DATE_MODIFICATION"},
-                    { data: "SYS_HEURE_CREATION"},
-                    { data: "SYS_HEURE_MODIFICATION"},
-                    { data: "SYS_USER_CREATION"},
-                    { data: "SYS_USER_MODIFICATION"},
+                    { data: "DESIGNATION"},
+                    { data: "FAMILLE"},
+                    { data: "PRIX_ACHAT"},
+                    { data: "PRIX_VENTE"},
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
@@ -79,7 +72,7 @@
                 dom: 'Bfrtip',
                 buttons: [{
                     extend: 'excelHtml5',
-                    title: "tabla action_intervenants_fiabilis - " + new Date().toLocaleString(),
+                    title: "tabla affaire - " + new Date().toLocaleString(),
                     className: "bg-info",
                     exportOptions: {
                         columns: ':not(.no_exportar)'
@@ -132,6 +125,33 @@
             }
 
         });
+
+
+        // Refilter the table
+        // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
+        //     TABLA_article.draw();
+        // });
+
+        // Pintar en verde los inputs que contienen algo
+        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
+        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
+        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
+        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
+        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
+        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
+        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
+        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+
+        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
+        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
+
+        // function agregar_quitar_bg_success(id){
+        //     if ( $(`#${id}`).val() !== "" ) {
+        //         $(`#${id}`).addClass('bg-success');
+        //     } else {
+        //         $(`#${id}`).removeClass('bg-success');
+        //     }
+        // }
 
     </script>
 @endsection

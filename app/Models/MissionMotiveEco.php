@@ -16,6 +16,6 @@ class MissionMotiveEco extends Model
 
     public function mission_motive()
     {
-        return $this->belongsTo('App\Models\MissionMotive', 'ID_MISSION_MOTIVE', 'PID_MISSION_MOTIVE');
+        return $this->belongsTo('App\Models\MissionMotive', 'PID_MISSION_MOTIVE', 'ID_MISSION_MOTIVE');
     }
 }

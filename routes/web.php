@@ -48,3 +48,4 @@ Route::get('/tablas/datatable/get_tabla_affaire_conditions_financieres', [App\Ht
 Route::get('/tablas/datatable/get_tabla_affaire_objections', [App\Http\Controllers\DatatableController::class, 'get_tabla_affaire_objections'])->name('get_tabla_affaire_objections');
 Route::get('/tablas/datatable/get_tabla_historique_maj_affaire', [App\Http\Controllers\DatatableController::class, 'get_tabla_historique_maj_affaire'])->name('get_tabla_historique_maj_affaire');
 Route::get('/tablas/datatable/get_tabla_mission_motive_eco', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive_eco'])->name('get_tabla_mission_motive_eco');
+Route::get('/tablas/datatable/get_tabla_article', [App\Http\Controllers\DatatableController::class, 'get_tabla_article'])->name('get_tabla_article');

@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="my-0">Tabla: <b>identification</b></h3>
-                <p>(total: {{ count( config('tablas')['identification'] ) }} columnas)</p>
+                <p>(Total: {{ count( config('tablas')['identification'] ) }} columnas)</p>
             </div>
             <div class="card-body">
                 <div class="row">

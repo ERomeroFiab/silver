@@ -16,7 +16,7 @@ class MissionMotive extends Model
 
     public function mission()
     {
-        return $this->belongsTo('App\Models\Mission', 'ID_MISSION', 'PID_MISSION');
+        return $this->belongsTo('App\Models\Mission', 'PID_MISSION', 'ID_MISSION');
     }
 
     public function mission_motive_ecos()

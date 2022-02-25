@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Identification;
-use App\Models\Mission;
+use App\Models\ContratDetailProduit;
 
 class ViewController extends Controller
 {

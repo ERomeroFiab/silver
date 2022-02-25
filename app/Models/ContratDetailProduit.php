@@ -16,11 +16,11 @@ class ContratDetailProduit extends Model
 
     public function identification()
     {
-        return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
+        return $this->belongsTo(Identification::class, 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
     }
 
     public function contrat()
     {
-        return $this->belongsTo('App\Models\Contrat', 'ID_CONTRAT', 'PID_CONTRAT');
+        return $this->belongsTo('App\Models\Contrat', 'PID_CONTRAT', 'ID_CONTRAT');
     }
 }

@@ -16,11 +16,11 @@ class MissionMotiveHistoriqueMaj extends Model
 
     public function mission()
     {
-        return $this->belongsTo('App\Models\Mission', 'ID_MISSION', 'PID_MISSION');
+        return $this->belongsTo('App\Models\Mission', 'PID_MISSION', 'ID_MISSION');
     }
 
     public function mission_motive()
     {
-        return $this->belongsTo('App\Models\MissionMotive', 'ID_MISSION_MOTIVE', 'PID_MISSION_MOTIVE');
+        return $this->belongsTo('App\Models\MissionMotive', 'PID_MISSION_MOTIVE', 'ID_MISSION_MOTIVE');
     }
 }

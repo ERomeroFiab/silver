@@ -16,12 +16,12 @@ class MissionTeam extends Model
 
     public function identification()
     {
-        return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
+        return $this->belongsTo('App\Models\Identification', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
     }
 
     public function mission()
     {
-        return $this->belongsTo('App\Models\Mission', 'ID_MISSION', 'PID_MISSION');
+        return $this->belongsTo('App\Models\Mission', 'PID_MISSION', 'ID_MISSION');
     }
 
 }

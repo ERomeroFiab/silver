@@ -16,7 +16,7 @@ class SocieteFamille extends Model
 
     public function identification()
     {
-        return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
+        return $this->belongsTo('App\Models\Identification', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
     }
 
     // public function indicators()

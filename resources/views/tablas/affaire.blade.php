@@ -13,7 +13,8 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>affaire</b> (38 columnas)</h2>
+                <h4 class="my-0">Tabla: <b>affaire</b></h4>
+                <p>(Total: {{ count( config('tablas')['affaire'] ) }} columnas)</p>
             </div>
             <div class="card-body">
                 <div class="row">
