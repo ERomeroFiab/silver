@@ -23,7 +23,8 @@ Route::get('/tablas/vista/{table_name}', [App\Http\Controllers\ViewController::c
 // RESOURCES
 Route::get('/models/mission/show/{id_mission}', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
 Route::get('/models/contrat/show/{id_contrat}', [App\Http\Controllers\ContratController::class, 'show'])->name('contrat.show');
-Route::get('/models/societe_famille/show/{id_societe_famille}', [App\Http\Controllers\SocieteFamilleController::class, 'show'])->name('societe_famille.show');
+Route::get('/models/affaire/show/{id_affaire}', [App\Http\Controllers\AffaireController::class, 'show'])->name('affaire.show');
+// Route::get('/models/societe_famille/show/{id_societe_famille}', [App\Http\Controllers\SocieteFamilleController::class, 'show'])->name('societe_famille.show');
 
 // AJAX
 Route::get('/tablas/datatable/get_tabla_action', [App\Http\Controllers\DatatableController::class, 'get_tabla_action'])->name('get_tabla_action');
@@ -42,3 +43,6 @@ Route::get('/tablas/datatable/get_tabla_societe_famille', [App\Http\Controllers\
 Route::get('/tablas/datatable/get_tabla_mission_motive', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive'])->name('get_tabla_mission_motive');
 Route::get('/tablas/datatable/get_tabla_mission_motive_historique_maj', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive_historique_maj'])->name('get_tabla_mission_motive_historique_maj');
 Route::get('/tablas/datatable/get_tabla_contrat_partiel_condition_fiancieres', [App\Http\Controllers\DatatableController::class, 'get_tabla_contrat_partiel_condition_fiancieres'])->name('get_tabla_contrat_partiel_condition_fiancieres');
+Route::get('/tablas/datatable/get_tabla_affaire_conditions_financieres', [App\Http\Controllers\DatatableController::class, 'get_tabla_affaire_conditions_financieres'])->name('get_tabla_affaire_conditions_financieres');
+Route::get('/tablas/datatable/get_tabla_affaire_objections', [App\Http\Controllers\DatatableController::class, 'get_tabla_affaire_objections'])->name('get_tabla_affaire_objections');
+Route::get('/tablas/datatable/get_tabla_historique_maj_affaire', [App\Http\Controllers\DatatableController::class, 'get_tabla_historique_maj_affaire'])->name('get_tabla_historique_maj_affaire');

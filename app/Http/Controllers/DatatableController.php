@@ -23,6 +23,9 @@ use App\Models\SocieteFamille;
 use App\Models\MissionMotive;
 use App\Models\MissionMotiveHistoriqueMaj;
 use App\Models\ContratPartielConditionFianciere;
+use App\Models\AffaireConditionsFinanciere;
+use App\Models\AffaireObjection;
+use App\Models\HistoriqueMajAffaire;
 
 class DatatableController extends Controller
 {
@@ -49,6 +52,10 @@ class DatatableController extends Controller
 
                                 if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
                                     $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
+                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
                                 }
 
                             })
@@ -165,6 +172,10 @@ class DatatableController extends Controller
 
                                 if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
                                     $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
+                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
                                 }
 
                             })
@@ -391,6 +402,69 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
                                     $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_affaire_conditions_financieres( Request $request )
+    {
+        $columns = config('tablas')['affaire_conditions_financieres'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AffaireConditionsFinanciere::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
+                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_affaire_objections( Request $request )
+    {
+        $columns = config('tablas')['affaire_objections'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AffaireObjection::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
+                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_historique_maj_affaire( Request $request )
+    {
+        $columns = config('tablas')['historique_maj_affaire'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = HistoriqueMajAffaire::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
+                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
                                 }
 
                             })

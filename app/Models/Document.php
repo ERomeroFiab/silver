@@ -23,4 +23,9 @@ class Document extends Model
     {
         return $this->belongsTo('App\Models\Contrat', 'ID_CONTRAT', 'PID_CONTRAT');
     }
+
+    public function affaire()
+    {
+        return $this->belongsTo('App\Models\Affaire', 'ID_AFFAIRE', 'PID_AFFAIRE');
+    }
 }
