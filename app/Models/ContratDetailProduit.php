@@ -9,9 +9,9 @@ class ContratDetailProduit extends Model
 {
     use HasFactory;
 
-    protected $table = 'contrat';
+    protected $table = 'contrat_detail_produit';
     public $timestamps = false;
-    protected $primaryKey = 'ID_CONTRAT';
+    protected $primaryKey = 'ID_CONTRAT_DETAIL_PRODUIT';
     protected $keyType = "string";
 
     public function identification()

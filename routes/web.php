@@ -27,3 +27,10 @@ Route::get('/tablas/datatable/get_tabla_affaire', [App\Http\Controllers\Datatabl
 Route::get('/tablas/datatable/get_tabla_identification', [App\Http\Controllers\DatatableController::class, 'get_tabla_identification'])->name('get_tabla_identification');
 Route::get('/tablas/datatable/get_tabla_contrat', [App\Http\Controllers\DatatableController::class, 'get_tabla_contrat'])->name('get_tabla_contrat');
 Route::get('/tablas/datatable/get_tabla_documents', [App\Http\Controllers\DatatableController::class, 'get_tabla_documents'])->name('get_tabla_documents');
+Route::get('/tablas/datatable/get_tabla_contact', [App\Http\Controllers\DatatableController::class, 'get_tabla_contact'])->name('get_tabla_contact');
+Route::get('/tablas/datatable/get_tabla_contrat_detail_produit', [App\Http\Controllers\DatatableController::class, 'get_tabla_contrat_detail_produit'])->name('get_tabla_contrat_detail_produit');
+Route::get('/tablas/datatable/get_tabla_identification_note', [App\Http\Controllers\DatatableController::class, 'get_tabla_identification_note'])->name('get_tabla_identification_note');
+Route::get('/tablas/datatable/get_tabla_invoice', [App\Http\Controllers\DatatableController::class, 'get_tabla_invoice'])->name('get_tabla_invoice');
+Route::get('/tablas/datatable/get_tabla_mission', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission'])->name('get_tabla_mission');
+Route::get('/tablas/datatable/get_tabla_mission_team', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_team'])->name('get_tabla_mission_team');
+Route::get('/tablas/datatable/get_tabla_societe_famille', [App\Http\Controllers\DatatableController::class, 'get_tabla_societe_famille'])->name('get_tabla_societe_famille');
