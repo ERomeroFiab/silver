@@ -20,6 +20,9 @@ Route::get('/tablas/listado', [App\Http\Controllers\ViewController::class, 'list
 Route::get('/tablas/vista-buscar', [App\Http\Controllers\ViewController::class, 'vista_buscar'])->name('vista_buscar');
 Route::post('/tablas/buscar', [App\Http\Controllers\ViewController::class, 'buscar'])->name('buscar');
 Route::get('/tablas/vista/{table_name}', [App\Http\Controllers\ViewController::class, 'vistas'])->name('vistas');
+// RESOURCES
+Route::get('/models/mission/show/{id_mission}', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
+
 // AJAX
 Route::get('/tablas/datatable/get_tabla_action', [App\Http\Controllers\DatatableController::class, 'get_tabla_action'])->name('get_tabla_action');
 Route::get('/tablas/datatable/get_tabla_action_intervenants_fiabilis', [App\Http\Controllers\DatatableController::class, 'get_tabla_action_intervenants_fiabilis'])->name('get_tabla_action_intervenants_fiabilis');
@@ -34,3 +37,5 @@ Route::get('/tablas/datatable/get_tabla_invoice', [App\Http\Controllers\Datatabl
 Route::get('/tablas/datatable/get_tabla_mission', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission'])->name('get_tabla_mission');
 Route::get('/tablas/datatable/get_tabla_mission_team', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_team'])->name('get_tabla_mission_team');
 Route::get('/tablas/datatable/get_tabla_societe_famille', [App\Http\Controllers\DatatableController::class, 'get_tabla_societe_famille'])->name('get_tabla_societe_famille');
+Route::get('/tablas/datatable/get_tabla_mission_motive', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive'])->name('get_tabla_mission_motive');
+Route::get('/tablas/datatable/get_tabla_mission_motive_historique_maj', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive_historique_maj'])->name('get_tabla_mission_motive_historique_maj');

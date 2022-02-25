@@ -18,4 +18,51 @@ class Mission extends Model
     {
         return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
     }
+
+    public function actions()
+    {
+        return $this->hasMany('App\Models\Action', 'PID_MISSION', 'ID_MISSION');
+    }
+
+    public function documents()
+    {
+        return $this->hasMany('App\Models\Document', 'PID_MISSION', 'ID_MISSION');
+    }
+
+    // public function emails()
+    // {
+    //     return $this->hasMany('App\Models\Action', 'PID_MISSION', 'ID_MISSION');
+    // }
+
+    // public function mission_audit_reports()
+    // {
+    //     return $this->hasMany('App\Models\Action', 'PID_MISSION', 'ID_MISSION');
+    // }
+
+    // public function mission_cnaes()
+    // {
+    //     return $this->hasMany('App\Models\Action', 'PID_MISSION', 'ID_MISSION');
+    // }
+
+    public function mission_motives()
+    {
+        return $this->hasMany('App\Models\MissionMotive', 'PID_MISSION', 'ID_MISSION');
+    }
+
+    public function mission_motive_historique_majs()
+    {
+        return $this->hasMany('App\Models\MissionMotiveHistoriqueMaj', 'PID_MISSION', 'ID_MISSION');
+    }
+
+    // public function mission_sites()
+    // {
+    //     return $this->hasMany('App\Models\Action', 'PID_MISSION', 'ID_MISSION');
+    // }
+
+    public function mission_teams()
+    {
+        return $this->hasMany('App\Models\MissionTeam', 'PID_MISSION', 'ID_MISSION');
+    }
+
+    
 }

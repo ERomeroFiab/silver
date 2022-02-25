@@ -20,6 +20,8 @@ use App\Models\Invoice;
 use App\Models\Mission;
 use App\Models\MissionTeam;
 use App\Models\SocieteFamille;
+use App\Models\MissionMotive;
+use App\Models\MissionMotiveHistoriqueMaj;
 
 class DatatableController extends Controller
 {
@@ -38,6 +40,10 @@ class DatatableController extends Controller
 
                                 if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
+                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
                                 }
 
                             })
@@ -142,6 +148,10 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
+                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
                                 }
 
                             })
@@ -270,6 +280,10 @@ class DatatableController extends Controller
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
                                 }
 
+                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
+                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
+                                }
+
                             })
                             ->toJson();
     }
@@ -289,6 +303,48 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_mission_motive( Request $request )
+    {
+        $columns = config('tablas')['mission_motive'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = MissionMotive::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
+                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_mission_motive_historique_maj( Request $request )
+    {
+        $columns = config('tablas')['mission_motive_historique_maj'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = MissionMotiveHistoriqueMaj::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
+                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
                                 }
 
                             })
