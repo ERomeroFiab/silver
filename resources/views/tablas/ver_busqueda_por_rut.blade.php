@@ -165,6 +165,198 @@
                     </div>
                 </div>
 
+                {{-- TABLA CONTRAT --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>contrat</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['contrat'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_contrat" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_CONTRAT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->contrats as $contra)
+                                                    <tr>
+                                                        <td>{{ $contra->ID_CONTRAT }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
+                {{-- TABLA contrat_detail_produit --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>contrat_detail_produit</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['contrat_detail_produit'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_contrat_detail_produit" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_CONTRAT_DETAIL_PRODUIT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->contrat_detail_produits as $contra_detail)
+                                                    <tr>
+                                                        <td>{{ $contra_detail->ID_CONTRAT_DETAIL_PRODUIT }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
+                {{-- TABLA documents --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>documents</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['documents'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_documents" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_DOCUMENT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->documents as $doc)
+                                                    <tr>
+                                                        <td>{{ $doc->ID_DOCUMENT }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
+                {{-- TABLA identification_note --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>identification_note</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['identification_note'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_identification_note" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_IDENTIFICATION_NOTE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->identification_notes as $iden_note)
+                                                    <tr>
+                                                        <td>{{ $iden_note->ID_IDENTIFICATION_NOTE }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
+                {{-- TABLA invoice --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>invoice</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['invoice'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_invoice" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_INVOICE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->invoices as $invoice)
+                                                    <tr>
+                                                        <td>{{ $invoice->ID_INVOICE }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
+                {{-- TABLA mission --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>mission</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['mission'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_mission" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_MISSION</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->missions as $mission)
+                                                    <tr>
+                                                        <td>{{ $mission->ID_MISSION }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
             </div>
 
 
