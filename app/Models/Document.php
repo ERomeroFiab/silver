@@ -12,4 +12,10 @@ class Document extends Model
     protected $table = 'documents';
     public $timestamps = false;
     protected $primaryKey = 'ID_DOCUMENTS';
+    protected $keyType = "string";
+
+    public function identification()
+    {
+        return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
+    }
 }

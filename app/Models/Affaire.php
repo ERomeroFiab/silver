@@ -12,6 +12,7 @@ class Affaire extends Model
     protected $table = 'affaire';
     public $timestamps = false;
     protected $primaryKey = 'ID_AFFAIRE';
+    protected $keyType = "string";
 
     public function identification()
     {

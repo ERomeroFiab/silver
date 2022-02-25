@@ -12,4 +12,5 @@ class ActionIntervenantsFiabilis extends Model
     protected $table = 'action_intervenants_fiabilis';
     public $timestamps = false;
     protected $primaryKey = 'ID_ACTION_INTERVENANTS_FIABILIS';
+    protected $keyType = "string";
 }

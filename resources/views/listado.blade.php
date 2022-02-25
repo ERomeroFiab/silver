@@ -56,12 +56,11 @@
                             <p class="sidebar-normal">Buscar por RUT</p>
                         </a>
                     </li>
-
-                    @foreach (config('tablas') as $tabla)
-                        <li class="{{ request()->is('tablas/vista/'.$tabla) ? 'active' : '' }}">
-                            <a href="{{ route('vistas', ['table_name' => $tabla]) }}">
+                    @foreach (config('tablas') as $table_name => $columns)
+                        <li class="{{ request()->is('tablas/vista/'.$table_name) ? 'active' : '' }}">
+                            <a href="{{ route('vistas', ['table_name' => $table_name]) }}">
                                 {{-- <span class="sidebar-mini-icon">{{ $loop->iteration }}</span> --}}
-                                <p class="sidebar-normal">{{ $loop->iteration }}) {{ $tabla }}</p>
+                                <p class="sidebar-normal">{{ $loop->iteration }}) {{ $table_name }}</p>
                             </a>
                         </li>
                     @endforeach

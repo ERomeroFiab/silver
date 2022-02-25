@@ -12,4 +12,10 @@ class Contrat extends Model
     protected $table = 'contrat';
     public $timestamps = false;
     protected $primaryKey = 'ID_CONTRAT';
+    protected $keyType = "string";
+
+    public function identification()
+    {
+        return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
+    }
 }

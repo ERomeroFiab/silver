@@ -23,7 +23,9 @@ class ViewController extends Controller
 
     public function pruebas( $table_name )
     {
-        dd( DB::table( $table_name )->paginate('5')->toArray() );
+        dd( DB::table( $table_name )
+        // ->where('PID_IDENTIFICATION', '0063880abef9210e66b4eb9ee9046fdd')
+        ->paginate('5')->toArray() );
     }
 
     public function vista_buscar()
@@ -35,17 +37,19 @@ class ViewController extends Controller
     {
         $relations = [
             'actions',
-            'action_marketings',
-            'adresses',
             'affaires',
-            'affaire_intervenants',
+            'contacts',
+            'contrats',
+            'contrat_detail_produits',
+            'documents',
+            'identification_notes',
+            'invoices',
+            'missions',
+            'mission_teams',
+            'societe_familles',
         ];
         $identification = null;
-        try {
-            // $identification = Identification::where('SIRET', $request->get('rut'))->with($relations)->first();
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
+        $identification = Identification::where('SIRET', $request->get('rut'))->with($relations)->first();
         return view('tablas.ver_busqueda_por_rut', ['identification' => $identification]);
     }
 }

@@ -12,6 +12,7 @@ class Adresse extends Model
     protected $table = 'adresses';
     public $timestamps = false;
     protected $primaryKey = 'ID_ADRESSES';
+    protected $keyType = "string";
 
     public function identification()
     {

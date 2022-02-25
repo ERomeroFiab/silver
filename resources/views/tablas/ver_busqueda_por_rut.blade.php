@@ -10,50 +10,30 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <h4 class="mt-0">Rut: xxxxxx</h4>
+                        <h4 class="mt-0">Rut: {{ $identification->SIRET }}</h4>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
-                    <div class="col-3 form-group">
-                        <label>Ejemplo</label>
-                        <input type="text" class="form-control" value="ejemplo" disabled>
-                    </div>
+                    @foreach (config('tablas') as $table_name => $columns)
+                        @if ( $table_name === "identification" )
+                            @foreach ($columns as $column)
+                                <div class="col-3 form-group">
+                                    <label>{{ $column }}</label>
+                                    <input type="text" class="form-control" value="{{ $identification->{$column} }}" disabled>
+                                </div>
+                            @endforeach
+                        @endif
+                    @endforeach
                 </div>
 
-                <div class="row">
+                {{-- TABLA ACTION --}}
+                <div class="row mt-3">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h2>Tabla: <b>action</b> (54 columnas)</h2>
+                                <h2 class="mb-0">Tabla: <b>action</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['action'] ) }} columnas)</p>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -73,7 +53,109 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- SERVER SIDE RENDERING --}}
+                                                @foreach ($identification->actions as $action)
+                                                    <tr>
+                                                        <td>{{ $action->ID_ACTION }}</td>
+                                                        <td>{{ $action->CATEGORIE }}</td>
+                                                        <td>{{ $action->EMPLACEMENT }}</td>
+                                                        <td>{{ $action->E_MAIL }}</td>
+                                                        <td>{{ $action->NOM }}</td>
+                                                        <td>{{ $action->NOTE }}</td>
+                                                        <td>{{ $action->RESULTAT }}</td>
+                                                        <td>{{ $action->SUIVI_PAR }}</td>
+                                                        <td>{{ $action->TYPE_EVENEMENT }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
+                {{-- TABLA AFFAIRE --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>affaire</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['affaire'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_affaire" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_AFFAIRE</th>
+                                                    <th>2 CIVILITE</th>
+                                                    <th>3 DATE_PREVISIONNEL</th>
+                                                    <th>4 DATE_SIGNATURE</th>
+                                                    <th>5 FAMILLE</th>
+                                                    <th>6 PRENOM</th>
+                                                    <th>7 NOM</th>
+                                                    <th>8 NO_AFFAIRE</th>
+                                                    <th>9 PHASE</th>
+                                                    <th>10 PROBABILITE</th>
+                                                    <th>11 PRODUIT</th>
+                                                    <th>12 STATUT</th>
+                                                    <th>13 SUIVI_PAR</th>
+                                                    <th>14 TOTAL_PREVISIONNEL</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->affaires as $affaire)
+                                                    <tr>
+                                                        <td>{{ $affaire->ID_AFFAIRE }}</td>
+                                                        <td>{{ $affaire->CIVILITE }}</td>
+                                                        <td>{{ $affaire->DATE_PREVISIONNEL }}</td>
+                                                        <td>{{ $affaire->DATE_SIGNATURE }}</td>
+                                                        <td>{{ $affaire->FAMILLE }}</td>
+                                                        <td>{{ $affaire->PRENOM }}</td>
+                                                        <td>{{ $affaire->NOM }}</td>
+                                                        <td>{{ $affaire->NO_AFFAIRE }}</td>
+                                                        <td>{{ $affaire->PHASE }}</td>
+                                                        <td>{{ $affaire->PROBABILITE }}</td>
+                                                        <td>{{ $affaire->PRODUIT }}</td>
+                                                        <td>{{ $affaire->STATUT }}</td>
+                                                        <td>{{ $affaire->SUIVI_PAR }}</td>
+                                                        <td>{{ $affaire->TOTAL_PREVISIONNEL }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End card -->
+                    </div>
+                </div>
+
+                {{-- TABLA CONTACT --}}
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="mb-0">Tabla: <b>contact</b> del rut <b>{{ $identification->SIRET }}</b></h2>
+                                <p>({{ count( config('tablas')['contact'] ) }} columnas)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12" style="overflow-x: scroll;">
+                                        <table id="tabla_contact" class="table-hover" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>1 ID_CONTACT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($identification->contacts as $contact)
+                                                    <tr>
+                                                        <td>{{ $contact->ID_CONTACT }}</td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

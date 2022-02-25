@@ -12,6 +12,7 @@ class AffaireIntervenant extends Model
     protected $table = 'affaire_intervenants';
     public $timestamps = false;
     protected $primaryKey = 'ID_AFFAIRE_INTERVENANTS';
+    protected $keyType = "string";
 
     public function identification()
     {

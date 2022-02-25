@@ -12,6 +12,7 @@ class Action extends Model
     protected $table = 'action';
     public $timestamps = false;
     protected $primaryKey = 'ID_ACTION';
+    protected $keyType = "string";
     // public $incrementing = false;
 
     public function identification()
