@@ -18,4 +18,9 @@ class Document extends Model
     {
         return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
     }
+
+    public function contrat()
+    {
+        return $this->belongsTo('App\Models\Contrat', 'ID_CONTRAT', 'PID_CONTRAT');
+    }
 }

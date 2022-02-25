@@ -22,6 +22,7 @@ Route::post('/tablas/buscar', [App\Http\Controllers\ViewController::class, 'busc
 Route::get('/tablas/vista/{table_name}', [App\Http\Controllers\ViewController::class, 'vistas'])->name('vistas');
 // RESOURCES
 Route::get('/models/mission/show/{id_mission}', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
+Route::get('/models/contrat/show/{id_contrat}', [App\Http\Controllers\ContratController::class, 'show'])->name('contrat.show');
 
 // AJAX
 Route::get('/tablas/datatable/get_tabla_action', [App\Http\Controllers\DatatableController::class, 'get_tabla_action'])->name('get_tabla_action');
@@ -39,3 +40,4 @@ Route::get('/tablas/datatable/get_tabla_mission_team', [App\Http\Controllers\Dat
 Route::get('/tablas/datatable/get_tabla_societe_famille', [App\Http\Controllers\DatatableController::class, 'get_tabla_societe_famille'])->name('get_tabla_societe_famille');
 Route::get('/tablas/datatable/get_tabla_mission_motive', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive'])->name('get_tabla_mission_motive');
 Route::get('/tablas/datatable/get_tabla_mission_motive_historique_maj', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive_historique_maj'])->name('get_tabla_mission_motive_historique_maj');
+Route::get('/tablas/datatable/get_tabla_contrat_partiel_condition_fiancieres', [App\Http\Controllers\DatatableController::class, 'get_tabla_contrat_partiel_condition_fiancieres'])->name('get_tabla_contrat_partiel_condition_fiancieres');

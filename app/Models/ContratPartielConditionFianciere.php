@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class ContratPartielConditionFianciere extends Model
 {
     use HasFactory;
 
-    protected $table = 'invoice';
+    protected $table = 'contrat_partiel_condition_fiancieres';
     public $timestamps = false;
-    protected $primaryKey = 'ID_INVOICE';
+    protected $primaryKey = 'ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES';
     protected $keyType = "string";
-
-    public function identification()
-    {
-        return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
-    }
 
     public function contrat()
     {

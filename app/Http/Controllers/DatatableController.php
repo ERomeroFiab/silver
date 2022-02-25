@@ -22,6 +22,7 @@ use App\Models\MissionTeam;
 use App\Models\SocieteFamille;
 use App\Models\MissionMotive;
 use App\Models\MissionMotiveHistoriqueMaj;
+use App\Models\ContratPartielConditionFianciere;
 
 class DatatableController extends Controller
 {
@@ -44,6 +45,10 @@ class DatatableController extends Controller
 
                                 if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
                                     $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
+                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
 
                             })
@@ -86,6 +91,10 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
+                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
 
                             })
@@ -154,6 +163,10 @@ class DatatableController extends Controller
                                     $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
                                 }
 
+                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
+                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                }
+
                             })
                             ->toJson();
     }
@@ -194,6 +207,10 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
+                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
                                 
                             })
@@ -238,6 +255,10 @@ class DatatableController extends Controller
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
                                 }
 
+                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
+                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                }
+
                             })
                             ->toJson();
     }
@@ -257,6 +278,10 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
+                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
 
                             })
@@ -345,6 +370,27 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
                                     $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_contrat_partiel_condition_fiancieres( Request $request )
+    {
+        $columns = config('tablas')['contrat_partiel_condition_fiancieres'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = ContratPartielConditionFianciere::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
+                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
 
                             })
