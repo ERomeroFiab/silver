@@ -50,7 +50,14 @@
             <div class="sidebar-wrapper ps-container ps-theme-default">
                 <ul class="nav">
 
-                    @foreach ($tablas as $tabla)
+                    <li class="{{ request()->is('tablas/vista-buscar') ? 'active' : '' }}">
+                        <a href="{{ route('vista_buscar') }}">
+                            {{-- <span class="sidebar-mini-icon">{{ $loop->iteration }}</span> --}}
+                            <p class="sidebar-normal">Buscar por RUT</p>
+                        </a>
+                    </li>
+
+                    @foreach (config('tablas') as $tabla)
                         <li class="{{ request()->is('tablas/vista/'.$tabla) ? 'active' : '' }}">
                             <a href="{{ route('vistas', ['table_name' => $tabla]) }}">
                                 {{-- <span class="sidebar-mini-icon">{{ $loop->iteration }}</span> --}}

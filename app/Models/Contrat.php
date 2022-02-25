@@ -12,5 +12,4 @@ class Contrat extends Model
     protected $table = 'contrat';
     public $timestamps = false;
     protected $primaryKey = 'ID_CONTRAT';
-    // public $incrementing = false;
 }

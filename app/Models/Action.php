@@ -13,4 +13,9 @@ class Action extends Model
     public $timestamps = false;
     protected $primaryKey = 'ID_ACTION';
     // public $incrementing = false;
+
+    public function identification()
+    {
+        return $this->belongsTo('App\Models\Identification', 'ID_IDENTIFICATION', 'PID_IDENTIFICATION');
+    }
 }

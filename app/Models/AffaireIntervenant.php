@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Affaire extends Model
+class AffaireIntervenant extends Model
 {
     use HasFactory;
 
-    protected $table = 'affaire';
+    protected $table = 'affaire_intervenants';
     public $timestamps = false;
-    protected $primaryKey = 'ID_AFFAIRE';
+    protected $primaryKey = 'ID_AFFAIRE_INTERVENANTS';
 
     public function identification()
     {

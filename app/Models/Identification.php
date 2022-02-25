@@ -12,5 +12,29 @@ class Identification extends Model
     protected $table = 'identification';
     public $timestamps = false;
     protected $primaryKey = 'ID_IDENTIFICATION';
-    // public $incrementing = false;
+
+    public function actions()
+    {
+        return $this->hasMany('App\Models\Action', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
+    }
+
+    public function action_marketings()
+    {
+        return $this->hasMany('App\Models\ActionMarketing', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
+    }
+
+    public function adresses()
+    {
+        return $this->hasMany('App\Models\Adresse', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
+    }
+
+    public function affaires()
+    {
+        return $this->hasMany('App\Models\Affaire', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
+    }
+
+    public function affaire_intervenants()
+    {
+        return $this->hasMany('App\Models\AffaireIntervenant', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
+    }
 }

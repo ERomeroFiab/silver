@@ -12,5 +12,4 @@ class Document extends Model
     protected $table = 'documents';
     public $timestamps = false;
     protected $primaryKey = 'ID_DOCUMENTS';
-    // public $incrementing = false;
 }
