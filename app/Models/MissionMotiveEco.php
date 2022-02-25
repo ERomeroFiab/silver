@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MissionMotiveHistoriqueMaj extends Model
+class MissionMotiveEco extends Model
 {
     use HasFactory;
 
-    protected $table = 'mission_motive_historique_maj';
+    protected $table = 'mission_motive_eco';
     public $timestamps = false;
-    protected $primaryKey = 'ID_MISSION_MOTIVE_HISTORIQUE_MAJ';
+    protected $primaryKey = 'ID_MISSION_MOTIVE_ECO';
     protected $keyType = "string";
-
-    public function mission()
-    {
-        return $this->belongsTo('App\Models\Mission', 'ID_MISSION', 'PID_MISSION');
-    }
 
     public function mission_motive()
     {

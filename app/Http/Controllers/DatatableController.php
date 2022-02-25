@@ -26,6 +26,7 @@ use App\Models\ContratPartielConditionFianciere;
 use App\Models\AffaireConditionsFinanciere;
 use App\Models\AffaireObjection;
 use App\Models\HistoriqueMajAffaire;
+use App\Models\MissionMotiveEco;
 
 class DatatableController extends Controller
 {
@@ -383,6 +384,10 @@ class DatatableController extends Controller
                                     $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
                                 }
 
+                                if ( $request->get('SEARCH_BY_PID_MISSION_MOTIVE') !== null ) {
+                                    $query->where('PID_MISSION_MOTIVE', $request->get('SEARCH_BY_PID_MISSION_MOTIVE'));
+                                }
+
                             })
                             ->toJson();
     }
@@ -465,6 +470,27 @@ class DatatableController extends Controller
                                 
                                 if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
                                     $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                }
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_mission_motive_eco( Request $request )
+    {
+        $columns = config('tablas')['mission_motive_eco'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = MissionMotiveEco::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+                                
+                                if ( $request->get('SEARCH_BY_PID_MISSION_MOTIVE') !== null ) {
+                                    $query->where('PID_MISSION_MOTIVE', $request->get('SEARCH_BY_PID_MISSION_MOTIVE'));
                                 }
 
                             })

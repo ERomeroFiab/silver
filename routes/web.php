@@ -22,6 +22,7 @@ Route::post('/tablas/buscar', [App\Http\Controllers\ViewController::class, 'busc
 Route::get('/tablas/vista/{table_name}', [App\Http\Controllers\ViewController::class, 'vistas'])->name('vistas');
 // RESOURCES
 Route::get('/models/mission/show/{id_mission}', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
+Route::get('/models/mission_motive/show/{id_mission_motive}', [App\Http\Controllers\MissionMotiveController::class, 'show'])->name('mission_motive.show');
 Route::get('/models/contrat/show/{id_contrat}', [App\Http\Controllers\ContratController::class, 'show'])->name('contrat.show');
 Route::get('/models/affaire/show/{id_affaire}', [App\Http\Controllers\AffaireController::class, 'show'])->name('affaire.show');
 // Route::get('/models/societe_famille/show/{id_societe_famille}', [App\Http\Controllers\SocieteFamilleController::class, 'show'])->name('societe_famille.show');
@@ -46,3 +47,4 @@ Route::get('/tablas/datatable/get_tabla_contrat_partiel_condition_fiancieres', [
 Route::get('/tablas/datatable/get_tabla_affaire_conditions_financieres', [App\Http\Controllers\DatatableController::class, 'get_tabla_affaire_conditions_financieres'])->name('get_tabla_affaire_conditions_financieres');
 Route::get('/tablas/datatable/get_tabla_affaire_objections', [App\Http\Controllers\DatatableController::class, 'get_tabla_affaire_objections'])->name('get_tabla_affaire_objections');
 Route::get('/tablas/datatable/get_tabla_historique_maj_affaire', [App\Http\Controllers\DatatableController::class, 'get_tabla_historique_maj_affaire'])->name('get_tabla_historique_maj_affaire');
+Route::get('/tablas/datatable/get_tabla_mission_motive_eco', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive_eco'])->name('get_tabla_mission_motive_eco');
