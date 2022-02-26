@@ -50,3 +50,9 @@ Route::get('/tablas/datatable/get_tabla_affaire_objections', [App\Http\Controlle
 Route::get('/tablas/datatable/get_tabla_historique_maj_affaire', [App\Http\Controllers\DatatableController::class, 'get_tabla_historique_maj_affaire'])->name('get_tabla_historique_maj_affaire');
 Route::get('/tablas/datatable/get_tabla_mission_motive_eco', [App\Http\Controllers\DatatableController::class, 'get_tabla_mission_motive_eco'])->name('get_tabla_mission_motive_eco');
 Route::get('/tablas/datatable/get_tabla_article', [App\Http\Controllers\DatatableController::class, 'get_tabla_article'])->name('get_tabla_article');
+Route::get('/tablas/datatable/get_tabla_aide_action_categorie', [App\Http\Controllers\DatatableController::class, 'get_tabla_aide_action_categorie'])->name('get_tabla_aide_action_categorie');
+Route::get('/tablas/datatable/get_tabla_aide_action_objet', [App\Http\Controllers\DatatableController::class, 'get_tabla_aide_action_objet'])->name('get_tabla_aide_action_objet');
+Route::get('/tablas/datatable/get_tabla_aide_mission_motif', [App\Http\Controllers\DatatableController::class, 'get_tabla_aide_mission_motif'])->name('get_tabla_aide_mission_motif');
+Route::get('/tablas/datatable/get_tabla_aide_mission_step', [App\Http\Controllers\DatatableController::class, 'get_tabla_aide_mission_step'])->name('get_tabla_aide_mission_step');
+Route::get('/tablas/datatable/get_tabla_invoice_ligne', [App\Http\Controllers\DatatableController::class, 'get_tabla_invoice_ligne'])->name('get_tabla_invoice_ligne');
+Route::get('/tablas/datatable/get_tabla_journal_deleted', [App\Http\Controllers\DatatableController::class, 'get_tabla_journal_deleted'])->name('get_tabla_journal_deleted');

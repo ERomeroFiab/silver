@@ -28,6 +28,12 @@ use App\Models\AffaireObjection;
 use App\Models\HistoriqueMajAffaire;
 use App\Models\MissionMotiveEco;
 use App\Models\Article;
+use App\Models\AideActionCategorie;
+use App\Models\AideActionObjet;
+use App\Models\AideMissionMotif;
+use App\Models\AideMissionStep;
+use App\Models\InvoiceLigne;
+use App\Models\JournalDeleted;
 
 class DatatableController extends Controller
 {
@@ -573,4 +579,107 @@ class DatatableController extends Controller
                             })
                             ->toJson();
     }
+
+    public function get_tabla_aide_action_categorie( Request $request )
+    {
+        $columns = config('tablas')['aide_action_categorie'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideActionCategorie::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_action_objet( Request $request )
+    {
+        $columns = config('tablas')['aide_action_objet'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideActionObjet::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_mission_motif( Request $request )
+    {
+        $columns = config('tablas')['aide_mission_motif'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideMissionMotif::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_mission_step( Request $request )
+    {
+        $columns = config('tablas')['aide_mission_step'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideMissionStep::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_invoice_ligne( Request $request )
+    {
+        $columns = config('tablas')['invoice_ligne'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = InvoiceLigne::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_journal_deleted( Request $request )
+    {
+        $columns = config('tablas')['journal_deleted'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = JournalDeleted::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
 }
