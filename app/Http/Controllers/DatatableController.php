@@ -61,6 +61,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('action.show', ['id_action' => $dato->ID_ACTION]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 

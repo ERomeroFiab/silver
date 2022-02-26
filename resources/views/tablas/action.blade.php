@@ -21,15 +21,15 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1 ID_ACTION</th>
-                                    <th>2 CATEGORIE</th>
-                                    <th>3 EMPLACEMENT</th>
-                                    <th>4 E_MAIL</th>
-                                    <th>5 NOM</th>
-                                    <th>6 NOTE</th>
-                                    <th>7 RESULTAT</th>
-                                    <th>8 SUIVI_PAR</th>
-                                    <th>9 TYPE_EVENEMENT</th>
+                                    <th>1 CATEGORIE</th>
+                                    <th>2 EMPLACEMENT</th>
+                                    <th>3 E_MAIL</th>
+                                    <th>4 NOM</th>
+                                    <th>5 NOTE</th>
+                                    <th>6 RESULTAT</th>
+                                    <th>7 SUIVI_PAR</th>
+                                    <th>8 TYPE_EVENEMENT</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,7 +63,6 @@
                     }
                 },
                 columns: [
-                    { data: "ID_ACTION"},
                     { data: "CATEGORIE"},
                     { data: "EMPLACEMENT"},
                     { data: "E_MAIL"},
@@ -72,6 +71,7 @@
                     { data: "RESULTAT"},
                     { data: "SUIVI_PAR"},
                     { data: "TYPE_EVENEMENT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
