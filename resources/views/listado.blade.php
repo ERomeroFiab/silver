@@ -56,6 +56,7 @@
                             <p class="sidebar-normal">Buscar por RUT</p>
                         </a>
                     </li>
+                    <hr>
                     @foreach (config('tablas') as $table_name => $columns)
                         <li class="{{ request()->is('tablas/vista/'.$table_name) ? 'active' : '' }}">
                             <a href="{{ route('vistas', ['table_name' => $table_name]) }}">

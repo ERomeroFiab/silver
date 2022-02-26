@@ -20,11 +20,12 @@ Route::get('/tablas/listado', [App\Http\Controllers\ViewController::class, 'list
 Route::get('/tablas/vista-buscar', [App\Http\Controllers\ViewController::class, 'vista_buscar'])->name('vista_buscar');
 Route::post('/tablas/buscar', [App\Http\Controllers\ViewController::class, 'buscar'])->name('buscar');
 Route::get('/tablas/vista/{table_name}', [App\Http\Controllers\ViewController::class, 'vistas'])->name('vistas');
-// RESOURCES
+// MODELS
 Route::get('/models/mission/show/{id_mission}', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
 Route::get('/models/mission_motive/show/{id_mission_motive}', [App\Http\Controllers\MissionMotiveController::class, 'show'])->name('mission_motive.show');
 Route::get('/models/contrat/show/{id_contrat}', [App\Http\Controllers\ContratController::class, 'show'])->name('contrat.show');
 Route::get('/models/affaire/show/{id_affaire}', [App\Http\Controllers\AffaireController::class, 'show'])->name('affaire.show');
+Route::get('/models/action/show/{id_action}', [App\Http\Controllers\ActionController::class, 'show'])->name('action.show');
 // Route::get('/models/societe_famille/show/{id_societe_famille}', [App\Http\Controllers\SocieteFamilleController::class, 'show'])->name('societe_famille.show');
 
 // AJAX

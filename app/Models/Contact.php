@@ -18,4 +18,9 @@ class Contact extends Model
     {
         return $this->belongsTo('App\Models\Identification', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
     }
+
+    public function actions()
+    {
+        return $this->hasMany('App\Models\Action', 'PID_ACTION', 'ID_ACTION');
+    }
 }
