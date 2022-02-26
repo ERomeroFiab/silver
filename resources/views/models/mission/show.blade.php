@@ -26,14 +26,55 @@
                             @endforeach
                         @endif
                     @endforeach
-                    @if ( $mission->identification )
-                        <hr>
-                        <div class="col-3 form-group">
-                            <label>IDENTIFICATION</label>
-                            <input id="{{ $mission->identification->ID_IDENTIFICATION }}" type="text" class="form-control" value="{{  $mission->identification->ID_IDENTIFICATION }}" disabled>
-                        </div>
-                    @endif
                 </div>
+
+                @if ( $mission->identification )
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Tabla Identification</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (config('tablas')['identification'] as $column)
+                            <div class="col-3 form-group">
+                                <label>{{ $column }}</label>
+                                <input id="{{ $mission->identification->{$column} }}" type="text" class="form-control" value="{{  $mission->identification->{$column} }}" disabled title="{{ $mission->identification->{$column} }}">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
+                @if ( $mission->contrat )
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Tabla contrat</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (config('tablas')['contrat'] as $column)
+                            <div class="col-3 form-group">
+                                <label>{{ $column }}</label>
+                                <input id="{{ $mission->contrat->{$column} }}" type="text" class="form-control" value="{{  $mission->contrat->{$column} }}" disabled title="{{ $mission->contrat->{$column} }}">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
+                @if ( $mission->contrat_detail_produit )
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Tabla contrat_detail_produit</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (config('tablas')['contrat_detail_produit'] as $column)
+                            <div class="col-3 form-group">
+                                <label>{{ $column }}</label>
+                                <input id="{{ $mission->contrat_detail_produit->{$column} }}" type="text" class="form-control" value="{{  $mission->contrat_detail_produit->{$column} }}" disabled title="{{ $mission->contrat_detail_produit->{$column} }}">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
 
                 {{-- TABLA action --}}
                 <div class="row mt-3">

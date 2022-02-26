@@ -26,14 +26,23 @@
                             @endforeach
                         @endif
                     @endforeach
-                    @if ( $mission_motive->mission )
-                        <hr>
-                        <div class="col-3 form-group">
-                            <label>MISSION</label>
-                            <input id="{{ $mission_motive->mission->ID_MISSION }}" type="text" class="form-control" value="{{  $mission_motive->mission->ID_MISSION }}" disabled>
-                        </div>
-                    @endif
                 </div>
+
+                @if ( $mission_motive->mission )
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Tabla mission</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (config('tablas')['mission'] as $column)
+                            <div class="col-3 form-group">
+                                <label>{{ $column }}</label>
+                                <input id="{{ $mission_motive->mission->{$column} }}" type="text" class="form-control" value="{{  $mission_motive->mission->{$column} }}" disabled title="{{ $mission_motive->mission->{$column} }}">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
 
                 {{-- TABLA mission_motive_eco --}}
                 <div class="row mt-3">

@@ -24,6 +24,11 @@ class Mission extends Model
         return $this->belongsTo('App\Models\Contrat', 'PID_CONTRAT', 'ID_CONTRAT');
     }
 
+    public function contrat_detail_produit()
+    {
+        return $this->belongsTo('App\Models\ContratDetailProduit', 'PID_CONTRAT_DETAIL_PRODUIT', 'ID_CONTRAT_DETAIL_PRODUIT');
+    }
+
     public function actions()
     {
         return $this->hasMany('App\Models\Action', 'PID_MISSION', 'ID_MISSION');

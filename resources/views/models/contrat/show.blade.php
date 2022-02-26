@@ -29,6 +29,38 @@
 
                 </div>
 
+                @if ( $contrat->identification )
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Tabla identification</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (config('tablas')['identification'] as $column)
+                            <div class="col-3 form-group">
+                                <label>{{ $column }}</label>
+                                <input id="{{ $contrat->identification->{$column} }}" type="text" class="form-control" value="{{  $contrat->identification->{$column} }}" disabled title="{{ $contrat->identification->{$column} }}">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
+                @if ( $contrat->contact )
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Tabla contact</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (config('tablas')['contact'] as $column)
+                            <div class="col-3 form-group">
+                                <label>{{ $column }}</label>
+                                <input id="{{ $contrat->contact->{$column} }}" type="text" class="form-control" value="{{  $contrat->contact->{$column} }}" disabled title="{{ $contrat->contact->{$column} }}">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
                 {{-- TABLA action --}}
                 <div class="row mt-3">
                     <div class="col-12">
