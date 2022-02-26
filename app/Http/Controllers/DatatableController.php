@@ -34,6 +34,49 @@ use App\Models\AideMissionMotif;
 use App\Models\AideMissionStep;
 use App\Models\InvoiceLigne;
 use App\Models\JournalDeleted;
+use App\Models\Setting;
+use App\Models\AideActionOrigine;
+use App\Models\AideActionResultat;
+use App\Models\AideAffaireObjection;
+use App\Models\AideAffairePerte;
+use App\Models\AideAffairePhase;
+use App\Models\AideAffaireStatut;
+use App\Models\AideAffaireYear;
+use App\Models\AideArticleFamille;
+use App\Models\AideArticleProvider;
+use App\Models\AideContactCivilite;
+use App\Models\AideContactFonction;
+use App\Models\AideContactLanguage;
+use App\Models\AideContactService;
+use App\Models\AideContratEntity;
+use App\Models\AideContratModeSignature;
+use App\Models\AideContratStatut;
+use App\Models\AideContratType;
+use App\Models\AideContratTypeReconduction;
+use App\Models\AideEventsQualification;
+use App\Models\AideEventsStatu;
+use App\Models\AideFamilleIndicator;
+use App\Models\AideInternationalResponsible;
+use App\Models\AideInternationalSector;
+use App\Models\AideMissionSousMotif1;
+use App\Models\AideMissionSousMotif2;
+use App\Models\AideOffreCondition;
+use App\Models\AideRemunerationType;
+use App\Models\AideSocieteCa;
+use App\Models\AideSocieteComune;
+use App\Models\AideSocieteCompanyClassification;
+use App\Models\AideSocieteEffectif;
+use App\Models\AideSocieteFormeJuridique;
+use App\Models\AideSocieteNaf;
+use App\Models\AideSocieteOrigine;
+use App\Models\AideSocietePayrollOutsourcerType;
+use App\Models\AideSocietePay;
+use App\Models\AideSocieteSecteurGeo;
+use App\Models\AideSocieteSegment;
+use App\Models\AideSocieteSituationJuridique;
+use App\Models\AideSocieteSubSectorGeo;
+use App\Models\AideSocieteType;
+use App\Models\AideSocieteTypeAdr;
 
 class DatatableController extends Controller
 {
@@ -674,6 +717,737 @@ class DatatableController extends Controller
         ];
 
         $datos = JournalDeleted::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_settings( Request $request )
+    {
+        $columns = config('tablas')['settings'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = Setting::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_action_origine( Request $request )
+    {
+        $columns = config('tablas')['aide_action_origine'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideActionOrigine::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_action_resultat( Request $request )
+    {
+        $columns = config('tablas')['aide_action_resultat'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideActionResultat::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_affaire_objections( Request $request )
+    {
+        $columns = config('tablas')['aide_affaire_objections'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideAffaireObjection::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_affaire_perte( Request $request )
+    {
+        $columns = config('tablas')['aide_affaire_perte'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideAffairePerte::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_affaire_phase( Request $request )
+    {
+        $columns = config('tablas')['aide_affaire_phase'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideAffairePhase::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_affaire_statut( Request $request )
+    {
+        $columns = config('tablas')['aide_affaire_statut'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideAffaireStatut::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_affaire_year( Request $request )
+    {
+        $columns = config('tablas')['aide_affaire_year'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideAffaireYear::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_article_famille( Request $request )
+    {
+        $columns = config('tablas')['aide_article_famille'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideArticleFamille::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_article_provider( Request $request )
+    {
+        $columns = config('tablas')['aide_article_provider'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideArticleProvider::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contact_civilite( Request $request )
+    {
+        $columns = config('tablas')['aide_contact_civilite'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContactCivilite::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contact_fonction( Request $request )
+    {
+        $columns = config('tablas')['aide_contact_fonction'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContactFonction::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contact_language( Request $request )
+    {
+        $columns = config('tablas')['aide_contact_language'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContactLanguage::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contact_service( Request $request )
+    {
+        $columns = config('tablas')['aide_contact_service'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContactService::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contrat_entity( Request $request )
+    {
+        $columns = config('tablas')['aide_contrat_entity'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContratEntity::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contrat_mode_signature( Request $request )
+    {
+        $columns = config('tablas')['aide_contrat_mode_signature'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContratModeSignature::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contrat_statut( Request $request )
+    {
+        $columns = config('tablas')['aide_contrat_statut'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContratStatut::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contrat_type( Request $request )
+    {
+        $columns = config('tablas')['aide_contrat_type'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContratType::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_contrat_type_reconduction( Request $request )
+    {
+        $columns = config('tablas')['aide_contrat_type_reconduction'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideContratTypeReconduction::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_events_qualification( Request $request )
+    {
+        $columns = config('tablas')['aide_events_qualification'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideEventsQualification::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_events_status( Request $request )
+    {
+        $columns = config('tablas')['aide_events_status'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideEventsStatu::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_famille_indicators( Request $request )
+    {
+        $columns = config('tablas')['aide_famille_indicators'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideFamilleIndicator::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_international_responsible( Request $request )
+    {
+        $columns = config('tablas')['aide_international_responsible'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideInternationalResponsible::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_international_sector( Request $request )
+    {
+        $columns = config('tablas')['aide_international_sector'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideInternationalSector::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_mission_sous_motif1( Request $request )
+    {
+        $columns = config('tablas')['aide_mission_sous_motif1'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideMissionSousMotif1::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_mission_sous_motif2( Request $request )
+    {
+        $columns = config('tablas')['aide_mission_sous_motif2'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideMissionSousMotif2::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_offre_condition( Request $request )
+    {
+        $columns = config('tablas')['aide_offre_condition'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideOffreCondition::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_renumeration_type( Request $request )
+    {
+        $columns = config('tablas')['aide_renumeration_type'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideRemunerationType::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_ca( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_ca'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteCa::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_commune( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_commune'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteComune::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_company_classification( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_company_classification'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteCompanyClassification::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_effectif( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_effectif'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteEffectif::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_forme_juridique( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_forme_juridique'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteFormeJuridique::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_naf( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_naf'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteNaf::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_origine( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_origine'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteOrigine::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_payroll_outsourcer_type( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_payroll_outsourcer_type'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocietePayrollOutsourcerType::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_pays( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_pays'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocietePay::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_secteur_geo( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_secteur_geo'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteSecteurGeo::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_segment( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_segment'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteSegment::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_situation_juridique( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_situation_juridique'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteSituationJuridique::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_sub_sector_geo( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_sub_sector_geo'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteSubSectorGeo::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_type( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_type'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteType::select( $columns )->with( $relations );
+
+        return DataTables::eloquent( $datos )
+                            ->filter(function ($query) use ($request) {
+
+                            })
+                            ->toJson();
+    }
+
+    public function get_tabla_aide_societe_typeadr( Request $request )
+    {
+        $columns = config('tablas')['aide_societe_typeadr'];
+        
+        $relations = [
+            // '',
+        ];
+
+        $datos = AideSocieteTypeAdr::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request) {
