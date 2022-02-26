@@ -24,7 +24,17 @@ class Affaire extends Model
         return $this->belongsTo('App\Models\Contrat', 'PID_CONTRAT', 'ID_CONTRAT');
     }
 
-    public function action()
+    public function contact()
+    {
+        return $this->belongsTo('App\Models\Contact', 'PID_CONTACT', 'ID_CONTACT');
+    }
+
+    // public function concurrent()
+    // {
+    //     return $this->belongsTo('App\Models\Concurrent', 'PID_CONCURRENT', 'ID_CONCURRENT');
+    // }
+
+    public function actions()
     {
         return $this->hasMany('App\Models\Action', 'PID_AFFAIRE', 'ID_AFFAIRE');
     }

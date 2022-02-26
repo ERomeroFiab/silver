@@ -18,4 +18,9 @@ class MissionMotiveEco extends Model
     {
         return $this->belongsTo('App\Models\MissionMotive', 'PID_MISSION_MOTIVE', 'ID_MISSION_MOTIVE');
     }
+
+    public function invoice_lignes()
+    {
+        return $this->hasMany('App\Models\InvoiceLigne', 'PID_INVOICE', 'ID_INVOICE');
+    }
 }

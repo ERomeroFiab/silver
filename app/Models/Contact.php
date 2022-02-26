@@ -21,6 +21,21 @@ class Contact extends Model
 
     public function actions()
     {
-        return $this->hasMany('App\Models\Action', 'PID_ACTION', 'ID_ACTION');
+        return $this->hasMany('App\Models\Action', 'PID_CONTACT', 'ID_CONTACT');
+    }
+
+    public function affaires()
+    {
+        return $this->hasMany('App\Models\Affaire', 'PID_CONTACT', 'ID_CONTACT');
+    }
+
+    public function contrats()
+    {
+        return $this->hasMany('App\Models\Contrat', 'PID_CONTACT', 'ID_CONTACT');
+    }
+
+    public function documents()
+    {
+        return $this->hasMany('App\Models\Document', 'PID_CONTACT', 'ID_CONTACT');
     }
 }

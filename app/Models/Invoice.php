@@ -23,4 +23,14 @@ class Invoice extends Model
     {
         return $this->belongsTo('App\Models\Contrat', 'PID_CONTRAT', 'ID_CONTRAT');
     }
+
+    public function documents()
+    {
+        return $this->hasMany('App\Models\Document', 'PID_INVOICE', 'ID_INVOICE');
+    }
+    
+    public function invoice_lignes()
+    {
+        return $this->hasMany('App\Models\InvoiceLigne', 'PID_INVOICE', 'ID_INVOICE');
+    }
 }

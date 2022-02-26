@@ -110,6 +110,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('affaire.show', ['id_affaire' => $dato->ID_AFFAIRE]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -183,6 +186,9 @@ class DatatableController extends Controller
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('contrat.show', ['id_contrat' => $dato->ID_CONTRAT]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -341,6 +347,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('mission.show', ['id_mission' => $dato->ID_MISSION]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -407,6 +416,9 @@ class DatatableController extends Controller
                                     $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('mission_motive.show', ['id_mission_motive' => $dato->ID_MISSION_MOTIVE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }

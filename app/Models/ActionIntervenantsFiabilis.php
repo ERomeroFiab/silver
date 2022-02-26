@@ -13,4 +13,9 @@ class ActionIntervenantsFiabilis extends Model
     public $timestamps = false;
     protected $primaryKey = 'ID_ACTION_INTERVENANTS_FIABILIS';
     protected $keyType = "string";
+
+    public function action()
+    {
+        return $this->belongsTo('App\Models\Action', 'PID_ACTION', 'ID_ACTION');
+    }
 }

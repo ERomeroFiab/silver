@@ -18,4 +18,9 @@ class ContratPartielConditionFianciere extends Model
     {
         return $this->belongsTo('App\Models\Contrat', 'PID_CONTRAT', 'ID_CONTRAT');
     }
+
+    public function contrat_detail_produit()
+    {
+        return $this->belongsTo('App\Models\ContratDetailProduit', 'PID_CONTRAT_DETAIL_PRODUIT', 'ID_CONTRAT_DETAIL_PRODUIT');
+    }
 }

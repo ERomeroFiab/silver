@@ -18,9 +18,15 @@ class Contrat extends Model
     {
         return $this->belongsTo('App\Models\Identification', 'PID_IDENTIFICATION', 'ID_IDENTIFICATION');
     }
+
     public function contact()
     {
         return $this->belongsTo('App\Models\Contact', 'PID_CONTACT', 'ID_CONTACT');
+    }
+
+    public function aide_offre_condition()
+    {
+        return $this->belongsTo('App\Models\AideOffreCondition', 'PID_AIDE_OFFRE_CONDITION', 'ID_AIDE_OFFRE_CONDITION');
     }
 
     public function actions()

@@ -23,4 +23,14 @@ class ContratDetailProduit extends Model
     {
         return $this->belongsTo('App\Models\Contrat', 'PID_CONTRAT', 'ID_CONTRAT');
     }
+
+    public function contrat_partiel_condition_fiancieres()
+    {
+        return $this->hasMany('App\Models\ContratPartielConditionFianciere', 'PID_CONTRAT_DETAIL_PRODUIT', 'ID_CONTRAT_DETAIL_PRODUIT');
+    }
+
+    public function missions()
+    {
+        return $this->hasMany('App\Models\Mission', 'PID_CONTRAT_DETAIL_PRODUIT', 'ID_CONTRAT_DETAIL_PRODUIT');
+    }
 }
