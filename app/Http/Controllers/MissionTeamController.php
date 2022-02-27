@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\MissionTeam;
+use App\Models\MissionTeam;
 
 class MissionTeamController extends Controller
 {
