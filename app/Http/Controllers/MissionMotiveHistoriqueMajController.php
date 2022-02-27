@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\MissionMotiveHistoriqueMaj;
+use App\Models\MissionMotiveHistoriqueMaj;
 
 class MissionMotiveHistoriqueMajController extends Controller
 {
