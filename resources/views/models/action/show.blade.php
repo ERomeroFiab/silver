@@ -201,7 +201,7 @@
                 ajax: {
                     url: "{{ route('get_tabla_action_intervenants_fiabilis') }}",
                     data: function ( d ) {
-                        d.SEARCH_BY_PID_AFFAIRE = $('#ID_AFFAIRE').val();
+                        d.SEARCH_BY_PID_ACTION = $('#ID_ACTION').val();
                     }
                 },
                 columns: [
@@ -233,7 +233,7 @@
                 ajax: {
                     url: "{{ route('get_tabla_documents') }}",
                     data: function ( d ) {
-                        d.SEARCH_BY_PID_AFFAIRE = $('#ID_AFFAIRE').val();
+                        d.SEARCH_BY_PID_ACTION = $('#ID_ACTION').val();
                     }
                 },
                 columns: [

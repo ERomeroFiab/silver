@@ -91,22 +91,14 @@ class DatatableController extends Controller
         $datos = Action::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
-                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
-                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
-                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -127,10 +119,14 @@ class DatatableController extends Controller
         $datos = ActionIntervenantsFiabilis::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -151,14 +147,14 @@ class DatatableController extends Controller
         $datos = Affaire::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
-                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -179,7 +175,15 @@ class DatatableController extends Controller
         $datos = Identification::select( $columns )->with( $relations );
         // dd( $request->get('SEARCH_BY_VILLE') );
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
                                 
                                 if ( $request->get('SEARCH_BY_ID_IDENTIFICATION') !== null ) {
                                     $query->where('ID_IDENTIFICATION', $request->get('SEARCH_BY_ID_IDENTIFICATION'));
@@ -235,10 +239,14 @@ class DatatableController extends Controller
         $datos = Contrat::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -259,22 +267,14 @@ class DatatableController extends Controller
         $datos = Document::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
-                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
-                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
-                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -295,10 +295,14 @@ class DatatableController extends Controller
         $datos = Contact::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -320,14 +324,14 @@ class DatatableController extends Controller
         $datos = ContratDetailProduit::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
-                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
                                 
                             })
@@ -354,10 +358,14 @@ class DatatableController extends Controller
         $datos = IdentificationNote::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -378,14 +386,14 @@ class DatatableController extends Controller
         $datos = Invoice::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
-                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -406,14 +414,14 @@ class DatatableController extends Controller
         $datos = Mission::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
-                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -434,14 +442,14 @@ class DatatableController extends Controller
         $datos = MissionTeam::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
-                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -462,10 +470,14 @@ class DatatableController extends Controller
         $datos = SocieteFamille::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_IDENTIFICATION') !== null ) {
-                                    $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -486,10 +498,14 @@ class DatatableController extends Controller
         $datos = MissionMotive::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
-                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -510,14 +526,14 @@ class DatatableController extends Controller
         $datos = MissionMotiveHistoriqueMaj::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_MISSION') !== null ) {
-                                    $query->where('PID_MISSION', $request->get('SEARCH_BY_PID_MISSION'));
-                                }
-
-                                if ( $request->get('SEARCH_BY_PID_MISSION_MOTIVE') !== null ) {
-                                    $query->where('PID_MISSION_MOTIVE', $request->get('SEARCH_BY_PID_MISSION_MOTIVE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -538,10 +554,14 @@ class DatatableController extends Controller
         $datos = ContratPartielConditionFianciere::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
-                                
-                                if ( $request->get('SEARCH_BY_PID_CONTRAT') !== null ) {
-                                    $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -562,10 +582,14 @@ class DatatableController extends Controller
         $datos = AffaireConditionsFinanciere::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
-                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -586,10 +610,14 @@ class DatatableController extends Controller
         $datos = AffaireObjection::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
-                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -610,10 +638,14 @@ class DatatableController extends Controller
         $datos = HistoriqueMajAffaire::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_AFFAIRE') !== null ) {
-                                    $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -634,10 +666,14 @@ class DatatableController extends Controller
         $datos = MissionMotiveEco::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_MISSION_MOTIVE') !== null ) {
-                                    $query->where('PID_MISSION_MOTIVE', $request->get('SEARCH_BY_PID_MISSION_MOTIVE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -658,10 +694,14 @@ class DatatableController extends Controller
         $datos = Article::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
                                 
-                                if ( $request->get('SEARCH_BY_PID_MISSION_MOTIVE') !== null ) {
-                                    $query->where('PID_MISSION_MOTIVE', $request->get('SEARCH_BY_PID_MISSION_MOTIVE'));
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
                                 }
 
                             })
@@ -682,7 +722,15 @@ class DatatableController extends Controller
         $datos = AideActionCategorie::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -699,7 +747,15 @@ class DatatableController extends Controller
         $datos = AideActionObjet::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -716,7 +772,15 @@ class DatatableController extends Controller
         $datos = AideMissionMotif::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -733,7 +797,15 @@ class DatatableController extends Controller
         $datos = AideMissionStep::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -750,7 +822,15 @@ class DatatableController extends Controller
         $datos = InvoiceLigne::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->addColumn('action', function ($dato) {
@@ -770,7 +850,15 @@ class DatatableController extends Controller
         $datos = JournalDeleted::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->addColumn('action', function ($dato) {
@@ -790,7 +878,15 @@ class DatatableController extends Controller
         $datos = Setting::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->addColumn('action', function ($dato) {
@@ -810,7 +906,15 @@ class DatatableController extends Controller
         $datos = AideActionOrigine::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -827,7 +931,15 @@ class DatatableController extends Controller
         $datos = AideActionResultat::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -844,7 +956,15 @@ class DatatableController extends Controller
         $datos = AideAffaireObjection::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -861,7 +981,15 @@ class DatatableController extends Controller
         $datos = AideAffairePerte::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -878,7 +1006,15 @@ class DatatableController extends Controller
         $datos = AideAffairePhase::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -895,7 +1031,15 @@ class DatatableController extends Controller
         $datos = AideAffaireStatut::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -912,7 +1056,15 @@ class DatatableController extends Controller
         $datos = AideAffaireYear::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -929,7 +1081,15 @@ class DatatableController extends Controller
         $datos = AideArticleFamille::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -946,7 +1106,15 @@ class DatatableController extends Controller
         $datos = AideArticleProvider::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -963,7 +1131,15 @@ class DatatableController extends Controller
         $datos = AideContactCivilite::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -980,7 +1156,15 @@ class DatatableController extends Controller
         $datos = AideContactFonction::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -997,7 +1181,15 @@ class DatatableController extends Controller
         $datos = AideContactLanguage::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1014,7 +1206,15 @@ class DatatableController extends Controller
         $datos = AideContactService::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1031,7 +1231,15 @@ class DatatableController extends Controller
         $datos = AideContratEntity::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1048,7 +1256,15 @@ class DatatableController extends Controller
         $datos = AideContratModeSignature::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1065,7 +1281,15 @@ class DatatableController extends Controller
         $datos = AideContratStatut::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1082,7 +1306,15 @@ class DatatableController extends Controller
         $datos = AideContratType::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1099,7 +1331,15 @@ class DatatableController extends Controller
         $datos = AideContratTypeReconduction::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1116,7 +1356,15 @@ class DatatableController extends Controller
         $datos = AideEventsQualification::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1133,7 +1381,15 @@ class DatatableController extends Controller
         $datos = AideEventsStatu::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1150,7 +1406,15 @@ class DatatableController extends Controller
         $datos = AideFamilleIndicator::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1167,7 +1431,15 @@ class DatatableController extends Controller
         $datos = AideInternationalResponsible::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1184,7 +1456,15 @@ class DatatableController extends Controller
         $datos = AideInternationalSector::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1201,7 +1481,15 @@ class DatatableController extends Controller
         $datos = AideMissionSousMotif1::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1218,7 +1506,15 @@ class DatatableController extends Controller
         $datos = AideMissionSousMotif2::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1235,7 +1531,15 @@ class DatatableController extends Controller
         $datos = AideOffreCondition::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1252,7 +1556,15 @@ class DatatableController extends Controller
         $datos = AideRemunerationType::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1269,7 +1581,15 @@ class DatatableController extends Controller
         $datos = AideSocieteCa::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1286,7 +1606,15 @@ class DatatableController extends Controller
         $datos = AideSocieteComune::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1303,7 +1631,15 @@ class DatatableController extends Controller
         $datos = AideSocieteCompanyClassification::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1320,7 +1656,15 @@ class DatatableController extends Controller
         $datos = AideSocieteEffectif::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1337,7 +1681,15 @@ class DatatableController extends Controller
         $datos = AideSocieteFormeJuridique::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1354,7 +1706,15 @@ class DatatableController extends Controller
         $datos = AideSocieteNaf::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1371,7 +1731,15 @@ class DatatableController extends Controller
         $datos = AideSocieteOrigine::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1388,7 +1756,15 @@ class DatatableController extends Controller
         $datos = AideSocietePayrollOutsourcerType::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1405,7 +1781,15 @@ class DatatableController extends Controller
         $datos = AideSocietePay::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1422,7 +1806,15 @@ class DatatableController extends Controller
         $datos = AideSocieteSecteurGeo::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1439,7 +1831,15 @@ class DatatableController extends Controller
         $datos = AideSocieteSegment::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1456,7 +1856,15 @@ class DatatableController extends Controller
         $datos = AideSocieteSituationJuridique::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1473,7 +1881,15 @@ class DatatableController extends Controller
         $datos = AideSocieteSubSectorGeo::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1490,7 +1906,15 @@ class DatatableController extends Controller
         $datos = AideSocieteType::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();
@@ -1507,7 +1931,15 @@ class DatatableController extends Controller
         $datos = AideSocieteTypeAdr::select( $columns )->with( $relations );
 
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request) {
+                            ->filter(function ($query) use ($request, $columns) {
+
+                                foreach ($columns as $column) { // filtro por llaves foráneas
+                                    if (str_contains($column, "PID_")) {
+                                        if ( $request->get('SEARCH_BY_'.$column) !== null ) {
+                                            $query->where($column, $request->get('SEARCH_BY_'.$column));
+                                        }
+                                    }
+                                }
 
                             })
                             ->toJson();

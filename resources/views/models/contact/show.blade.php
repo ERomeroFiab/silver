@@ -210,7 +210,7 @@
                 ajax: {
                     url: "{{ route('get_tabla_action') }}",
                     data: function ( d ) {
-                        d.SEARCH_BY_PID_AFFAIRE = $('#ID_AFFAIRE').val();
+                        d.SEARCH_BY_PID_CONTACT = $('#ID_CONTACT').val();
                     }
                 },
                 columns: [
@@ -247,7 +247,7 @@
                 ajax: {
                     url: "{{ route('get_tabla_affaire') }}",
                     data: function ( d ) {
-                        d.SEARCH_BY_PID_AFFAIRE = $('#ID_AFFAIRE').val();
+                        d.SEARCH_BY_PID_CONTACT = $('#ID_CONTACT').val();
                     }
                 },
                 columns: [
@@ -283,7 +283,7 @@
                 ajax: {
                     url: "{{ route('get_tabla_contrat') }}",
                     data: function ( d ) {
-                        d.SEARCH_BY_PID_AFFAIRE = $('#ID_AFFAIRE').val();
+                        d.SEARCH_BY_PID_CONTACT = $('#ID_CONTACT').val();
                     }
                 },
                 columns: [
@@ -319,7 +319,7 @@
                 ajax: {
                     url: "{{ route('get_tabla_documents') }}",
                     data: function ( d ) {
-                        d.SEARCH_BY_PID_AFFAIRE = $('#ID_AFFAIRE').val();
+                        d.SEARCH_BY_PID_CONTACT = $('#ID_CONTACT').val();
                     }
                 },
                 columns: [
