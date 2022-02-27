@@ -22,11 +22,11 @@
                         <table id="tabla_contrat_detail_produit" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1 ID_CONTRAT_DETAIL_PRODUIT</th>
-                                    <th>2 NO_CONTRAT_PARTIEL</th>
-                                    <th>3 PRODUIT</th>
-                                    <th>4 identification</th>
-                                    <th>5 contrat</th>
+                                    <th>1 NO_CONTRAT_PARTIEL</th>
+                                    <th>2 PRODUIT</th>
+                                    <th>3 Rut</th>
+                                    <th>4 SYS_DATE_MODIFICATION</th>
+                                    <th>5 Cantidad de misions</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -61,11 +61,11 @@
                     }
                 },
                 columns: [
-                    { data: "ID_CONTRAT_DETAIL_PRODUIT"},
                     { data: "NO_CONTRAT_PARTIEL"},
                     { data: "PRODUIT"},
-                    { data: "identification"},
-                    { data: "contrat"},
+                    { data: "rut"},
+                    { data: "SYS_DATE_MODIFICATION"},
+                    { data: "missions_count"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
@@ -76,7 +76,7 @@
                 dom: 'Bfrtip',
                 buttons: [{
                     extend: 'excelHtml5',
-                    title: "tabla affaire - " + new Date().toLocaleString(),
+                    title: "tabla contrat_detail_produit - " + new Date().toLocaleString(),
                     className: "bg-info",
                     exportOptions: {
                         columns: ':not(.no_exportar)'

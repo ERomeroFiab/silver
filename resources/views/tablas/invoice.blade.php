@@ -31,6 +31,9 @@
                                     <th>7 PAYMENT_DATE</th>
                                     <th>8 PRODUCT</th>
                                     <th>9 BALANCE_DUE</th>
+                                    <th>10 Rut</th>
+                                    <th>11 Razón Social</th>
+                                    <th>12 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -74,6 +77,9 @@
                     { data: "PAYMENT_DATE"},
                     { data: "PRODUCT"},
                     { data: "BALANCE_DUE"},
+                    { data: "rut"},
+                    { data: "razon_social"},
+                    { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

@@ -31,6 +31,9 @@
                                     <th>7 SUB_MOTIVE1</th>
                                     <th>8 SUB_MOTIVE2</th>
                                     <th>9 YEAR</th>
+                                    <th>10 rut</th>
+                                    <th>11 razon_social</th>
+                                    <th>12 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -74,6 +77,9 @@
                     { data: "SUB_MOTIVE1"},
                     { data: "SUB_MOTIVE2"},
                     { data: "YEAR"},
+                    { data: "rut"},
+                    { data: "razon_social"},
+                    { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

@@ -21,22 +21,18 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1 ID_CONTRAT</th>
-                                    <th>2 E_MAIL</th>
-                                    <th>3 E_MAIL_FACTURATION</th>
-                                    <th>4 FIABILIS_GROUP_ENTITY</th>
-                                    <th>5 MULTI_ENTITY</th>
-                                    <th>6 NOM</th>
-                                    <th>7 NOM_FACTURATION</th>
-                                    <th>8 NO_CONTRAT</th>
-                                    <th>9 NO_CONTRAT_ORIGINE</th>
-                                    <th>10 NO_ENTITY</th>
-                                    <th>11 STATUT</th>
-                                    <th>12 SUIVI_PAR</th>
-                                    <th>13 VALEUR</th>
-                                    <th>14 DATE_FIN_CONTRAT</th>
-                                    <th>15 DATE_SIGNATURE_CLIENT</th>
-                                    <th>16 DATE_SIGNATURE_INTERNE</th>
+                                    <th>1 E_MAIL</th>
+                                    <th>2 E_MAIL_FACTURATION</th>
+                                    <th>3 MULTI_ENTITY</th>
+                                    <th>4 NOM</th>
+                                    <th>5 NOM_FACTURATION</th>
+                                    <th>6 NO_CONTRAT</th>
+                                    <th>7 NO_CONTRAT_ORIGINE</th>
+                                    <th>8 NO_ENTITY</th>
+                                    <th>9 STATUT</th>
+                                    <th>10 SUIVI_PAR</th>
+                                    <th>11 DATE_FIN_CONTRAT</th>
+                                    <th>12 DATE_SIGNATURE_CLIENT</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -71,10 +67,8 @@
                     }
                 },
                 columns: [
-                    { data: "ID_CONTRAT"},
                     { data: "E_MAIL"},
                     { data: "E_MAIL_FACTURATION"},
-                    { data: "FIABILIS_GROUP_ENTITY"},
                     { data: "MULTI_ENTITY"},
                     { data: "NOM"},
                     { data: "NOM_FACTURATION"},
@@ -83,10 +77,8 @@
                     { data: "NO_ENTITY"},
                     { data: "STATUT"},
                     { data: "SUIVI_PAR"},
-                    { data: "VALEUR"},
                     { data: "DATE_FIN_CONTRAT"},
                     { data: "DATE_SIGNATURE_CLIENT"},
-                    { data: "DATE_SIGNATURE_INTERNE"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

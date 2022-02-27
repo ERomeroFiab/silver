@@ -26,7 +26,9 @@
                                     <th>2 VALEUR</th>
                                     <th>3 YEAR</th>
                                     <th>4 SYS_DATE_CREATION</th>
-                                    <th>5 SYS_DATE_MODIFICATION</th>
+                                    <th>5 Rut</th>
+                                    <th>6 Razón Social</th>
+                                    <th>7 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -65,6 +67,8 @@
                     { data: "VALEUR"},
                     { data: "YEAR"},
                     { data: "SYS_DATE_CREATION"},
+                    { data: "rut"},
+                    { data: "razon_social"},
                     { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],

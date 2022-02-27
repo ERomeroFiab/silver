@@ -85,13 +85,13 @@ class DatatableController extends Controller
         $columns = config('tablas')['action'];
 
         $relations = [
-            // 'identification',
-            // 'contrat',
-            // 'affaire',
-            // 'contact',
-            // 'mission',
-            // 'action_intervenants_fiabilis',
-            // 'documents',
+            'identification',
+            'contrat',
+            'affaire',
+            'contact',
+            'mission',
+            'action_intervenants_fiabilis',
+            'documents',
         ];
         
         $datos = Action::select( $columns )->with( $relations )->withCount( $relations );
@@ -108,6 +108,18 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->identification ) {
+                                    return $dato->identification->SIRET;
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->identification ) {
+                                    return $dato->identification->RAISON_SOC;
+                                }
+                                return "-";
+                            })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('action.show', ['id_action' => $dato->ID_ACTION]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
@@ -119,7 +131,7 @@ class DatatableController extends Controller
         $columns = config('tablas')['action_intervenants_fiabilis'];
 
         $relations = [
-            // '',
+            // 'action',
         ];
 
         $datos = ActionIntervenantsFiabilis::select( $columns )->with( $relations );
@@ -170,6 +182,18 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                            })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->identification ) {
+                                    return $dato->identification->SIRET;
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->identification ) {
+                                    return $dato->identification->RAISON_SOC;
+                                }
+                                return "-";
                             })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('affaire.show', ['id_affaire' => $dato->ID_AFFAIRE]).'" class="btn btn-sm btn-info">Ver</a>';
@@ -312,7 +336,11 @@ class DatatableController extends Controller
         $columns = config('tablas')['contact'];
         
         $relations = [
-            // '',
+            'identification',
+            'actions',
+            'affaires',
+            'contrats',
+            'documents',
         ];
 
         $datos = Contact::select( $columns )->with( $relations );
@@ -329,6 +357,18 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->identification ) {
+                                    return $dato->identification->SIRET;
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->identification ) {
+                                    return $dato->identification->RAISON_SOC;
+                                }
+                                return "-";
+                            })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('contact.show', ['id_contact' => $dato->ID_CONTACT]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
@@ -342,9 +382,11 @@ class DatatableController extends Controller
         $relations = [
             'identification',
             'contrat',
+            'contrat_partiel_condition_fiancieres',
+            'missions',
         ];
 
-        $datos = ContratDetailProduit::select( $columns )->with( $relations );
+        $datos = ContratDetailProduit::select( $columns )->with( $relations )->withCount( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
@@ -358,11 +400,8 @@ class DatatableController extends Controller
                                 }
                                 
                             })
-                            ->addColumn('identification', function($dato){
-                                return $dato->identification->ID_IDENTIFICATION;
-                            })
-                            ->addColumn('contrat', function($dato){
-                                return $dato->contrat->ID_CONTRAT;
+                            ->addColumn('rut', function($dato){
+                                return $dato->identification->SIRET;
                             })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('contrat_detail_produit.show', ['id_contrat_detail_produit' => $dato->ID_CONTRAT_DETAIL_PRODUIT]).'" class="btn btn-sm btn-info">Ver</a>';
@@ -375,7 +414,7 @@ class DatatableController extends Controller
         $columns = config('tablas')['identification_note'];
         
         $relations = [
-            // '',
+            'identification',
         ];
 
         $datos = IdentificationNote::select( $columns )->with( $relations );
@@ -392,6 +431,18 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('rut', function($dato){
+                                if ( $dato->identification ) {
+                                    return $dato->identification->SIRET;
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function($dato){
+                                if ( $dato->identification ) {
+                                    return $dato->identification->RAISON_SOC;
+                                }
+                                return "-";
+                            })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('identification_note.show', ['id_identification_note' => $dato->ID_IDENTIFICATION_NOTE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
@@ -403,7 +454,10 @@ class DatatableController extends Controller
         $columns = config('tablas')['invoice'];
         
         $relations = [
-            // '',
+            'identification',
+            'contrat',
+            'documents',
+            'invoice_lignes',
         ];
 
         $datos = Invoice::select( $columns )->with( $relations );
@@ -419,6 +473,18 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                            })
+                            ->addColumn('rut', function($dato){
+                                if ( $dato->identification ) {
+                                    return $dato->identification->SIRET;
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function($dato){
+                                if ( $dato->identification ) {
+                                    return $dato->identification->RAISON_SOC;
+                                }
+                                return "-";
                             })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('invoice.show', ['id_invoice' => $dato->ID_INVOICE]).'" class="btn btn-sm btn-info">Ver</a>';
@@ -454,6 +520,18 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                            })
+                            ->addColumn('rut', function($dato){
+                                if ( $dato->identification ) {
+                                    return $dato->identification->SIRET;
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function($dato){
+                                if ( $dato->identification ) {
+                                    return $dato->identification->RAISON_SOC;
+                                }
+                                return "-";
                             })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('mission.show', ['id_mission' => $dato->ID_MISSION]).'" class="btn btn-sm btn-info">Ver</a>';
@@ -578,10 +656,11 @@ class DatatableController extends Controller
         $columns = config('tablas')['contrat_partiel_condition_fiancieres'];
         
         $relations = [
-            // '',
+            'contrat',
+            'contrat_detail_produit',
         ];
 
-        $datos = ContratPartielConditionFianciere::select( $columns )->with( $relations );
+        $datos = ContratPartielConditionFianciere::select( $columns )->with( $relations )->withCount( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
@@ -595,6 +674,22 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->contrat ) {
+                                    if ( $dato->contrat->identification ) {
+                                        return $dato->contrat->identification->SIRET;
+                                    }
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->contrat ) {
+                                    if ( $dato->contrat->identification ) {
+                                        return $dato->contrat->identification->RAISON_SOC;
+                                    }
+                                }
+                                return "-";
+                            })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
@@ -606,7 +701,7 @@ class DatatableController extends Controller
         $columns = config('tablas')['affaire_conditions_financieres'];
         
         $relations = [
-            // '',
+            'affaire',
         ];
 
         $datos = AffaireConditionsFinanciere::select( $columns )->with( $relations );
@@ -623,8 +718,24 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->affaire ) {
+                                    if ( $dato->affaire->identification ) {
+                                        return $dato->affaire->identification->SIRET;
+                                    }
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->affaire ) {
+                                    if ( $dato->affaire->identification ) {
+                                        return $dato->affaire->identification->RAISON_SOC;
+                                    }
+                                }
+                                return "-";
+                            })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('affaire_conditions_financieres.show', ['id_affaire_conditions_financiere' => $dato->ID_AFFAIRE_CONDITIONS_FINANCIERES]).'" class="btn btn-sm btn-info">Ver</a>';
+                                return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -634,7 +745,7 @@ class DatatableController extends Controller
         $columns = config('tablas')['affaire_objections'];
         
         $relations = [
-            // '',
+            'affaire',
         ];
 
         $datos = AffaireObjection::select( $columns )->with( $relations );
@@ -651,6 +762,22 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->affaire ) {
+                                    if ( $dato->affaire->identification ) {
+                                        return $dato->affaire->identification->SIRET;
+                                    }
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->affaire ) {
+                                    if ( $dato->affaire->identification ) {
+                                        return $dato->affaire->identification->RAISON_SOC;
+                                    }
+                                }
+                                return "-";
+                            })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('affaire_objections.show', ['id_affaire_objection' => $dato->ID_AFFAIRE_OBJECTIONS]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
@@ -662,7 +789,7 @@ class DatatableController extends Controller
         $columns = config('tablas')['historique_maj_affaire'];
         
         $relations = [
-            // '',
+            'affaire',
         ];
 
         $datos = HistoriqueMajAffaire::select( $columns )->with( $relations );
@@ -678,6 +805,22 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                            })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->affaire ) {
+                                    if ( $dato->affaire->identification ) {
+                                        return $dato->affaire->identification->SIRET;
+                                    }
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->affaire ) {
+                                    if ( $dato->affaire->identification ) {
+                                        return $dato->affaire->identification->RAISON_SOC;
+                                    }
+                                }
+                                return "-";
                             })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('historique_maj_affaire.show', ['id_historique_maj_affaire' => $dato->ID_HISTORIQUE_MAJ_AFFAIRE]).'" class="btn btn-sm btn-info">Ver</a>';
@@ -846,7 +989,8 @@ class DatatableController extends Controller
         $columns = config('tablas')['invoice_ligne'];
         
         $relations = [
-            // '',
+            'invoice',
+            'mission_motive_eco',
         ];
 
         $datos = InvoiceLigne::select( $columns )->with( $relations );
@@ -862,6 +1006,22 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                            })
+                            ->addColumn('rut', function ($dato) {
+                                if ( $dato->invoice ) {
+                                    if ( $dato->invoice->identification ) {
+                                        return $dato->invoice->identification->SIRET;
+                                    }
+                                }
+                                return "-";
+                            })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->invoice ) {
+                                    if ( $dato->invoice->identification ) {
+                                        return $dato->invoice->identification->RAISON_SOC;
+                                    }
+                                }
+                                return "-";
                             })
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('invoice_ligne.show', ['id_invoice_ligne' => $dato->ID_INVOICE_LIGNE]).'" class="btn btn-sm btn-info">Ver</a>';

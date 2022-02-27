@@ -30,6 +30,9 @@
                                     <th>6 NO_CONTRAT</th>
                                     <th>7 PRODUIT</th>
                                     <th>7 Cantidad de actions</th>
+                                    <th>8 Rut</th>
+                                    <th>9 Razón Social</th>
+                                    <th>10 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -72,6 +75,9 @@
                     { data: "NO_CONTRAT"},
                     { data: "PRODUIT"},
                     { data: "actions_count"},
+                    { data: "rut"},
+                    { data: "razon_social"},
+                    { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

@@ -27,6 +27,9 @@
                                     <th>3 SOLVED</th>
                                     <th>4 STEP</th>
                                     <th>5 OBJECTIONS</th>
+                                    <th>6 Rut</th>
+                                    <th>7 Razón Social</th>
+                                    <th>8 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -66,6 +69,9 @@
                     { data: "SOLVED"},
                     { data: "STEP"},
                     { data: "OBJECTIONS"},
+                    { data: "rut"},
+                    { data: "razon_social"},
+                    { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

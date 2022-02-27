@@ -25,7 +25,9 @@
                                     <th>1 KOMPASS_ID</th>
                                     <th>2 NOTE</th>
                                     <th>3 SYS_DATE_CREATION</th>
-                                    <th>4 SYS_DATE_MODIFICATION</th>
+                                    <th>4 Rut</th>
+                                    <th>5 Razón Social</th>
+                                    <th>6 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -63,6 +65,8 @@
                     { data: "KOMPASS_ID"},
                     { data: "NOTE"},
                     { data: "SYS_DATE_CREATION"},
+                    { data: "rut"},
+                    { data: "razon_social"},
                     { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],

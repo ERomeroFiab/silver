@@ -29,6 +29,9 @@
                                     <th>5 NOUVELLE_VALEUR</th>
                                     <th>6 NOUVELLE_VALEUR_LIBELLE</th>
                                     <th>7 USER</th>
+                                    <th>8 Rut</th>
+                                    <th>9 Razón Social</th>
+                                    <th>10 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -70,6 +73,9 @@
                     { data: "NOUVELLE_VALEUR"},
                     { data: "NOUVELLE_VALEUR_LIBELLE"},
                     { data: "USER"},
+                    { data: "rut"},
+                    { data: "razon_social"},
+                    { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

@@ -27,6 +27,9 @@
                                     <th>3 SERVICE</th>
                                     <th>4 FONCTION</th>
                                     <th>5 CONTACT_PRINCIPAL</th>
+                                    <th>6 Rut</th>
+                                    <th>7 Razón Social</th>
+                                    <th>8 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -66,6 +69,9 @@
                     { data: "SERVICE"},
                     { data: "FONCTION"},
                     { data: "CONTACT_PRINCIPAL"},
+                    { data: "rut"},
+                    { data: "razon_social"},
+                    { data: "SYS_DATE_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

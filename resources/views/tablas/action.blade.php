@@ -29,6 +29,9 @@
                                     <th>6 RESULTAT</th>
                                     <th>7 SUIVI_PAR</th>
                                     <th>8 TYPE_EVENEMENT</th>
+                                    <th>9 SYS_DATE_MODIFICATION</th>
+                                    <th>10 Rut</th>
+                                    <th>11 Razón Social</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -71,6 +74,9 @@
                     { data: "RESULTAT"},
                     { data: "SUIVI_PAR"},
                     { data: "TYPE_EVENEMENT"},
+                    { data: "SYS_DATE_MODIFICATION"},
+                    { data: "rut"},
+                    { data: "razon_social"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
