@@ -75,7 +75,7 @@
                                     <th>6 GROUP</th>
                                     <th>7 RAISON_SOC</th>
                                     <th>8 TYPE_FICHE</th>
-                                    <th>9 VILLE</th>
+                                    <th>9 Cantidad de missions</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -126,7 +126,7 @@
                     { data: "GROUP"},
                     { data: "RAISON_SOC"},
                     { data: "TYPE_FICHE"},
-                    { data: "VILLE"},
+                    { data: "missions_count"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

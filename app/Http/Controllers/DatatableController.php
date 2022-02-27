@@ -169,10 +169,20 @@ class DatatableController extends Controller
         $columns = config('tablas')['identification'];
 
         $relations = [
-            // '',
+            'actions',
+            'affaires',
+            'contacts',
+            'contrats',
+            'contrat_detail_produits',
+            'documents',
+            'identification_notes',
+            'invoices',
+            'missions',
+            'mission_teams',
+            'societe_familles',
         ];
         
-        $datos = Identification::select( $columns )->with( $relations );
+        $datos = Identification::select( $columns )->with( $relations )->withCount($relations);
         // dd( $request->get('SEARCH_BY_VILLE') );
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
