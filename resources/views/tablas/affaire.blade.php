@@ -36,6 +36,7 @@
                                     <th>12 STATUT</th>
                                     <th>13 SUIVI_PAR</th>
                                     <th>14 TOTAL_PREVISIONNEL</th>
+                                    <th>14 Cantidad de actions</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -84,6 +85,7 @@
                     { data: "STATUT"},
                     { data: "SUIVI_PAR"},
                     { data: "TOTAL_PREVISIONNEL"},
+                    { data: "actions_count"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

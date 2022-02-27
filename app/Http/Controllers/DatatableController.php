@@ -85,10 +85,16 @@ class DatatableController extends Controller
         $columns = config('tablas')['action'];
 
         $relations = [
-            // '',
+            // 'identification',
+            // 'contrat',
+            // 'affaire',
+            // 'contact',
+            // 'mission',
+            // 'action_intervenants_fiabilis',
+            // 'documents',
         ];
         
-        $datos = Action::select( $columns )->with( $relations );
+        $datos = Action::select( $columns )->with( $relations )->withCount( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
@@ -141,10 +147,17 @@ class DatatableController extends Controller
         $columns = config('tablas')['affaire'];
 
         $relations = [
-            // '',
+            'identification',
+            'contrat',
+            'contact',
+            'actions',
+            'affaire_conditions_financieres',
+            'affaire_objections',
+            'documents',
+            'historique_maj_affaire',
         ];
 
-        $datos = Affaire::select( $columns )->with( $relations );
+        $datos = Affaire::select( $columns )->with( $relations )->withCount( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
@@ -418,10 +431,17 @@ class DatatableController extends Controller
         $columns = config('tablas')['mission'];
         
         $relations = [
-            // '',
+            'identification',
+            'contrat',
+            'contrat_detail_produit',
+            'actions',
+            'documents',
+            'mission_motives',
+            'mission_motive_historique_majs',
+            'mission_teams',
         ];
 
-        $datos = Mission::select( $columns )->with( $relations );
+        $datos = Mission::select( $columns )->with( $relations )->withCount( $relations );
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
