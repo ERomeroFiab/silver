@@ -1421,71 +1421,71 @@ return [ // LA TABLA CON SUS CAMPOS
         'SYS_USER_MODIFICATION',
     ],
     // 'modeles' => ['xxx'],
-    'mydbr_reportgroups' => [
-        'id',
-        'name',
-        'sortorder',
-        'color',
-    ],
-    'mydbr_folders' => [
-        'folder_id',
-        'mother_id',
-        'name',
-        'invisible',
-        'reportgroup',
-        'explanation',
-        'icon',
-    ],
-    'mydbr_folders_priv' => [
-        'id',
-        'folder_id',
-        'username',
-        'group_id',
-        'authentication',
-        'organization_id',
-    ],
+    // 'mydbr_reportgroups' => [
+    //     'id',
+    //     'name',
+    //     'sortorder',
+    //     'color',
+    // ],
+    // 'mydbr_folders' => [
+    //     'folder_id',
+    //     'mother_id',
+    //     'name',
+    //     'invisible',
+    //     'reportgroup',
+    //     'explanation',
+    //     'icon',
+    // ],
+    // 'mydbr_folders_priv' => [
+    //     'id',
+    //     'folder_id',
+    //     'username',
+    //     'group_id',
+    //     'authentication',
+    //     'organization_id',
+    // ],
     // 'mydbr_groups' => ['xxx'],
     // 'mydbr_groupsusers' => ['xxx'],
     // 'mydbr_key_column_usage' => ['xxx'],
-    'mydbr_languages' => [
+    // 'mydbr_languages' => [
         
-    ],
-    'mydbr_licenses' => [
+    // ],
+    // 'mydbr_licenses' => [
         
-    ],
-    'mydbr_param_queries' => [
+    // ],
+    // 'mydbr_param_queries' => [
         
-    ],
+    // ],
     // 'mydbr_remote_servers' => ['xxx'],
     // 'mydbr_report_extensions' => ['xxx'],
     // 'mydbr_reports_priv' => ['xxx'],
     // 'mydbr_scheduled_tasks' => ['xxx'],
-    'mydbr_snippets' => [
+    // 'mydbr_snippets' => [
         
-    ],
+    // ],
     // 'mydbr_statistics' => ['xxx'],
-    'mydbr_styles' => [
+    // 'mydbr_styles' => [
         
-    ],
+    // ],
     // 'mydbr_sync_exclude' => ['xxx'],
-    'mydbr_template_folders' => [
+    // 'mydbr_template_folders' => [
         
-    ],
+    // ],
     // 'mydbr_templates' => ['xxx'],
     // 'mydbr_ui_category_collapse' => ['xxx'],
-    'mydbr_update' => [
+    // 'mydbr_update' => [
         
-    ],
-    'mydbr_user_agents' => [
+    // ],
+    // 'mydbr_user_agents' => [
         
-    ],
+    // ],
     // 'mydbr_user_logins' => ['xxx'],
-    'mydbr_userlogin' => [
+    // 'mydbr_userlogin' => [
         
-    ],
-    'mydbr_version' => [
+    // ],
+    // 'mydbr_version' => [
         
-    ],
+    // ],
     // 'note_frais' => ['xxx'],
     // 'note_frais_detail' => ['xxx'],
     // 'note_frais_justificatif' => ['xxx'],
@@ -1585,20 +1585,20 @@ return [ // LA TABLA CON SUS CAMPOS
     // 'sys_formulaire_personnalise' => ['xxx'],
     // 'sys_google_date_synchro' => ['xxx'],
     // 'sys_google_journal' => ['xxx'],
-    'sys_groupes_users' => [
+    // 'sys_groupes_users' => [
         
-    ],
-    'sys_histo_navigation' => [
+    // ],
+    // 'sys_histo_navigation' => [
         
-    ],
-    'sys_notifications' => [
+    // ],
+    // 'sys_notifications' => [
         
-    ],
+    // ],
     // 'sys_notifications_erreurs' => ['xxx'],
     // 'sys_planning_jours_indisponibles' => ['xxx'],
-    'sys_requetes_memorisees' => [
+    // 'sys_requetes_memorisees' => [
         
-    ],
+    // ],
     // 'sys_rgpd_bdd' => ['xxx'],
     // 'sys_rgpd_champs' => ['xxx'],
     // 'sys_rgpd_tables' => ['xxx'],
@@ -1610,15 +1610,15 @@ return [ // LA TABLA CON SUS CAMPOS
     // 'sys_synchro_scripts_names' => ['xxx'],
     // 'sys_track_emailing' => ['xxx'],
     // 'sys_unsubscribed_emailing' => ['xxx'],
-    'sys_users' => [
+    // 'sys_users' => [
         
-    ],
-    'sys_users_connectes' => [
+    // ],
+    // 'sys_users_connectes' => [
         
-    ],
-    'sys_users_connectes_historique' => [
+    // ],
+    // 'sys_users_connectes_historique' => [
         
-    ],
+    // ],
     // 'sys_users_dependances' => ['xxx'],
     // 'ticket' => ['xxx'],
     // 'ticket_detail' => ['xxx'],
