@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\JournalDeleted;
+use App\Models\JournalDeleted;
 
 class JournalDeletedController extends Controller
 {
