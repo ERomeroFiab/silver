@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h4 class="my-0">ID_ARTICLE: {{ $article->ID_ARTICLE }}</h4>
-                        <p>Tabla <b>action</b></p>
+                        <p>Tabla <b>article</b></p>
                     </div>
                 </div>
 
