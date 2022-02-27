@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\Invoice;
+use App\Models\Invoice;
 
 class InvoiceController extends Controller
 {
