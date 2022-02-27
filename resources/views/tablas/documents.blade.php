@@ -21,15 +21,12 @@
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1 ID_DOCUMENTS</th>
-                                    <th>2 DOCUMENT_FICHIER_NOM</th>
-                                    <th>3 DOCUMENT_FICHIER_DATE</th>
-                                    <th>4 DOCUMENT_FICHIER_TAILLE</th>
-                                    <th>5 DOCUMENT_FICHIER_TYPE</th>
-                                    <th>6 ORIGINE</th>
-                                    <th>7 SYS_DATE_CREATION</th>
-                                    <th>8 SYS_USER_CREATION</th>
-                                    <th>9 SYS_USER_MODIFICATION</th>
+                                    <th>1 DOCUMENT_FICHIER_NOM</th>
+                                    <th>2 DOCUMENT_FICHIER_DATE</th>
+                                    <th>3 DOCUMENT_FICHIER_TAILLE</th>
+                                    <th>4 DOCUMENT_FICHIER_TYPE</th>
+                                    <th>5 ORIGINE</th>
+                                    <th>6 SYS_DATE_CREATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -64,15 +61,12 @@
                     }
                 },
                 columns: [
-                    { data: "ID_DOCUMENTS"},
                     { data: "DOCUMENT_FICHIER_NOM"},
                     { data: "DOCUMENT_FICHIER_DATE"},
                     { data: "DOCUMENT_FICHIER_TAILLE"},
                     { data: "DOCUMENT_FICHIER_TYPE"},
                     { data: "ORIGINE"},
                     { data: "SYS_DATE_CREATION"},
-                    { data: "SYS_USER_CREATION"},
-                    { data: "SYS_USER_MODIFICATION"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],

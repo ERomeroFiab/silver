@@ -69,8 +69,8 @@ class Document extends Model
     //     return $this->belongsTo('App\Models\OffreEntete', 'PID_OFFRE_ENTETE', 'ID_OFFRE_ENTETE');
     // }
 
-    public function reclamation()
-    {
-        return $this->belongsTo('App\Models\Reclamation', 'PID_RECLAMATION', 'ID_RECLAMATION');
-    }
+    // public function reclamation()
+    // {
+    //     return $this->belongsTo('App\Models\Reclamation', 'PID_RECLAMATION', 'ID_RECLAMATION');
+    // }
 }
