@@ -25,7 +25,6 @@
                                     <th>1 CATEGORIE</th>
                                     <th>2 OBJET</th>
                                     <th>3 SYS_USER_CREATION</th>
-                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,7 +61,6 @@
                     { data: "CATEGORIE"},
                     { data: "OBJET"},
                     { data: "SYS_USER_CREATION"},
-                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
