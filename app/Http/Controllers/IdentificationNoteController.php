@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\IdentificationNote;
+use App\Models\IdentificationNote;
 
 class IdentificationNoteController extends Controller
 {
