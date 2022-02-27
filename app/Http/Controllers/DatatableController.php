@@ -134,6 +134,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('action_intervenants_fiabilis.show', ['id_action_intervenants_fiabilis' => $dato->ID_ACTION_INTERVENANTS_FIABILIS]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -215,6 +218,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('identification.show', ['id_identification' => $dato->ID_IDENTIFICATION]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -272,6 +278,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('documents.show', ['id_document' => $dato->ID_DOCUMENTS]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -292,6 +301,9 @@ class DatatableController extends Controller
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('contact.show', ['id_contact' => $dato->ID_CONTACT]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -325,6 +337,9 @@ class DatatableController extends Controller
                             ->addColumn('contrat', function($dato){
                                 return $dato->contrat->ID_CONTRAT;
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('contrat_detail_produit.show', ['id_contrat_detail_produit' => $dato->ID_CONTRAT_DETAIL_PRODUIT]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -345,6 +360,9 @@ class DatatableController extends Controller
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('identification_note.show', ['id_identification_note' => $dato->ID_IDENTIFICATION_NOTE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -370,6 +388,9 @@ class DatatableController extends Controller
                                     $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('invoice.show', ['id_invoice' => $dato->ID_INVOICE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -424,6 +445,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('mission_team.show', ['id_mission_team' => $dato->ID_MISSION_TEAM]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -444,6 +468,9 @@ class DatatableController extends Controller
                                     $query->where('PID_IDENTIFICATION', $request->get('SEARCH_BY_PID_IDENTIFICATION'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('societe_famille.show', ['id_societe_famille' => $dato->ID_SOCIETE_FAMILLE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -494,6 +521,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('mission_motive_historique_maj.show', ['id_mission_motive_historique_maj' => $dato->ID_MISSION_MOTIVE_HISTORIQUE_MAJ]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -514,6 +544,9 @@ class DatatableController extends Controller
                                     $query->where('PID_CONTRAT', $request->get('SEARCH_BY_PID_CONTRAT'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -536,6 +569,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('affaire_conditions_financieres.show', ['id_affaire_conditions_financiere' => $dato->ID_AFFAIRE_CONDITIONS_FINANCIERES]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -556,6 +592,9 @@ class DatatableController extends Controller
                                     $query->where('PID_AFFAIRE', $request->get('SEARCH_BY_PID_AFFAIRE'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('affaire_objections.show', ['id_affaire_objection' => $dato->ID_AFFAIRE_OBJECTIONS]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -578,6 +617,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('historique_maj_affaire.show', ['id_historique_maj_affaire' => $dato->ID_HISTORIQUE_MAJ_AFFAIRE]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -599,6 +641,9 @@ class DatatableController extends Controller
                                 }
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('mission_motive_eco.show', ['id_mission_motive_eco' => $dato->ID_MISSION_MOTIVE_ECO]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -619,6 +664,9 @@ class DatatableController extends Controller
                                     $query->where('PID_MISSION_MOTIVE', $request->get('SEARCH_BY_PID_MISSION_MOTIVE'));
                                 }
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('article.show', ['id_article' => $dato->ID_ARTICLE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -705,6 +753,9 @@ class DatatableController extends Controller
                             ->filter(function ($query) use ($request) {
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('invoice_ligne.show', ['id_invoice_ligne' => $dato->ID_INVOICE_LIGNE]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -722,6 +773,9 @@ class DatatableController extends Controller
                             ->filter(function ($query) use ($request) {
 
                             })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('journal_deleted.show', ['id_journal_deleted' => $dato->ID_JOURNAL_DELETED]).'" class="btn btn-sm btn-info">Ver</a>';
+                            })
                             ->toJson();
     }
 
@@ -738,6 +792,9 @@ class DatatableController extends Controller
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request) {
 
+                            })
+                            ->addColumn('action', function ($dato) {
+                                return '<a href="'.route('settings.show', ['id_setting' => $dato->ID_SETTINGS]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }

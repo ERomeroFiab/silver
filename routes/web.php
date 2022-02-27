@@ -25,30 +25,30 @@ Route::get('/tablas/vista/{table_name}', [App\Http\Controllers\ViewController::c
 
 
 // MODELS
-Route::get('/models/action/show/{id_action}', [App\Http\Controllers\ActionController::class, 'show'])->name('action.show');
-Route::get('/models/action_intervenants_fiabilis/show/{id_action_intervenants_fiabilis}', [App\Http\Controllers\ActionIntervenantsFiabilisController::class, 'show'])->name('action_intervenants_fiabilis.show');
-Route::get('/models/affaire/show/{id_affaire}', [App\Http\Controllers\AffaireController::class, 'show'])->name('affaire.show');
-Route::get('/models/affaire_conditions_financieres/show/{id_affaire_conditions_financiere}', [App\Http\Controllers\AffaireConditionsFinanciereController::class, 'show'])->name('affaire_conditions_financieres.show');
-Route::get('/models/affaire_objections/show/{id_affaire_objection}', [App\Http\Controllers\AffaireObjectionController::class, 'show'])->name('affaire_objections.show');
-Route::get('/models/article/show/{id_article}', [App\Http\Controllers\ArticleController::class, 'show'])->name('article.show');
-Route::get('/models/contact/show/{id_contact}', [App\Http\Controllers\ContactController::class, 'show'])->name('contact.show');
-Route::get('/models/contrat/show/{id_contrat}', [App\Http\Controllers\ContratController::class, 'show'])->name('contrat.show');
-Route::get('/models/contrat_detail_produit/show/{id_contrat_detail_produit}', [App\Http\Controllers\ContratDetailProduitController::class, 'show'])->name('contrat_detail_produit.show');
-Route::get('/models/contrat_partiel_condition_fiancieres/show/{id_contrat_partiel_condition_fianciere}', [App\Http\Controllers\ContratPartielConditionFianciereController::class, 'show'])->name('contrat_partiel_condition_fiancieres.show');
-Route::get('/models/documents/show/{id_document}', [App\Http\Controllers\DocumentController::class, 'show'])->name('documents.show');
-Route::get('/models/historique_maj_affaire/show/{id_historique_maj_affaire}', [App\Http\Controllers\HistoriqueMajAffaireController::class, 'show'])->name('historique_maj_affaire.show');
-Route::get('/models/identification/show/{id_identification}', [App\Http\Controllers\IdentificationController::class, 'show'])->name('identification.show');
-Route::get('/models/identification_note/show/{id_identification_note}', [App\Http\Controllers\IdentificationNoteController::class, 'show'])->name('identification_note.show');
-Route::get('/models/invoice/show/{id_invoice}', [App\Http\Controllers\InvoiceController::class, 'show'])->name('invoice.show');
-Route::get('/models/invoice_ligne/show/{id_invoice_ligne}', [App\Http\Controllers\InvoiceLigneController::class, 'show'])->name('invoice_ligne.show');
-Route::get('/models/journal_deleted/show/{id_journal_deleted}', [App\Http\Controllers\JournalDeletedController::class, 'show'])->name('journal_deleted.show');
-Route::get('/models/mission/show/{id_mission}', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
-Route::get('/models/mission_motive/show/{id_mission_motive}', [App\Http\Controllers\MissionMotiveController::class, 'show'])->name('mission_motive.show');
-Route::get('/models/mission_motive_eco/show/{id_mission_motive_eco}', [App\Http\Controllers\MissionMotiveEcoController::class, 'show'])->name('mission_motive_eco.show');
-Route::get('/models/mission_motive_historique_maj/show/{id_mission_motive_historique_maj}', [App\Http\Controllers\MissionMotiveHistoriqueMajController::class, 'show'])->name('mission_motive_historique_maj.show');
-Route::get('/models/mission_team/show/{id_mission_team}', [App\Http\Controllers\MissionTeamController::class, 'show'])->name('mission_team.show');
-Route::get('/models/settings/show/{id_setting}', [App\Http\Controllers\SettingController::class, 'show'])->name('settings.show');
-Route::get('/models/societe_famille/show/{id_societe_famille}', [App\Http\Controllers\SocieteFamilleController::class, 'show'])->name('societe_famille.show');
+Route::get('/models/action/show', [App\Http\Controllers\ActionController::class, 'show'])->name('action.show');
+Route::get('/models/action_intervenants_fiabilis/show', [App\Http\Controllers\ActionIntervenantsFiabilisController::class, 'show'])->name('action_intervenants_fiabilis.show');
+Route::get('/models/affaire/show', [App\Http\Controllers\AffaireController::class, 'show'])->name('affaire.show');
+Route::get('/models/affaire_conditions_financieres/show', [App\Http\Controllers\AffaireConditionsFinanciereController::class, 'show'])->name('affaire_conditions_financieres.show');
+Route::get('/models/affaire_objections/show', [App\Http\Controllers\AffaireObjectionController::class, 'show'])->name('affaire_objections.show');
+Route::get('/models/article/show', [App\Http\Controllers\ArticleController::class, 'show'])->name('article.show');
+Route::get('/models/contact/show', [App\Http\Controllers\ContactController::class, 'show'])->name('contact.show');
+Route::get('/models/contrat/show', [App\Http\Controllers\ContratController::class, 'show'])->name('contrat.show');
+Route::get('/models/contrat_detail_produit/show', [App\Http\Controllers\ContratDetailProduitController::class, 'show'])->name('contrat_detail_produit.show');
+Route::get('/models/contrat_partiel_condition_fiancieres/show', [App\Http\Controllers\ContratPartielConditionFianciereController::class, 'show'])->name('contrat_partiel_condition_fiancieres.show');
+Route::get('/models/documents/show', [App\Http\Controllers\DocumentController::class, 'show'])->name('documents.show');
+Route::get('/models/historique_maj_affaire/show', [App\Http\Controllers\HistoriqueMajAffaireController::class, 'show'])->name('historique_maj_affaire.show');
+Route::get('/models/identification/show', [App\Http\Controllers\IdentificationController::class, 'show'])->name('identification.show');
+Route::get('/models/identification_note/show', [App\Http\Controllers\IdentificationNoteController::class, 'show'])->name('identification_note.show');
+Route::get('/models/invoice/show', [App\Http\Controllers\InvoiceController::class, 'show'])->name('invoice.show');
+Route::get('/models/invoice_ligne/show', [App\Http\Controllers\InvoiceLigneController::class, 'show'])->name('invoice_ligne.show');
+Route::get('/models/journal_deleted/show', [App\Http\Controllers\JournalDeletedController::class, 'show'])->name('journal_deleted.show');
+Route::get('/models/mission/show', [App\Http\Controllers\MissionController::class, 'show'])->name('mission.show');
+Route::get('/models/mission_motive/show', [App\Http\Controllers\MissionMotiveController::class, 'show'])->name('mission_motive.show');
+Route::get('/models/mission_motive_eco/show', [App\Http\Controllers\MissionMotiveEcoController::class, 'show'])->name('mission_motive_eco.show');
+Route::get('/models/mission_motive_historique_maj/show', [App\Http\Controllers\MissionMotiveHistoriqueMajController::class, 'show'])->name('mission_motive_historique_maj.show');
+Route::get('/models/mission_team/show', [App\Http\Controllers\MissionTeamController::class, 'show'])->name('mission_team.show');
+Route::get('/models/settings/show', [App\Http\Controllers\SettingController::class, 'show'])->name('settings.show');
+Route::get('/models/societe_famille/show', [App\Http\Controllers\SocieteFamilleController::class, 'show'])->name('societe_famille.show');
 
 
 // AJAX

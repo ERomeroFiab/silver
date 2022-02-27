@@ -29,6 +29,7 @@
                                     <th>5 POURCENTAGE</th>
                                     <th>6 NO_CONTRAT</th>
                                     <th>7 PRODUIT</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,6 +70,7 @@
                     { data: "POURCENTAGE"},
                     { data: "NO_CONTRAT"},
                     { data: "PRODUIT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

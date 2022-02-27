@@ -31,6 +31,7 @@
                                     <th>7 SUB_MOTIVE1</th>
                                     <th>8 SUB_MOTIVE2</th>
                                     <th>9 YEAR</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,6 +74,7 @@
                     { data: "SUB_MOTIVE1"},
                     { data: "SUB_MOTIVE2"},
                     { data: "YEAR"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

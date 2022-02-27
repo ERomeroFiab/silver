@@ -27,6 +27,7 @@
                                     <th>3 PRODUIT</th>
                                     <th>4 identification</th>
                                     <th>5 contrat</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "PRODUIT"},
                     { data: "identification"},
                     { data: "contrat"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

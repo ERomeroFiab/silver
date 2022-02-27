@@ -29,6 +29,7 @@
                                     <th>5 NOUVELLE_VALEUR</th>
                                     <th>6 NOUVELLE_VALEUR_LIBELLE</th>
                                     <th>7 USER</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,6 +70,7 @@
                     { data: "NOUVELLE_VALEUR"},
                     { data: "NOUVELLE_VALEUR_LIBELLE"},
                     { data: "USER"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

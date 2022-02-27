@@ -61,6 +61,22 @@
                     </div>
                 @endif
 
+                @if ( $affaire->contact )
+                    <div class="row">
+                        <div class="col-12">
+                            <p><b>Tabla contact</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (config('tablas')['contact'] as $column)
+                            <div class="col-3 form-group">
+                                <label>{{ $column }}</label>
+                                <input id="{{ $affaire->contact->{$column} }}" type="text" class="form-control" value="{{  $affaire->contact->{$column} }}" disabled title="{{ $affaire->contact->{$column} }}">
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+
                 {{-- TABLA action --}}
                 <div class="row mt-3">
                     <div class="col-12">
@@ -256,6 +272,13 @@
                 },
                 columns: [
                     { data: "CATEGORIE"},
+                    { data: "EMPLACEMENT"},
+                    { data: "E_MAIL"},
+                    { data: "NOM"},
+                    { data: "RESULTAT"},
+                    { data: "SUIVI_PAR"},
+                    { data: "TYPE_EVENEMENT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -287,6 +310,7 @@
                     { data: "TYPE"},
                     { data: "VALEUR"},
                     { data: "YEAR"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -320,6 +344,7 @@
                     { data: "OBJECTIONS"},
                     { data: "SOLVED"},
                     { data: "COMMENTS"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -352,6 +377,7 @@
                     { data: "DOCUMENT_FICHIER_TYPE"},
                     { data: "ORIGINE"},
                     { data: "DOCUMENT_FICHIER_DATE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -387,6 +413,7 @@
                     { data: "NOUVELLE_VALEUR"},
                     { data: "NOUVELLE_VALEUR_LIBELLE"},
                     { data: "USER"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,

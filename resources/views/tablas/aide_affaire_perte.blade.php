@@ -26,6 +26,7 @@
                                     <th>2 NO_GO</th>
                                     <th>3 SYS_DATE_CREATION</th>
                                     <th>4 SYS_DATE_MODIFICATION</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,6 +64,7 @@
                     { data: "NO_GO"},
                     { data: "SYS_DATE_CREATION"},
                     { data: "SYS_DATE_MODIFICATION"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

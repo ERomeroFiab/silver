@@ -27,6 +27,7 @@
                                     <th>3 TYPE</th>
                                     <th>4 DATE_SIGNATURE</th>
                                     <th>5 FIN_CONTRAT</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "TYPE"},
                     { data: "DATE_SIGNATURE"},
                     { data: "FIN_CONTRAT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

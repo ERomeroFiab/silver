@@ -37,6 +37,7 @@
                                     <th>14 DATE_FIN_CONTRAT</th>
                                     <th>15 DATE_SIGNATURE_CLIENT</th>
                                     <th>16 DATE_SIGNATURE_INTERNE</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -86,6 +87,7 @@
                     { data: "DATE_FIN_CONTRAT"},
                     { data: "DATE_SIGNATURE_CLIENT"},
                     { data: "DATE_SIGNATURE_INTERNE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

@@ -28,6 +28,7 @@
                                     <th>4 ETAPE_COURANTE</th>
                                     <th>5 MOTIF</th>
                                     <th>6 POURCENTAGE</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,6 +68,7 @@
                     { data: "ETAPE_COURANTE"},
                     { data: "MOTIF"},
                     { data: "POURCENTAGE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

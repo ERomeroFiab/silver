@@ -31,6 +31,7 @@
                                     <th>7 PAYMENT_DATE</th>
                                     <th>8 PRODUCT</th>
                                     <th>9 BALANCE_DUE</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,6 +74,7 @@
                     { data: "PAYMENT_DATE"},
                     { data: "PRODUCT"},
                     { data: "BALANCE_DUE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

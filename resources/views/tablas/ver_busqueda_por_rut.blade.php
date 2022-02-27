@@ -82,6 +82,7 @@
                                                     <th>3 PHASE</th>
                                                     <th>4 EMAIL</th>
                                                     <th>5 DATE_SIGNATURE</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -114,6 +115,7 @@
                                                     <th>3 FONCTION</th>
                                                     <th>4 E_MAIL</th>
                                                     <th>5 CONTACT_PRINCIPAL</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -147,6 +149,7 @@
                                                     <th>4 NOM</th>
                                                     <th>5 E_MAIL</th>
                                                     <th>6 ALERTE_FIN_CONTRAT</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -176,6 +179,7 @@
                                                 <tr>
                                                     <th>1 PRODUIT</th>
                                                     <th>2 NO_CONTRAT_PARTIEL</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -207,6 +211,7 @@
                                                     <th>2 DOCUMENT_FICHIER_TYPE</th>
                                                     <th>3 ORIGINE</th>
                                                     <th>4 DOCUMENT_FICHIER_DATE</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -236,6 +241,7 @@
                                                 <tr>
                                                     <th>1 NOTE</th>
                                                     <th>2 KOMPASS_ID</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -269,6 +275,7 @@
                                                     <th>4 INVOICE_NBER</th>
                                                     <th>5 PRODUCT</th>
                                                     <th>6 STATUS</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -302,6 +309,7 @@
                                                     <th>4 NO_MISSION</th>
                                                     <th>5 PRODUIT</th>
                                                     <th>6 POURCENTAGE</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -333,6 +341,7 @@
                                                     <th>2 DATE_DEBUT</th>
                                                     <th>3 DATE_FIN</th>
                                                     <th>4 CONSULTANT</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -365,6 +374,7 @@
                                                     <th>3 FAMILLE</th>
                                                     <th>4 COMMERCIAL</th>
                                                     <th>5 DATE_SIGNATURE</th>
+                                                    <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -419,6 +429,7 @@
                     { data: "RESULTAT"},
                     { data: "SUIVI_PAR"},
                     { data: "TYPE_EVENEMENT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -452,6 +463,7 @@
                     { data: "PHASE"},
                     { data: "EMAIL"},
                     { data: "DATE_SIGNATURE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -485,6 +497,7 @@
                     { data: "FONCTION"},
                     { data: "E_MAIL"},
                     { data: "CONTACT_PRINCIPAL"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -519,6 +532,7 @@
                     { data: "NOM"},
                     { data: "E_MAIL"},
                     { data: "ALERTE_FIN_CONTRAT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -549,6 +563,7 @@
                 columns: [
                     { data: "PRODUIT"},
                     { data: "NO_CONTRAT_PARTIEL"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -581,6 +596,7 @@
                     { data: "DOCUMENT_FICHIER_TYPE"},
                     { data: "ORIGINE"},
                     { data: "DOCUMENT_FICHIER_DATE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -611,6 +627,7 @@
                 columns: [
                     { data: "NOTE"},
                     { data: "KOMPASS_ID"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -645,6 +662,7 @@
                     { data: "INVOICE_NBER"},
                     { data: "PRODUCT"},
                     { data: "STATUS"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -679,6 +697,7 @@
                     { data: "NO_MISSION"},
                     { data: "PRODUIT"},
                     { data: "POURCENTAGE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -711,6 +730,7 @@
                     { data: "DATE_DEBUT"},
                     { data: "DATE_FIN"},
                     { data: "CONSULTANT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -744,6 +764,7 @@
                     { data: "FAMILLE"},
                     { data: "COMMERCIAL"},
                     { data: "DATE_SIGNATURE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,

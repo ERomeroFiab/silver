@@ -8,12 +8,12 @@ use App\Models\Action;
 
 class ActionController extends Controller
 {
-    public function show($id_action)
+    public function show(Request $request)
     {
         $relations = [
             //
         ];
-        $action = Action::where('ID_ACTION', $id_action)->with( $relations )->first();
+        $action = Action::where('ID_ACTION', $request->get('id_action'))->with( $relations )->first();
 
         return view('models.action.show', ['action' => $action]);
     }

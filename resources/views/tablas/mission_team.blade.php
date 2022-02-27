@@ -28,6 +28,7 @@
                                     <th>4 DATE_FIN</th>
                                     <th>5 SYS_DATE_CREATION</th>
                                     <th>6 SYS_DATE_MODIFICATION</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,6 +68,7 @@
                     { data: "DATE_FIN"},
                     { data: "SYS_DATE_CREATION"},
                     { data: "SYS_DATE_MODIFICATION"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

@@ -208,6 +208,7 @@
                     { data: "LOGIN"},
                     { data: "SYS_DATE_CREATION"},
                     { data: "SYS_DATE_MODIFICATION"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,
@@ -240,6 +241,7 @@
                     { data: "DOCUMENT_FICHIER_TYPE"},
                     { data: "ORIGINE"},
                     { data: "DOCUMENT_FICHIER_DATE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 5,

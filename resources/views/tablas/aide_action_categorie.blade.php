@@ -27,6 +27,7 @@
                                     <th>3 GROUPE</th>
                                     <th>4 MISE_A_JOUR_AGENDA</th>
                                     <th>5 TYPE_EVENEMENT</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "GROUPE"},
                     { data: "MISE_A_JOUR_AGENDA"},
                     { data: "TYPE_EVENEMENT"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

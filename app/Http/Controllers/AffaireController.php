@@ -8,12 +8,12 @@ use App\Models\Affaire;
 
 class AffaireController extends Controller
 {
-    public function show($id_affaire)
+    public function show(Request $request)
     {
         $relations = [
             "affaire_conditions_financieres",
         ];
-        $affaire = Affaire::where('ID_AFFAIRE', $id_affaire)->with( $relations )->first();
+        $affaire = Affaire::where('ID_AFFAIRE', $request->get('id_affaire'))->with( $relations )->first();
 
         return view('models.affaire.show', ['affaire' => $affaire]);
     }

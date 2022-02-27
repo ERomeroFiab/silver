@@ -25,6 +25,7 @@
                                     <th>1 OBJECTIONS</th>
                                     <th>2 SYS_DATE_CREATION</th>
                                     <th>3 SYS_DATE_MODIFICATION</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,6 +62,7 @@
                     { data: "OBJECTIONS"},
                     { data: "SYS_DATE_CREATION"},
                     { data: "SYS_DATE_MODIFICATION"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

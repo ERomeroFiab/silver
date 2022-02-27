@@ -8,7 +8,7 @@ use App\Models\Contrat;
 
 class ContratController extends Controller
 {
-    public function show($id_contrat)
+    public function show(Request $request)
     {
         $relations = [
             "actions",
@@ -19,7 +19,7 @@ class ContratController extends Controller
             "invoices",
             "missions",
         ];
-        $contrat = Contrat::where('ID_CONTRAT', $id_contrat)->with( $relations )->first();
+        $contrat = Contrat::where('ID_CONTRAT', $request->get('id_contrat'))->with( $relations )->first();
 
         return view('models.contrat.show', ['contrat' => $contrat]);
     }

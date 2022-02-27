@@ -36,6 +36,7 @@
                                     <th>12 STATUT</th>
                                     <th>13 SUIVI_PAR</th>
                                     <th>14 TOTAL_PREVISIONNEL</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -83,6 +84,7 @@
                     { data: "STATUT"},
                     { data: "SUIVI_PAR"},
                     { data: "TOTAL_PREVISIONNEL"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

@@ -8,12 +8,12 @@ use App\Models\Identification;
 
 class IdentificationController extends Controller
 {
-    public function show($id_identification)
+    public function show(Request $request)
     {
         $relations = [
             //
         ];
-        $identification = Identification::where('ID_IDENTIFICATION', $id_identification)->with( $relations )->first();
+        $identification = Identification::where('ID_IDENTIFICATION', $request->get('id_identification'))->with( $relations )->first();
 
         return view('models.identification.show', ['identification' => $identification]);
     }

@@ -27,6 +27,7 @@
                                     <th>3 SEUIL_MIN</th>
                                     <th>4 VALEUR</th>
                                     <th>5 YEAR</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "SEUIL_MIN"},
                     { data: "VALEUR"},
                     { data: "YEAR"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

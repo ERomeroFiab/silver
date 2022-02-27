@@ -27,6 +27,7 @@
                                     <th>3 SOLVED</th>
                                     <th>4 STEP</th>
                                     <th>5 OBJECTIONS</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "SOLVED"},
                     { data: "STEP"},
                     { data: "OBJECTIONS"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

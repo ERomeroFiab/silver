@@ -27,6 +27,7 @@
                                     <th>3 SERVICE</th>
                                     <th>4 FONCTION</th>
                                     <th>5 CONTACT_PRINCIPAL</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "SERVICE"},
                     { data: "FONCTION"},
                     { data: "CONTACT_PRINCIPAL"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

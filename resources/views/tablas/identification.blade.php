@@ -67,15 +67,16 @@
                         <table id="tabla_identification" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
-                                    <th>1  ID_IDENTIFICATION</th>
-                                    <th>2  SIRET</th>
-                                    <th>3  ADRESSE1</th>
-                                    <th>4  AUDITEUR</th>
-                                    <th>5  EFFECTIF</th>
-                                    <th>6  GROUP</th>
-                                    <th>7  RAISON_SOC</th>
-                                    <th>8  TYPE_FICHE</th>
-                                    <th>9  VILLE</th>
+                                    <th>1 ID_IDENTIFICATION</th>
+                                    <th>2 SIRET</th>
+                                    <th>3 ADRESSE1</th>
+                                    <th>4 AUDITEUR</th>
+                                    <th>5 EFFECTIF</th>
+                                    <th>6 GROUP</th>
+                                    <th>7 RAISON_SOC</th>
+                                    <th>8 TYPE_FICHE</th>
+                                    <th>9 VILLE</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -126,6 +127,7 @@
                     { data: "RAISON_SOC"},
                     { data: "TYPE_FICHE"},
                     { data: "VILLE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

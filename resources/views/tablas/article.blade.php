@@ -26,6 +26,7 @@
                                     <th>2 FAMILLE</th>
                                     <th>3 PRIX_ACHAT</th>
                                     <th>4 PRIX_VENTE</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,6 +64,7 @@
                     { data: "FAMILLE"},
                     { data: "PRIX_ACHAT"},
                     { data: "PRIX_VENTE"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

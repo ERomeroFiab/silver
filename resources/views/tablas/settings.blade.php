@@ -27,6 +27,7 @@
                                     <th>3 CONTRACT_DUNNING_PERIOD</th>
                                     <th>4 CONTRACT_DURATION</th>
                                     <th>5 COUNTRY</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "CONTRACT_DUNNING_PERIOD"},
                     { data: "CONTRACT_DURATION"},
                     { data: "COUNTRY"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,

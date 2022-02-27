@@ -8,12 +8,12 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function show($id_contact)
+    public function show(Request $request)
     {
         $relations = [
             //
         ];
-        $contact = Contact::where('ID_CONTACT', $id_contact)->with( $relations )->first();
+        $contact = Contact::where('ID_CONTACT', $request->get('id_contact'))->with( $relations )->first();
 
         return view('models.contact.show', ['contact' => $contact]);
     }

@@ -27,6 +27,7 @@
                                     <th>3 SYS_DATE_MODIFICATION</th>
                                     <th>4 SYS_USER_CREATION</th>
                                     <th>5 SYS_USER_MODIFICATION</th>
+                                    <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@
                     { data: "SYS_DATE_MODIFICATION"},
                     { data: "SYS_USER_CREATION"},
                     { data: "SYS_USER_MODIFICATION"},
+                    { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
