@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\MissionMotiveEco;
+use App\Models\MissionMotiveEco;
 
 class MissionMotiveEcoController extends Controller
 {
