@@ -13,9 +13,6 @@ class EmpresaController extends Controller
     {
         $empresas = Identification::select( "GROUP" )->distinct('GROUP')->get();
         
-        return response()->json([
-            'status' => "ok",
-            'data' => $empresas
-        ]);
+        return response()->json($empresas);
     }
 }
