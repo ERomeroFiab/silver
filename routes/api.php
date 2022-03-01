@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/empresas/get_empresas_name', [App\Http\Controllers\api\EmpresaController::class, 'get_empresas_name']);
+Route::get('/empresas/get_razones_sociales', [App\Http\Controllers\api\RazonSocialController::class, 'get_razones_sociales']);
