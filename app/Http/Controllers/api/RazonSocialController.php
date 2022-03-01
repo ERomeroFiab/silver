@@ -20,6 +20,9 @@ class RazonSocialController extends Controller
             "CODE_POSTAL",
         ];
         $razones_sociales = Identification::select( $columns )->get();
-        return $razones_sociales;
+        return response()->json([
+            'status' => "ok",
+            'data' => $razones_sociales
+        ]);
     }
 }

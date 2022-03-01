@@ -12,6 +12,10 @@ class EmpresaController extends Controller
     public function get_empresas_name()
     {
         $empresas = Identification::select( "GROUP" )->distinct('GROUP')->get();
-        return $empresas;
+        
+        return response()->json([
+            'status' => "ok",
+            'data' => $empresas
+        ]);
     }
 }
