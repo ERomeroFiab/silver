@@ -19,7 +19,7 @@ class RazonSocialController extends Controller
             "TYPE_FICHE",
             "CODE_POSTAL",
         ];
-        $razones_sociales = Identification::select( $columns )->get();
+        $razones_sociales = Identification::select( $columns )->where('TYPE_FICHE', 'Client')->get();
         return response()->json($razones_sociales);
     }
 }
