@@ -508,7 +508,7 @@ class DatatableController extends Controller
         ];
 
         $datos = Mission::select( $columns )->with( $relations )->withCount( $relations );
-
+        
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
                                 
@@ -518,6 +518,29 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ( $request->get('SEARCH_BY_NO_MISSION') !== null ) {
+                                    $query->where('NO_MISSION', 'like', "%".$request->get('SEARCH_BY_NO_MISSION')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_CURRENT_STEP') !== null ) {
+                                    $query->where('CURRENT_STEP', 'like', "%".$request->get('SEARCH_BY_CURRENT_STEP')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_NO_CONTRAT') !== null ) {
+                                    $query->where('NO_CONTRAT', 'like', "%".$request->get('SEARCH_BY_NO_CONTRAT')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_PRODUIT') !== null ) {
+                                    $query->where('PRODUIT', 'like', "%".$request->get('SEARCH_BY_PRODUIT')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_RUT') !== null ) {
+                                    $rut = $request->get('SEARCH_BY_RUT');
+                                    $query->whereHas('identification', function($q) use ($rut){
+                                        $q->where('SIRET', 'like', "%".$rut."%");
+                                    });
                                 }
 
                             })
