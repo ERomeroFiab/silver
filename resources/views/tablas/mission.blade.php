@@ -182,7 +182,11 @@
 
 
         // Pintar en verde los inputs que contienen algo
-        $( "#aaa" ).change(function() { agregar_quitar_bg_success('bbb'); });
+        $( "#input__NO_MISSION" ).change(function() { agregar_quitar_bg_success('input__NO_MISSION'); });
+        $( "#input__CURRENT_STEP" ).change(function() { agregar_quitar_bg_success('input__CURRENT_STEP'); });
+        $( "#input__NO_CONTRAT" ).change(function() { agregar_quitar_bg_success('input__NO_CONTRAT'); });
+        $( "#input__PRODUIT" ).change(function() { agregar_quitar_bg_success('input__PRODUIT'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
 
         function agregar_quitar_bg_success(id){
             if ( $(`#${id}`).val() !== "" ) {
