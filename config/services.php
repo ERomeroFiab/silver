@@ -30,4 +30,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'BEARER_TOKEN_FOR_REQUESTS_TO_SILVER' => env('BEARER_TOKEN_FOR_REQUESTS_TO_SILVER'),
+
 ];
