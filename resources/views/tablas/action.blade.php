@@ -13,10 +13,63 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h2>Tabla: <b>action</b> (54 columnas)</h2>
+                <h3 class="my-0">Tabla: <b>action</b></h3>
+                <p>(Total: {{ count( config('tablas')['action'] ) }} columnas)</p>
             </div>
             <div class="card-body">
                 <div class="row">
+
+                    <div class="col-3 form-group">
+                        <label>CATEGORIE:</label>
+                        <input id="input__CATEGORIE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>EMPLACEMENT:</label>
+                        <input id="input__EMPLACEMENT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>E_MAIL:</label>
+                        <input id="input__E_MAIL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOM:</label>
+                        <input id="input__NOM" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOTE:</label>
+                        <input id="input__NOTE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RESULTAT:</label>
+                        <input id="input__RESULTAT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SUIVI_PAR:</label>
+                        <input id="input__SUIVI_PAR" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>TYPE_EVENEMENT:</label>
+                        <input id="input__TYPE_EVENEMENT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION:</label>
+                        <input id="input__SYS_DATE_MODIFICATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RUT:</label>
+                        <input id="input__RUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAZON SOCIAL:</label>
+                        <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
@@ -30,8 +83,8 @@
                                     <th>7 SUIVI_PAR</th>
                                     <th>8 TYPE_EVENEMENT</th>
                                     <th>9 SYS_DATE_MODIFICATION</th>
-                                    <th>10 Rut</th>
-                                    <th>11 Razón Social</th>
+                                    <th>10 RUT</th>
+                                    <th>11 RAZON SOCIAL</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -50,10 +103,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_ORDENES;
+        let TABLA_ACTION;
         $(document).ready(function() {
 
-            TABLA_ORDENES = $('#tabla_action').DataTable({
+            TABLA_ACTION = $('#tabla_action').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -62,7 +115,17 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CATEGORIE              = $('#input__CATEGORIE').val();
+                        d.SEARCH_BY_EMPLACEMENT            = $('#input__EMPLACEMENT').val();
+                        d.SEARCH_BY_E_MAIL                 = $('#input__E_MAIL').val();
+                        d.SEARCH_BY_NOM                    = $('#input__NOM').val();
+                        d.SEARCH_BY_NOTE                   = $('#input__NOTE').val();
+                        d.SEARCH_BY_RESULTAT               = $('#input__RESULTAT').val();
+                        d.SEARCH_BY_SUIVI_PAR              = $('#input__SUIVI_PAR').val();
+                        d.SEARCH_BY_TYPE_EVENEMENT         = $('#input__TYPE_EVENEMENT').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION  = $('#input__SYS_DATE_MODIFICATION').val();
+                        d.SEARCH_BY_RUT                    = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL           = $('#input__RAZON_SOCIAL').val();
                     }
                 },
                 columns: [
@@ -75,8 +138,8 @@
                     { data: "SUIVI_PAR"},
                     { data: "TYPE_EVENEMENT"},
                     { data: "SYS_DATE_MODIFICATION"},
-                    { data: "rut"},
-                    { data: "razon_social"},
+                    { data: "RUT"},
+                    { data: "RAZON_SOCIAL"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
@@ -141,6 +204,9 @@
 
         });
 
+        function buscar(){
+            TABLA_ACTION.draw();
+        }
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -148,17 +214,19 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
-
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
+        $( "#input__CATEGORIE" ).change(function() { agregar_quitar_bg_success('input__CATEGORIE'); });
+        $( "#input__EMPLACEMENT" ).change(function() { agregar_quitar_bg_success('input__EMPLACEMENT'); });
+        $( "#input__E_MAIL" ).change(function() { agregar_quitar_bg_success('input__E_MAIL'); });
+        $( "#input__NOM" ).change(function() { agregar_quitar_bg_success('input__NOM'); });
+        $( "#input__NOTE" ).change(function() { agregar_quitar_bg_success('input__NOTE'); });
+        $( "#input__RESULTAT" ).change(function() { agregar_quitar_bg_success('input__RESULTAT'); });
+        $( "#input__SUIVI_PAR" ).change(function() { agregar_quitar_bg_success('input__SUIVI_PAR'); });
+        $( "#input__TYPE_EVENEMENT" ).change(function() { agregar_quitar_bg_success('input__TYPE_EVENEMENT'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        //$( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
+        //$( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
         // function agregar_quitar_bg_success(id){
         //     if ( $(`#${id}`).val() !== "" ) {

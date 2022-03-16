@@ -100,19 +100,64 @@ class DatatableController extends Controller
                             ->filter(function ($query) use ($request, $columns) {
 
                                 foreach ($columns as $column) { // filtro por llaves foráneas
+                            
                                     if (str_contains($column, "PID_")) {
                                         if ( $request->get('SEARCH_BY_'.$column) !== null ) {
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
                                 }
+                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
+                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CAEGORIE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_EMPLACEMENT") !== null){
+                                    $query->where("EMPLACEMENT","like","%" . $request->get('SEARCH_BY_EMPLACEMENT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_E_MAIL") !== null){
+                                    $query->where("E_MAIL","like","%" . $request->get('SEARCH_BY_E_MAIL') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NOM") !== null){
+                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM"') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NOTE") !== null){
+                                    $query->where("NOTE","like","%" . $request->get('SEARCH_BY_NOTE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RESULTAT") !== null){
+                                    $query->where("RESULTAT","like","%" . $request->get('SEARCH_BY_RESULTAT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SUIVI_PAR") !== null){
+                                    $query->where("SUIVI_PAR","like","%" . $request->get('SEARCH_BY_SUIVI_PAR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_TYPE_EVENEMENT") !== null){
+                                    $query->where("TYPE_EVENEMENT","like","%" . $request->get('SEARCH_BY_TYPE_EVENEMENT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+                                    $query->where("RUT","like","%" . $request->get('SEARCH_BY_RUT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $query->where("RAZON_SOCIAL","like","%" . $request->get('SEARCH_BY_RAZON_SOCIAL') . "%");
+                                }
+
 
                             })
                             ->addColumn('rut', function ($dato) {
                                 if ( $dato->identification ) {
                                     return $dato->identification->SIRET;
                                 }
-                                return "-";
+                                return "-"; 
                             })
                             ->addColumn('razon_social', function ($dato) {
                                 if ( $dato->identification ) {
@@ -2153,7 +2198,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-
                             })
                             ->toJson();
     }

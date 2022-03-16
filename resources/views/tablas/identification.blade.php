@@ -18,7 +18,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-
+                    
                     <div class="col-3 form-group">
                         <label>ID_IDENTIFICATION:</label>
                         <input id="input__ID_IDENTIFICATION" type="text" class="form-control">
