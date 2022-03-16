@@ -120,7 +120,7 @@ class DatatableController extends Controller
                                 }
 
                                 if ($request->get("SEARCH_BY_NOM") !== null){
-                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM"') . "%");
+                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM') . "%");
                                 }
 
                                 if ($request->get("SEARCH_BY_NOTE") !== null){
@@ -144,7 +144,13 @@ class DatatableController extends Controller
                                 }
 
                                 if ($request->get("SEARCH_BY_RUT") !== null){
-                                    $query->where("RUT","like","%" . $request->get('SEARCH_BY_RUT') . "%");
+
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
+
+                                    $query->whereHas('identification', function($q) use ($palabra){
+                                        $q->where('SIRET', 'like', $palabra);
+                                    });
+
                                 }
 
                                 if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){

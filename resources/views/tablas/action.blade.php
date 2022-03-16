@@ -138,8 +138,8 @@
                     { data: "SUIVI_PAR"},
                     { data: "TYPE_EVENEMENT"},
                     { data: "SYS_DATE_MODIFICATION"},
-                    { data: "RUT"},
-                    { data: "RAZON_SOCIAL"},
+                    { data: "rut"},
+                    { data: "razon_social"},
                     { data: 'action', orderable: false, searchable: false}
                 ],
                 // order: [[ 1, 'desc' ]],
