@@ -17,7 +17,41 @@
                 <p>(Total: {{ count( config('tablas')['affaire_conditions_financieres'] ) }} columnas)</p>
             </div>
             <div class="card-body">
+                <div class="row"><div class="col-3 form-group">
+                    <label>TYPE:</label>
+                    <input id="input__TYPE" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>VALEUR:</label>
+                    <input id="input__VALEUR" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>YEAR:</label>
+                    <input id="input__YEAR" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>SYS_DATE_CREATION:</label>
+                    <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>RUT:</label>
+                    <input id="input__RUT" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>RAZON SOCIAL:</label>
+                    <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>SYS_DATE_MODIFICATION:</label>
+                    <input id="input__SYS_DATE_MODIFICATION" type="text" class="form-control">
+                </div>
+                
+            </div>
                 <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
+                </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_affaire_conditions_financieres" class="table-hover" style="width:100%;">
                             <thead>
@@ -26,8 +60,8 @@
                                     <th>2 VALEUR</th>
                                     <th>3 YEAR</th>
                                     <th>4 SYS_DATE_CREATION</th>
-                                    <th>5 Rut</th>
-                                    <th>6 Razón Social</th>
+                                    <th>5 RUT</th>
+                                    <th>6 RAZON_SOCIAL</th>
                                     <th>7 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -59,7 +93,13 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_TYPE                      = $('#input__TYPE').val();
+                        d.SEARCH_BY_VALEUR                    = $('#input__VALEUR').val();
+                        d.SEARCH_BY_YEAR                      = $('#input__YEAR').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION         = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_RUT                       = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL              = $('#input__RAZON_SOCIAL').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION     = $('#input__SYS_DATE_MODIFICATION').val();
                     }
                 },
                 columns: [
@@ -133,6 +173,9 @@
             }
 
         });
+        function buscar(){
+            TABLA_ORDENES.draw();
+        }
 
 
         // Refilter the table
@@ -141,25 +184,25 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__TYPE" ).change(function() { agregar_quitar_bg_success('input__TYPE'); });
+        $( "#input__VALEUR" ).change(function() { agregar_quitar_bg_success('input__VALEUR'); });
+        $( "#input__YEAR" ).change(function() { agregar_quitar_bg_success('input__YEAR'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
+        //$( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
 
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

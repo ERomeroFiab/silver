@@ -233,6 +233,87 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ($request->get("SEARCH_BY_ID_AFFAIRE") !== null){
+                                    $query->where("ID_AFFAIRE","like","%" . $request->get('SEARCH_BY_ID_AFFAIRE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_CIVILITE") !== null){
+                                    $query->where("CIVILITE","like","%" . $request->get('SEARCH_BY_CIVILITE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_DATE_PREVISIONNEL") !== null){
+                                    $query->where("DATE_PREVISIONNEL","like","%" . $request->get('SEARCH_BY_DATE_PREVISIONNEL') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_DATE_SIGNATURE") !== null){
+                                    $query->where("DATE_SIGNATURE","like","%" . $request->get('SEARCH_BY_DATE_SIGNATURE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
+                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_PRENOM") !== null){
+                                    $query->where("PRENOM","like","%" . $request->get('SEARCH_BY_PRENOM') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NOM") !== null){
+                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NO_AFFAIRE") !== null){
+                                    $query->where("NO_AFFAIRE","like","%" . $request->get('SEARCH_BY_NO_AFFAIRE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_PHASE") !== null){
+                                    $query->where("PHASE","like","%" . $request->get('SEARCH_BY_PHASE') . "%");
+                                }
+
+                                
+                                if ($request->get("SEARCH_BY_PROBABILITE") !== null){
+                                    $query->where("PROBABILITE","like","%" . $request->get('SEARCH_BY_PROBABILITE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_PRODUIT") !== null){
+                                    $query->where("PRODUIT","like","%" . $request->get('SEARCH_BY_PRODUIT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_STATUT") !== null){
+                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SUIVI_PAR") !== null){
+                                    $query->where("SUIVI_PAR","like","%" . $request->get('SEARCH_BY_SUIVI_PAR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_TOTAL_PREVISIONNEL") !== null){
+                                    $query->where("TOTAL_PREVISIONNEL","like","%" . $request->get('SEARCH_BY_TOTAL_PREVISIONNEL') . "%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_ACTIONS_COUNT') !== null ) {
+                                    $query->having('ACTIONS_COUNT', strval($request->get('SEARCH_BY_ACTIONS_COUNT')));
+                                }
+
+
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
+                                    $query->whereHas('identification', function($q) use ($palabra){
+                                        $q->where('SIRET', 'like', $palabra);
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
+                                    $query->whereHas('identification', function($q) use ($palabra){
+                                        $q->where('RAISON_SOC', 'like', $palabra);
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+
                             })
                             ->addColumn('rut', function ($dato) {
                                 if ( $dato->identification ) {
@@ -779,7 +860,6 @@ class DatatableController extends Controller
         ];
 
         $datos = AffaireConditionsFinanciere::select( $columns )->with( $relations );
-
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
                                 
@@ -789,6 +869,31 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ($request->get("SEARCH_BY_TYPE") !== null){
+                                    $query->where("TYPE","like","%" . $request->get('SEARCH_BY_TYPE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_VALEUR") !== null){
+                                    $query->where("VALEUR","like","%" . $request->get('SEARCH_BY_VALEUR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_YEAR") !== null){
+                                    $query->where("YEAR","like","%" . $request->get('SEARCH_BY_YEAR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."&";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('SIRET','like', $palabra);
+                                        });
+                                    });
                                 }
 
                             })

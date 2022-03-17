@@ -63,13 +63,12 @@
                         <label>RAZON SOCIAL:</label>
                         <input id="input__RAZON_SOCIAL" type="text" class="form-control">
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
                     </div>
                 </div>
-
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
@@ -228,13 +227,13 @@
         //$( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         //$( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
