@@ -108,6 +108,8 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+
+                                //filtros Tabla: action
                                 if ($request->get("SEARCH_BY_CATEGORIE") !== null){
                                     $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CAEGORIE') . "%");
                                 }
@@ -271,7 +273,7 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-
+                                //filtros Tabla: affaire
                                 if ($request->get("SEARCH_BY_ID_AFFAIRE") !== null){
                                     $query->where("ID_AFFAIRE","like","%" . $request->get('SEARCH_BY_ID_AFFAIRE') . "%");
                                 }
@@ -909,7 +911,7 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-
+                                //filtros Tabla: affaire_conditions_financieres
                                 if ($request->get("SEARCH_BY_TYPE") !== null){
                                     $query->where("TYPE","like","%" . $request->get('SEARCH_BY_TYPE') . "%");
                                 }
@@ -927,12 +929,25 @@ class DatatableController extends Controller
                                 }
 
                                 if ($request->get("SEARCH_BY_RUT") !== null){
-                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."&";
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
                                     $query->whereHas('affaire',function($q1) use ($palabra){
                                         $q1->whereHas('identification',function($q2) use ($palabra){
                                             $q2->where('SIRET','like', $palabra);
                                         });
                                     });
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('RAISON_SOC','like', $palabra);
+                                        });
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -977,6 +992,50 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                //filtros Tabla: affaire_objections
+                                
+                                if ($request->get("SEARCH_BY_COMMENTS") !== null){
+                                    $query->where("COMMENTS","like","%" . $request->get('SEARCH_BY_COMMENTS') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_DATE") !== null){
+                                    $query->where("DATE","like","%" . $request->get('SEARCH_BY_DATE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SOLVED") !== null){
+                                    $query->where("SOLVED","like","%" . $request->get('SEARCH_BY_SOLVED') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_STEP") !== null){
+                                    $query->where("STEP","like","%" . $request->get('SEARCH_BY_STEP') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_OBJECTIONS") !== null){
+                                    $query->where("OBJECTIONS","like","%" . $request->get('SEARCH_BY_OBJECTIONS') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('SIRET','like', $palabra);
+                                        });
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('RAISON_SOC','like', $palabra);
+                                        });
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -1123,6 +1182,27 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                //filtros Tabla: aide_action_categorie
+
+                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
+                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CATEGORIE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_EXCLUSIVE") !== null){
+                                    $query->where("EXCLUSIVE","like","%" . $request->get('SEARCH_BY_EXCLUSIVE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_GROUPE") !== null){
+                                    $query->where("GROUPE","like","%" . $request->get('SEARCH_BY_GROUPE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_MISE_A_JOUR_AGENDA") !== null){
+                                    $query->where("MISE_A_JOUR_AGENDA","like","%" . $request->get('SEARCH_BY_MISE_A_JOUR_AGENDA') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_TYPE_EVENEMENT") !== null){
+                                    $query->where("TYPE_EVENEMENT","like","%" . $request->get('SEARCH_BY_TYPE_EVENEMENT') . "%");
+                                }
                             })
                             ->toJson();
     }
@@ -1146,6 +1226,20 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                //filtros Tabla: aide_action_objet
+
+                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
+                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CATEGORIE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_OBJET") !== null){
+                                    $query->where("OBJET","like","%" . $request->get('SEARCH_BY_OBJET') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -1324,7 +1418,20 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                //filtros Tabla: aide_action_objet
+                                if ($request->get("SEARCH_BY_ORIGINE") !== null){
+                                    $query->where("ORIGINE","like","%" . $request->get('SEARCH_BY_ORIGINE') . "%");
+                                }
+                                
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
                             })
+                            
                             ->toJson();
     }
 
