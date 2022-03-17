@@ -17,7 +17,8 @@
                 <p>(Total: {{ count( config('tablas')['affaire_conditions_financieres'] ) }} columnas)</p>
             </div>
             <div class="card-body">
-                <div class="row"><div class="col-3 form-group">
+                <div class="row">
+                <div class="col-3 form-group">
                     <label>TYPE:</label>
                     <input id="input__TYPE" type="text" class="form-control">
                 </div>

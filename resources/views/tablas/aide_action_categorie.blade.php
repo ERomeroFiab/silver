@@ -18,6 +18,32 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>CATEGORIE:</label>
+                        <input id="input__CATEGORIE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>EXCLUSIVE</label>
+                        <input id="input__EXCLUSIVE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>GROUPE:</label>
+                        <input id="input__GROUPE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>MISE_A_JOUR_AGENDA</label>
+                        <input id="input__MISE_A_JOUR_AGENDA" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>TYPE_EVENEMENT:</label>
+                        <input id="input__TYPE_EVENEMENT" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
+                </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_action_categorie" class="table-hover" style="width:100%;">
                             <thead>
@@ -44,10 +70,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_action_categorie;
+        let TABLA_AIDE_ACTION_CATEGORIE;
         $(document).ready(function() {
 
-            TABLA_aide_action_categorie = $('#tabla_aide_action_categorie').DataTable({
+            TABLA_AIDE_ACTION_CATEGORIE = $('#tabla_aide_action_categorie').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -56,7 +82,11 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CATEGORIE                = $('#input__CATEGORIE').val();
+                        d.SEARCH_BY_EXCLUSIVE                = $('#input__EXCLUSIVE').val();
+                        d.SEARCH_BY_GROUPE                   = $('#input__GROUPE').val();
+                        d.SEARCH_BY_MISE_A_JOUR_AGENDA       = $('#input__MISE_A_JOUR_AGENDA').val();
+                        d.SEARCH_BY_TYPE_EVENEMENT           = $('#input__TYPE_EVENEMENT').val();
                     }
                 },
                 columns: [
@@ -127,19 +157,22 @@
             }
 
         });
+        function buscar(){
+            TABLA_AIDE_ACTION_CATEGORIE.draw();
+        }
 
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
-        //     TABLA_aide_action_categorie.draw();
+        //     TABLA_AIDE_ACTION_CATEGORIE.draw();
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
+        $( "#input__CATEGORIE" ).change(function() { agregar_quitar_bg_success('input__CATEGORIE'); });
+        $( "#input__EXCLUSIVE" ).change(function() { agregar_quitar_bg_success('input__EXCLUSIVE'); });
+        $( "#input__GROUPE" ).change(function() { agregar_quitar_bg_success('input__GROUPE'); });
+        $( "#input__MISE_A_JOUR_AGENDA" ).change(function() { agregar_quitar_bg_success('input__MISE_A_JOUR_AGENDA'); });
+        $( "#input__TYPE_EVENEMENT" ).change(function() { agregar_quitar_bg_success('input__TYPE_EVENEMENT'); });
         // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
         // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
         // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
@@ -147,13 +180,13 @@
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
