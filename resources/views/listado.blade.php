@@ -89,7 +89,11 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
+<<<<<<< HEAD
                         <a class="navbar-brand"> Base de datos de Silvertool  </a>
+=======
+                        <a class="navbar-brand"> Base de datos de Miguel </a>
+>>>>>>> 6cc29bc25f70f4c4276d1a9d83697c5f0cda39e1
                         {{-- <a class="navbar-brand">Portal Cliente</a> --}}
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"

@@ -18,15 +18,46 @@
             </div>
             <div class="card-body">
                 <div class="row">
+
+                    <div class="col-3 form-group">
+                        <label>CA_MAX:</label>
+                        <input id="input__CA_MAX" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>CA_MIN:</label>
+                        <input id="input__CA_MIN" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>CA_TRANCHE:</label>
+                        <input id="input__CA_TRANCHE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+
+                    <div class="col-3 form-group">
+                        <label>SYS_USER_CREATION:</label>
+                        <input id="input__SYS_USER_CREATION" type="text" class="form-control">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
+                </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_societe_ca" class="table-hover" style="width:100%;">
                             <thead>
                                 <tr>
                                     <th>1 CA_MAX</th>
-                                    <th>1 CA_MIN</th>
-                                    <th>1 CA_TRANCHE</th>
-                                    <th>1 SYS_DATE_CREATION</th>
-                                    <th>1 SYS_USER_CREATION</th>
+                                    <th>2 CA_MIN</th>
+                                    <th>3 CA_TRANCHE</th>
+                                    <th>4 SYS_DATE_CREATION</th>
+                                    <th>5 SYS_USER_CREATION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,7 +87,12 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CA_MAX = $('#input__CA_MAX').val();
+                        d.SEARCH_BY_CA_MIN = $('#input__CA_MIN').val();
+                        d.SEARCH_BY_CA_TRANCHE = $('#input__CA_TRANCHE').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_SYS_USER_CREATION = $('#input__SYS_USER_CREATION').val();
+                        
                     }
                 },
                 columns: [
@@ -128,6 +164,10 @@
 
         });
 
+        function buscar() {
+            TABLA_aide_societe_ca.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -135,25 +175,20 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__CA_MAX" ).change(function() { agregar_quitar_bg_success('input__CA_MAX'); });
+        $( "#input__CA_MIN" ).change(function() { agregar_quitar_bg_success('input__CA_MIN'); });
+        $( "#input__CA_TRANCHE" ).change(function() { agregar_quitar_bg_success('input__CA_TRANCHE'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__SYS_USER_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_USER_CREATION'); });
+        
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
