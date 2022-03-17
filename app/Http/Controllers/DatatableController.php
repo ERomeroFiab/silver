@@ -136,8 +136,8 @@ class DatatableController extends Controller
         ];
         
         $datos = ActionIntervenantsFiabilis::select( $columns )->with( $relations );
-        $starts = $request->get('search_by_periodo_desde') ? Carbon::parse( $request->get('search_by_periodo_desde') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->subYears(100);
-        $ends = $request->get('search_by_periodo_hasta') ? Carbon::parse( $request->get('search_by_periodo_hasta') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->addYears(100);
+        $starts = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->subYears(100);
+        $ends = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->addYears(100);
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns, $starts, $ends){
@@ -1887,6 +1887,34 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+
+                                    if ( $request->get('SEARCH_BY_CODE_POSTAL') !== null ) {
+                                        $query->where('CODE_POSTAL', $request->get('SEARCH_BY_CODE_POSTAL'));
+                                    }
+
+                                    if ( $request->get('SEARCH_BY_COMMUNE') !== null ) {
+                                        $query->where('COMMUNE', $request->get('SEARCH_BY_COMMUNE'));
+                                    }
+
+                                    if ( $request->get('SEARCH_BY_INSEE') !== null ) {
+                                        $query->where('INSEE', $request->get('SEARCH_BY_INSEE'));
+                                    }
+
+                                    if ( $request->get('SEARCH_BY_LIB_DEPARTEMENT') !== null ) {
+                                        $query->where('LIB_DEPARTEMENT', $request->get('SEARCH_BY_LIB_DEPARTEMENT'));
+                                    }
+
+                                    if ( $request->get('SEARCH_BY_REGION') !== null ) {
+                                        $query->where('REGION', $request->get('SEARCH_BY_REGION'));
+                                    }
+
+                                    if ( $request->get('SEARCH_BY_SECTEUR') !== null ) {
+                                        $query->where('SECTEUR', $request->get('SEARCH_BY_SECTEUR'));
+                                    }
+
+                                    if ( $request->get('SEARCH_BY_SYS_USER_CREATION') !== null ) {
+                                        $query->where('SYS_USER_CREATION', $request->get('SEARCH_BY_SYS_USER_CREATION'));
+                                    }
                                 }
 
                             })
@@ -1914,6 +1942,18 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ( $request->get('SEARCH_BY_COMPANY_CLASSIFICATION') !== null ) {
+                                    $query->where('COMPANY_CLASSIFICATION', $request->get('SEARCH_BY_COMPANY_CLASSIFICATION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_SYS_DATE_CREATION') !== null ) {
+                                    $query->where('SYS_DATE_CREATION', $request->get('SEARCH_BY_SYS_DATE_CREATION'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_SYS_USER_CREATION') !== null ) {
+                                    $query->where('SYS_USER_CREATION', $request->get('SEARCH_BY_SYS_USER_CREATION'));
+                                }
+
                             })
                             ->toJson();
     }
@@ -1937,6 +1977,18 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ( $request->get('SEARCH_BY_EFFECTIF') !== null ) {
+                                    $query->where('EFFECTIF', $request->get('SEARCH_BY_EFFECTIF'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_TRANCHE_MAXI') !== null ) {
+                                    $query->where('TRANCHE_MAXI', $request->get('SEARCH_BY_TRANCHE_MAXI'));
+                                }
+
+                                if ( $request->get('SEARCH_BY_TRANCHE_MINI') !== null ) {
+                                    $query->where('TRANCHE_MINI', $request->get('SEARCH_BY_TRANCHE_MINI'));
                                 }
 
                             })

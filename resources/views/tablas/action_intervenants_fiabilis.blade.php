@@ -36,8 +36,12 @@
                         <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
                     </div>
                     <div class="col-3 form-group">
-                        <label>SYS_DATE_MODIFICATION:</label>
-                        <input id="input__SYS_DATE_MODIFICATION" type="text" class="form-control">
+                        <label>SYS_DATE_MODIFICATION desde:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION hasta:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
                     </div>
                     <div class="col-3 form-group">
                         <label>SYS_HEURE_CREATION:</label>
@@ -112,7 +116,8 @@
                         d.SEARCH_BY_LOGIN                           = $('#input__LOGIN').val();
                         d.SEARCH_BY_PID_ACTION                      = $('#input__PID_ACTION').val();
                         d.SEARCH_BY_SYS_DATE_CREATION               = $('#input__SYS_DATE_CREATION').val();
-                        d.SEARCH_BY_SYS_DATE_MODIFICATION           = $('#input__SYS_DATE_MODIFICATION').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE     = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA     = $('#input__SYS_DATE_MODIFICATION_HASTA').val();
                         d.SEARCH_BY_SYS_HEURE_CREATION              = $('#input__SYS_HEURE_CREATION').val();
                         d.SEARCH_BY_SYS_HEURE_MODIFICATION          = $('#input__SYS_HEURE_MODIFICATION').val();
                         d.SEARCH_BY_SYS_USER_CREATION               = $('#input__SYS_USER_CREATION').val();
