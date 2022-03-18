@@ -26,5 +26,7 @@ Route::middleware(['checkHeaderMiddleware'])->group(function () {
 
     Route::get('/empresas/get_empresas_name', [App\Http\Controllers\api\EmpresaController::class, 'get_empresas_name']);
     Route::get('/empresas/get_razones_sociales', [App\Http\Controllers\api\RazonSocialController::class, 'get_razones_sociales']);
+    Route::get('/empresas/get_razones_sociales_by_group_name', [App\Http\Controllers\api\RazonSocialController::class, 'get_razones_sociales_by_group_name']);
+    Route::get('/empresas/get_razon_social_by_rut', [App\Http\Controllers\api\RazonSocialController::class, 'get_razon_social_by_rut']);
     
 });
