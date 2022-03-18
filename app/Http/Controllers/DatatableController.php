@@ -1227,6 +1227,16 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_mission_motif
+                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
+                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_MOTIF") !== null){
+                                    $query->where("MOTIF","like","%" . $request->get('SEARCH_BY_MOTIF') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_PRODUIT") !== null){
+                                    $query->where("PRODUIT","like","%" . $request->get('SEARCH_BY_PRODUIT') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1251,6 +1261,25 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_mission_step
+                                if ($request->get("SEARCH_BY_DUREE") !== null){
+                                    $query->where("DUREE","like","%" . $request->get('SEARCH_BY_DUREE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_ETAPE") !== null){
+                                    $query->where("ETAPE","like","%" . $request->get('SEARCH_BY_ETAPE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
+                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_MOTIF") !== null){
+                                    $query->where("MOTIF","like","%" . $request->get('SEARCH_BY_MOTIF') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_POURCENTAGE") !== null){
+                                    $query->where("POURCENTAGE","like","%" . $request->get('SEARCH_BY_POURCENTAGE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_PRODUIT") !== null){
+                                    $query->where("PRODUIT","like","%" . $request->get('SEARCH_BY_PRODUIT') . "%");
                                 }
 
                             })
@@ -1416,6 +1445,19 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_action_resultat
+                                if ($request->get("SEARCH_BY_RESULTAT") !== null){
+                                    $query->where("RESULTAT","like","%" . $request->get('SEARCH_BY_RESULTAT') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
+                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CATEGORIE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1440,6 +1482,16 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_affaire_objections
+                                if ($request->get("SEARCH_BY_OBJECTIONS") !== null){
+                                    $query->where("OBJECTIONS","like","%" . $request->get('SEARCH_BY_OBJECTIONS') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -1466,6 +1518,20 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_affaire_perte
+                                if ($request->get("SEARCH_BY_MOTIF_PERTE") !== null){
+                                    $query->where("MOTIF_PERTE","like","%" . $request->get('SEARCH_BY_MOTIF_PERTE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_NO_GO") !== null){
+                                    $query->where("NO_GO","like","%" . $request->get('SEARCH_BY_NO_GO') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+
 
                             })
                             ->toJson();
@@ -1491,6 +1557,23 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_affaire_perte
+                                if ($request->get("SEARCH_BY_PHASE") !== null){
+                                        $query->where("PHASE","like","%" . $request->get('SEARCH_BY_PHASE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_PROBABILITE") !== null){
+                                        $query->where("PROBABILITE","like","%" . $request->get('SEARCH_BY_PROBABILITE') . "%");           
+                                }
+                                if ($request->get("SEARCH_BY_STATUT") !== null){
+                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                
 
                             })
                             ->toJson();
@@ -1515,6 +1598,16 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_affaire_statut
+                                if ($request->get("SEARCH_BY_STATUT") !== null){
+                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -1541,6 +1634,22 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_affaire_year
+                                if ($request->get("SEARCH_BY_VALUE") !== null){
+                                    $query->where("VALUE","like","%" . $request->get('SEARCH_BY_VALUE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_MODIFICATION") !== null){
+                                    $query->where("SYS_USER_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_USER_MODIFICATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1565,6 +1674,19 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_article_famille
+                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
+                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_CODE_ANALYTIQUE_SAGE") !== null){
+                                    $query->where("CODE_ANALYTIQUE_SAGE","like","%" . $request->get('SEARCH_BY_CODE_ANALYTIQUE_SAGE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -1591,6 +1713,16 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_article_provider
+                                if ($request->get("SEARCH_BY_PROVIDER") !== null){
+                                    $query->where("PROVIDER","like","%" . $request->get('SEARCH_BY_PROVIDER') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1615,6 +1747,16 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_contact_civilite
+                                if ($request->get("SEARCH_BY_CIVILITE") !== null){
+                                    $query->where("CIVILITE","like","%" . $request->get('SEARCH_BY_CIVILITE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_LIBELLE") !== null){
+                                    $query->where("LIBELLE","like","%" . $request->get('SEARCH_BY_LIBELLE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_PREFIX") !== null){
+                                    $query->where("PREFIX","like","%" . $request->get('SEARCH_BY_PREFIX') . "%");
                                 }
 
                             })
@@ -1641,6 +1783,19 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_contact_fonction
+                                if ($request->get("SEARCH_BY_FONCTION") !== null){
+                                    $query->where("FONCTION","like","%" . $request->get('SEARCH_BY_FONCTION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SERVICE") !== null){
+                                    $query->where("SERVICE","like","%" . $request->get('SEARCH_BY_SERVICE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1665,6 +1820,13 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_contact_language
+                                if ($request->get("SEARCH_BY_CODE") !== null){
+                                    $query->where("CODE","like","%" . $request->get('SEARCH_BY_CODE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_LANGUAGE") !== null){
+                                    $query->where("LANGUAGE","like","%" . $request->get('SEARCH_BY_LANGUAGE') . "%");
                                 }
 
                             })
@@ -1691,6 +1853,16 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_contact_service
+                                if ($request->get("SEARCH_BY_SERVICE") !== null){
+                                    $query->where("SERVICE","like","%" . $request->get('SEARCH_BY_SERVICE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1715,6 +1887,22 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_contrat_entity
+                                if ($request->get("SEARCH_BY_IBAN") !== null){
+                                    $query->where("IBAN","like","%" . $request->get('SEARCH_BY_IBAN') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_INITIALS") !== null){
+                                    $query->where("INITIALS","like","%" . $request->get('SEARCH_BY_INITIALS') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_NAME") !== null){
+                                    $query->where("NAME","like","%" . $request->get('SEARCH_BY_NAME') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_NB_ANNEE_A_SOUSTRAIRE") !== null){
+                                    $query->where("NB_ANNEE_A_SOUSTRAIRE","like","%" . $request->get('SEARCH_BY_NB_ANNEE_A_SOUSTRAIRE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_PREFIX_COMPTEUR") !== null){
+                                    $query->where("PREFIX_COMPTEUR","like","%" . $request->get('SEARCH_BY_PREFIX_COMPTEUR') . "%");
                                 }
 
                             })
@@ -1741,6 +1929,16 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_contrat_mode_signature
+                                if ($request->get("SEARCH_BY_MODE_SIGNATURE") !== null){
+                                    $query->where("MODE_SIGNATURE","like","%" . $request->get('SEARCH_BY_MODE_SIGNATURE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1765,6 +1963,19 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_contrat_statut
+                                if ($request->get("SEARCH_BY_STATUT") !== null){
+                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -1791,6 +2002,19 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_contrat_type
+                                if ($request->get("SEARCH_BY_TYPE") !== null){
+                                    $query->where("TYPE","like","%" . $request->get('SEARCH_BY_TYPE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1815,6 +2039,19 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_contrat_type_reconduction
+                                if ($request->get("SEARCH_BY_TYPE_RECONDUCTION") !== null){
+                                    $query->where("TYPE_RECONDUCTION","like","%" . $request->get('SEARCH_BY_TYPE_RECONDUCTION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -1841,6 +2078,19 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_events_qualification
+                                if ($request->get("SEARCH_BY_QUALIFICATION") !== null){
+                                    $query->where("QUALIFICATION","like","%" . $request->get('SEARCH_BY_QUALIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1865,6 +2115,19 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_events_status
+                                if ($request->get("SEARCH_BY_STATUS") !== null){
+                                    $query->where("STATUS","like","%" . $request->get('SEARCH_BY_STATUS') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -1891,6 +2154,25 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_famille_indicators
+                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
+                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_INDICATORS") !== null){
+                                    $query->where("INDICATORS","like","%" . $request->get('SEARCH_BY_INDICATORS') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_THRESHOLD") !== null){
+                                    $query->where("THRESHOLD","like","%" . $request->get('SEARCH_BY_THRESHOLD') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1915,6 +2197,19 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_international_responsible
+                                if ($request->get("SEARCH_BY_CODE") !== null){
+                                    $query->where("CODE","like","%" . $request->get('SEARCH_BY_CODE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_NOM") !== null){
+                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_PAYS") !== null){
+                                    $query->where("PAYS","like","%" . $request->get('SEARCH_BY_PAYS') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SERVICE") !== null){
+                                    $query->where("SERVICE","like","%" . $request->get('SEARCH_BY_SERVICE') . "%");
                                 }
 
                             })
@@ -1941,6 +2236,16 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_international_sector
+                                if ($request->get("SEARCH_BY_DETAIL") !== null){
+                                    $query->where("DETAIL","like","%" . $request->get('SEARCH_BY_DETAIL') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SECTOR") !== null){
+                                    $query->where("SECTOR","like","%" . $request->get('SEARCH_BY_SECTOR') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -1965,6 +2270,16 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_mission_sous_motif1
+                                if ($request->get("SEARCH_BY_SOUS_MOTIF") !== null){
+                                    $query->where("SOUS_MOTIF","like","%" . $request->get('SEARCH_BY_SOUS_MOTIF') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -1991,6 +2306,16 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_mission_sous_motif2
+                                if ($request->get("SEARCH_BY_SOUS_MOTIF") !== null){
+                                    $query->where("SOUS_MOTIF","like","%" . $request->get('SEARCH_BY_SOUS_MOTIF') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -2016,6 +2341,22 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+                                //filtros Tabla: aide_offre_condition
+                                if ($request->get("SEARCH_BY_CONDITION") !== null){
+                                    $query->where("CONDITION","like","%" . $request->get('SEARCH_BY_CONDITION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_FIN_DE_MOIS") !== null){
+                                    $query->where("FIN_DE_MOIS","like","%" . $request->get('SEARCH_BY_FIN_DE_MOIS') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_NB_JOURS") !== null){
+                                    $query->where("NB_JOURS","like","%" . $request->get('SEARCH_BY_NB_JOURS') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
+                                }
 
                             })
                             ->toJson();
@@ -2040,6 +2381,19 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: aide_renumeration_type
+                                if ($request->get("SEARCH_BY_RENUMERATION_TYPE") !== null){
+                                    $query->where("RENUMERATION_TYPE","like","%" . $request->get('SEARCH_BY_RENUMERATION_TYPE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYMBOLE") !== null){
+                                    $query->where("SYMBOLE","like","%" . $request->get('SEARCH_BY_SYMBOLE') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })

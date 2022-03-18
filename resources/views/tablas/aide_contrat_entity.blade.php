@@ -18,6 +18,31 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>IBAN:</label>
+                        <input id="input__IBAN" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>INITIALS:</label>
+                        <input id="input__INITIALS" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NAME:</label>
+                        <input id="input__NAME" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NB_ANNEE_A_SOUSTRAIRE:</label>
+                        <input id="input__NB_ANNEE_A_SOUSTRAIRE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PREFIX_COMPTEUR:</label>
+                        <input id="input__PREFIX_COMPTEUR" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_contrat_entity" class="table-hover" style="width:100%;">
                             <thead>
@@ -44,10 +69,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_contrat_entity;
+        let TABLA_AIDE_CONTRAT_ENTITY;
         $(document).ready(function() {
 
-            TABLA_aide_contrat_entity = $('#tabla_aide_contrat_entity').DataTable({
+            TABLA_AIDE_CONTRAT_ENTITY = $('#tabla_aide_contrat_entity').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -56,7 +81,11 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_IBAN                        = $('#input__IBAN').val();
+                        d.SEARCH_BY_INITIALS                    = $('#input__INITIALS').val();
+                        d.SEARCH_BY_NAME                        = $('#input__NAME').val();
+                        d.SEARCH_BY_NB_ANNEE_A_SOUSTRAIRE       = $('#input__NB_ANNEE_A_SOUSTRAIRE').val();
+                        d.SEARCH_BY_PREFIX_COMPTEUR             = $('#input__PREFIX_COMPTEUR').val();
                     }
                 },
                 columns: [
@@ -127,6 +156,9 @@
             }
 
         });
+        function buscar(){
+            TABLA_AIDE_CONTRAT_ENTITY.draw(); 
+        }
 
 
         // Refilter the table
@@ -135,11 +167,11 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
+        $( "#input__IBAN" ).change(function() { agregar_quitar_bg_success('input__IBAN'); });
+        $( "#input__INITIALS" ).change(function() { agregar_quitar_bg_success('input__INITIALS'); });
+        $( "#input__NAME" ).change(function() { agregar_quitar_bg_success('input__NAME'); });
+        $( "#input__NB_ANNEE_A_SOUSTRAIRE" ).change(function() { agregar_quitar_bg_success('input__NB_ANNEE_A_SOUSTRAIRE'); });
+        $( "#input__PREFIX_COMPTEUR" ).change(function() { agregar_quitar_bg_success('input__PREFIX_COMPTEUR'); });
         // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
         // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
         // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
@@ -147,13 +179,13 @@
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

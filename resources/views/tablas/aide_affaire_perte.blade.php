@@ -18,6 +18,27 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>MOTIF_PERTE:</label>
+                        <input id="input__MOTIF_PERTE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NO_GO:</label>
+                        <input id="input__NO_GO" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION:</label>
+                        <input id="input__SYS_DATE_MODIFICATION" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_affaire_perte" class="table-hover" style="width:100%;">
                             <thead>
@@ -43,10 +64,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_affaire_perte;
+        let TABLA_AIDE_AFFAIRE_PERTE;
         $(document).ready(function() {
 
-            TABLA_aide_affaire_perte = $('#tabla_aide_affaire_perte').DataTable({
+            ABLA_AIDE_AFFAIRE_PERTE = $('#tabla_aide_affaire_perte').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -55,7 +76,10 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_MOTIF_PERTE                = $('#input__MOTIF_PERTE').val();
+                        d.SEARCH_BY_NO_GO                = $('#input__NO_GO').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION        = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION    = $('#input__SYS_DATE_MODIFICATION').val();
                     }
                 },
                 columns: [
@@ -125,6 +149,9 @@
             }
 
         });
+        function buscar(){
+            ABLA_AIDE_AFFAIRE_PERTE.draw(); 
+        }
 
 
         // Refilter the table
@@ -133,10 +160,10 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
+        $( "#input__MOTIF_PERTE" ).change(function() { agregar_quitar_bg_success('input__MOTIF_PERTE'); });
+        $( "#input__NO_GO" ).change(function() { agregar_quitar_bg_success('input__NO_GO'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
         // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
         // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
         // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
@@ -145,13 +172,13 @@
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

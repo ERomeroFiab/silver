@@ -18,6 +18,27 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>CODE:</label>
+                        <input id="input__CODE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOM:</label>
+                        <input id="input__NOM" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PAYS:</label>
+                        <input id="input__PAYS" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SERVICE:</label>
+                        <input id="input__SERVICE" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_international_responsible" class="table-hover" style="width:100%;">
                             <thead>
@@ -43,10 +64,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_international_responsible;
+        let TABLA_AIDE_INTERNATIONAL_RESPONSIBLE;
         $(document).ready(function() {
 
-            TABLA_aide_international_responsible = $('#tabla_aide_international_responsible').DataTable({
+            TABLA_AIDE_INTERNATIONAL_RESPONSIBLE = $('#tabla_aide_international_responsible').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -55,7 +76,10 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CODE         = $('#input__CODE').val();
+                        d.SEARCH_BY_NOM          = $('#input__NOM').val();
+                        d.SEARCH_BY_PAYS         = $('#input__PAYS').val();
+                        d.SEARCH_BY_SERVICE      = $('#input__SERVICE').val();
                     }
                 },
                 columns: [
@@ -125,6 +149,9 @@
             }
 
         });
+        function buscar(){
+            TABLA_AIDE_INTERNATIONAL_RESPONSIBLE.draw(); 
+        }
 
 
         // Refilter the table
@@ -133,10 +160,10 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
+        $( "#input__CODE" ).change(function() { agregar_quitar_bg_success('input__CODE'); });
+        $( "#input__NOM" ).change(function() { agregar_quitar_bg_success('input__NOM'); });
+        $( "#input__PAYS" ).change(function() { agregar_quitar_bg_success('input__PAYS'); });
+        $( "#input__SERVICE" ).change(function() { agregar_quitar_bg_success('input__SERVICE'); });
         // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
         // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
         // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
@@ -145,13 +172,13 @@
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

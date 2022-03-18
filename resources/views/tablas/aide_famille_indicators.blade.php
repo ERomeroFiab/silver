@@ -18,6 +18,35 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>FAMILLE:</label>
+                        <input id="input__FAMILLE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>INDICATORS:</label>
+                        <input id="input__INDICATORS" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>THRESHOLD:</label>
+                        <input id="input__THRESHOLD" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION:</label>
+                        <input id="input__SYS_DATE_MODIFICATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_USER_CREATION:</label>
+                        <input id="input__SYS_USER_CREATION" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_famille_indicators" class="table-hover" style="width:100%;">
                             <thead>
@@ -45,10 +74,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_famille_indicators;
+        let TABLA_AIDE_FAMILLE_INDICATORS;
         $(document).ready(function() {
 
-            TABLA_aide_famille_indicators = $('#tabla_aide_famille_indicators').DataTable({
+            TABLA_AIDE_FAMILLE_INDICATORS = $('#tabla_aide_famille_indicators').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -57,7 +86,12 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_FAMILLE                   = $('#input__FAMILLE').val();
+                        d.SEARCH_BY_INDICATORS                = $('#input__INDICATORS').val();
+                        d.SEARCH_BY_THRESHOLD                 = $('#input__THRESHOLD').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION         = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION     = $('#input__SYS_DATE_MODIFICATION').val();
+                        d.SEARCH_BY_SYS_USER_CREATION         = $('#input__SYS_USER_CREATION').val();
                     }
                 },
                 columns: [
@@ -129,6 +163,9 @@
             }
 
         });
+        function buscar(){
+            TABLA_AIDE_FAMILLE_INDICATORS.draw(); 
+        }
 
 
         // Refilter the table
@@ -137,25 +174,25 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
+        $( "#input__FAMILLE" ).change(function() { agregar_quitar_bg_success('input__FAMILLE'); });
+        $( "#input__INDICATORS" ).change(function() { agregar_quitar_bg_success('input__INDICATORS'); });
+        $( "#input__THRESHOLD" ).change(function() { agregar_quitar_bg_success('input__THRESHOLD'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
+        $( "#input__SYS_USER_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_USER_CREATION'); });
         // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
         // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
 
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

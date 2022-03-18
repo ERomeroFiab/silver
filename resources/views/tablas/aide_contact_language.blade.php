@@ -18,6 +18,19 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>CODE:</label>
+                        <input id="input__CODE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>LANGUAGE:</label>
+                        <input id="input__LANGUAGE" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_contact_language" class="table-hover" style="width:100%;">
                             <thead>
@@ -41,10 +54,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_contact_language;
+        let TABLA_AIDE_CONTACT_LANGUAGE;
         $(document).ready(function() {
 
-            TABLA_aide_contact_language = $('#tabla_aide_contact_language').DataTable({
+            TABLA_AIDE_CONTACT_LANGUAGE = $('#tabla_aide_contact_language').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -53,7 +66,8 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CODE           = $('#input__CODE').val();
+                        d.SEARCH_BY_LANGUAGE       = $('#input__LANGUAGE').val();
                     }
                 },
                 columns: [
@@ -121,6 +135,9 @@
             }
 
         });
+        function buscar(){
+            TABLA_AIDE_CONTACT_LANGUAGE.draw(); 
+        }
 
 
         // Refilter the table
@@ -129,8 +146,8 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
+        $( "#input__CODE" ).change(function() { agregar_quitar_bg_success('input__CODE'); });
+        $( "#input__LANGUAGE" ).change(function() { agregar_quitar_bg_success('input__LANGUAGE'); });
         // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
         // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
         // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
@@ -141,13 +158,13 @@
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
