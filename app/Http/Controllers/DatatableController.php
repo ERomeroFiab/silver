@@ -272,11 +272,11 @@ class DatatableController extends Controller
                                 }
                                 
                                 if ( $request->get('SEARCH_BY_ID_IDENTIFICATION') !== null ) {
-                                    $query->where('ID_IDENTIFICATION', $request->get('SEARCH_BY_ID_IDENTIFICATION'));
+                                    $query->where('ID_IDENTIFICATION',"like","%".$request->get('SEARCH_BY_ID_IDENTIFICATION')."%");
                                 }
                                 
                                 if ( $request->get('SEARCH_BY_SIRET') !== null ) {
-                                    $query->where('SIRET', $request->get('SEARCH_BY_SIRET'));
+                                    $query->where('SIRET',"like","%".$request->get('SEARCH_BY_SIRET')."%");
                                 }
                                 
                                 if ( $request->get('SEARCH_BY_ADRESSE1') !== null ) {
@@ -288,7 +288,7 @@ class DatatableController extends Controller
                                 }
                                 
                                 if ( $request->get('SEARCH_BY_EFFECTIF') !== null ) {
-                                    $query->where('EFFECTIF', $request->get('SEARCH_BY_EFFECTIF'));
+                                    $query->where('EFFECTIF','like', "%".$request->get('SEARCH_BY_EFFECTIF')."%");
                                 }
                                 
                                 if ( $request->get('SEARCH_BY_GROUP') !== null ) {
@@ -300,11 +300,11 @@ class DatatableController extends Controller
                                 }
                                 
                                 if ( $request->get('SEARCH_BY_TYPE_FICHE') !== null ) {
-                                    $query->where('TYPE_FICHE', $request->get('SEARCH_BY_TYPE_FICHE'));
+                                    $query->where('TYPE_FICHE',"like","%".$request->get('SEARCH_BY_TYPE_FICHE')."%");
                                 }
                                 
                                 if ( $request->get('SEARCH_BY_VILLE') !== null ) {
-                                    $query->where('VILLE', $request->get('SEARCH_BY_VILLE'));
+                                    $query->where('VILLE',"like","%".$request->get('SEARCH_BY_VILLE')."%");
                                 }
 
                             })
@@ -383,6 +383,8 @@ class DatatableController extends Controller
         ];
 
         $datos = Contact::select( $columns )->with( $relations );
+        
+
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
@@ -733,6 +735,7 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+
                                 }
 
                             })
@@ -938,6 +941,23 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
+
+                                if ( $request->get('SEARCH_BY_DESIGNATION') !== null ) {
+                                    $query->where('DESIGNATION',"like","%".$request->get('SEARCH_BY_DESIGNATION')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_FAMILLE') !== null ) {
+                                    $query->where('FAMILLE',"like","%" .$request->get('SEARCH_BY_FAMILLE')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_PRIX_ACHAT') !== null ) {
+                                    $query->where('PRIX_ACHAT',"like","%" .$request->get('SEARCH_BY_PRIX_ACHAT')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_PRIX_VENTE') !== null ) {
+                                    $query->where('PRIX_VENTE',"like","%" .$request->get('SEARCH_BY_PRIX_VENTE')."%");
+                                }
+
 
                             })
                             ->addColumn('action', function ($dato) {
@@ -1845,23 +1865,23 @@ class DatatableController extends Controller
                                 }
 
                                 if ( $request->get('SEARCH_BY_CA_MAX') !== null ) {
-                                    $query->where('CA_MAX', $request->get('SEARCH_BY_CA_MAX'));
+                                    $query->where('CA_MAX',"like","%".$request->get('SEARCH_BY_CA_MAX')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_CA_MIN') !== null ) {
-                                    $query->where('CA_MIN', $request->get('SEARCH_BY_CA_MIN'));
+                                    $query->where('CA_MIN',"like","%".$request->get('SEARCH_BY_CA_MIN')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_CA_TRANCHE') !== null ) {
-                                    $query->where('CA_TRANCHE', $request->get('SEARCH_BY_CA_TRANCHE'));
+                                    $query->where('CA_TRANCHE',"like","%".$request->get('SEARCH_BY_CA_TRANCHE')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_SYS_DATE_CREATION') !== null ) {
-                                    $query->where('SYS_DATE_CREATION', $request->get('SEARCH_BY_SYS_DATE_CREATION'));
+                                    $query->where('SYS_DATE_CREATION',"like","%".$request->get('SEARCH_BY_SYS_DATE_CREATION')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_SYS_USER_CREATION') !== null ) {
-                                    $query->where('SYS_USER_CREATION', $request->get('SEARCH_BY_SYS_USER_CREATION'));
+                                    $query->where('SYS_USER_CREATION',"like","%".$request->get('SEARCH_BY_SYS_USER_CREATION')."%");
                                 }
 
                             })
@@ -1889,31 +1909,31 @@ class DatatableController extends Controller
                                     }
 
                                     if ( $request->get('SEARCH_BY_CODE_POSTAL') !== null ) {
-                                        $query->where('CODE_POSTAL', $request->get('SEARCH_BY_CODE_POSTAL'));
+                                        $query->where('CODE_POSTAL',"like","%".$request->get('SEARCH_BY_CODE_POSTAL')."%");
                                     }
 
                                     if ( $request->get('SEARCH_BY_COMMUNE') !== null ) {
-                                        $query->where('COMMUNE', $request->get('SEARCH_BY_COMMUNE'));
+                                        $query->where('COMMUNE',"like","%".$request->get('SEARCH_BY_COMMUNE')."%");
                                     }
 
                                     if ( $request->get('SEARCH_BY_INSEE') !== null ) {
-                                        $query->where('INSEE', $request->get('SEARCH_BY_INSEE'));
+                                        $query->where('INSEE',"like","%".$request->get('SEARCH_BY_INSEE')."%");
                                     }
 
                                     if ( $request->get('SEARCH_BY_LIB_DEPARTEMENT') !== null ) {
-                                        $query->where('LIB_DEPARTEMENT', $request->get('SEARCH_BY_LIB_DEPARTEMENT'));
+                                        $query->where('LIB_DEPARTEMENT',"like","%".$request->get('SEARCH_BY_LIB_DEPARTEMENT')."%");
                                     }
 
                                     if ( $request->get('SEARCH_BY_REGION') !== null ) {
-                                        $query->where('REGION', $request->get('SEARCH_BY_REGION'));
+                                        $query->where('REGION',"like","%".$request->get('SEARCH_BY_REGION')."%");
                                     }
 
                                     if ( $request->get('SEARCH_BY_SECTEUR') !== null ) {
-                                        $query->where('SECTEUR', $request->get('SEARCH_BY_SECTEUR'));
+                                        $query->where('SECTEUR',"like","%".$request->get('SEARCH_BY_SECTEUR')."%");
                                     }
 
                                     if ( $request->get('SEARCH_BY_SYS_USER_CREATION') !== null ) {
-                                        $query->where('SYS_USER_CREATION', $request->get('SEARCH_BY_SYS_USER_CREATION'));
+                                        $query->where('SYS_USER_CREATION',"like","%".$request->get('SEARCH_BY_SYS_USER_CREATION')."%");
                                     }
                                 }
 
@@ -1943,15 +1963,15 @@ class DatatableController extends Controller
                                 }
 
                                 if ( $request->get('SEARCH_BY_COMPANY_CLASSIFICATION') !== null ) {
-                                    $query->where('COMPANY_CLASSIFICATION', $request->get('SEARCH_BY_COMPANY_CLASSIFICATION'));
+                                    $query->where('COMPANY_CLASSIFICATION',"like","%".$request->get('SEARCH_BY_COMPANY_CLASSIFICATION')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_SYS_DATE_CREATION') !== null ) {
-                                    $query->where('SYS_DATE_CREATION', $request->get('SEARCH_BY_SYS_DATE_CREATION'));
+                                    $query->where('SYS_DATE_CREATION',"like","%".$request->get('SEARCH_BY_SYS_DATE_CREATION')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_SYS_USER_CREATION') !== null ) {
-                                    $query->where('SYS_USER_CREATION', $request->get('SEARCH_BY_SYS_USER_CREATION'));
+                                    $query->where('SYS_USER_CREATION',"like","%".$request->get('SEARCH_BY_SYS_USER_CREATION')."%");
                                 }
 
                             })
@@ -1980,15 +2000,15 @@ class DatatableController extends Controller
                                 }
 
                                 if ( $request->get('SEARCH_BY_EFFECTIF') !== null ) {
-                                    $query->where('EFFECTIF', $request->get('SEARCH_BY_EFFECTIF'));
+                                    $query->where('EFFECTIF',"like","%".$request->get('SEARCH_BY_EFFECTIF')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_TRANCHE_MAXI') !== null ) {
-                                    $query->where('TRANCHE_MAXI', $request->get('SEARCH_BY_TRANCHE_MAXI'));
+                                    $query->where('TRANCHE_MAXI',"like","%".$request->get('SEARCH_BY_TRANCHE_MAXI')."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_TRANCHE_MINI') !== null ) {
-                                    $query->where('TRANCHE_MINI', $request->get('SEARCH_BY_TRANCHE_MINI'));
+                                    $query->where('TRANCHE_MINI',"like","%".$request->get('SEARCH_BY_TRANCHE_MINI')."%");
                                 }
 
                             })
@@ -2016,6 +2036,14 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ( $request->get('SEARCH_BY_FORME_JURIDIQUE') !== null ) {
+                                    $query->where('FORME_JURIDIQUE',"like","%".$request->get('SEARCH_BY_FORME_JURIDIQUE')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_SIGLE') !== null ) {
+                                    $query->where('SIGLE',"like","%".$request->get('SEARCH_BY_SIGLE')."%");
+                                }
+
                             })
                             ->toJson();
     }
@@ -2039,6 +2067,46 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ( $request->get('SEARCH_BY_CODE') !== null ) {
+                                    $query->where('CODE',"like","%".$request('SEARCH_BY_CODE')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_IT_PART_TIME') !== null ) {
+                                    $query->where('IT_PART_TIME',"like","%".$request('SEARCH_BY_IT_PART_TIME')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_LIBELLE') !== null ) {
+                                    $query->where('LIBELLE',"like","%".$request->get('SEARCH_BY_LIBELLE')."%");
+                                }
+                                
+                                if ( $request->get('SEARCH_BY_SEGMENT') !== null ) {
+                                    $query->where('SEGMENT',"like","%".$request->get('SEARCH_BY_SEGMENT')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_TGG_2017') !== null ) {
+                                    $query->where('TGG_2017',"like","%".$request->get('SEARCH_BY_TGG_2017')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_TARGET_AT') !== null ) {
+                                    $query->where('TARGET_AT',"like","%".$request->get('SEARCH_BY_TARGET_AT')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_TARGET_INNO') !== null ) {
+                                    $query->where('TARGET_INNO',"like","%".$request->get('SEARCH_BY_TARGET_INNO')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_TARGET_ONSS') !== null ) {
+                                    $query->where('TARGET_ONSS',"like","%".$request->get('SEARCH_BY_TARGET_ONSS')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_TARGET_PRP') !== null ) {
+                                    $query->where('TARGET_PRP',"like","%".$request->get('SEARCH_BY_TARGET_PRP')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_TARGET_SOCIAL') !== null ) {
+                                    $query->where('TARGET_SOCIAL',"like","%".$request->get('SEARCH_BY_TARGET_SOCIAL')."%");
                                 }
 
                             })
@@ -2066,6 +2134,14 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ( $request->get('SEARCH_BY_ORIGINE') !== null ) {
+                                    $query->where('ORIGINE',"like","%".$request->get('SEARCH_BY_ORIGINE')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_SYS_DATE_CREATION') !== null ) {
+                                    $query->where('SYS_DATE_CREATION',"like","%".$request->get('SEARCH_BY_SYS_DATE_CREATION')."%");
+                                }
+
                             })
                             ->toJson();
     }
@@ -2089,6 +2165,14 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ( $request->get('SEARCH_BY_PAYROLL_OUTSOURCER_TYPE') !== null ) {
+                                    $query->where('PAYROLL_OUTSOURCER_TYPE',"like","%".$request->get('SEARCH_BY_PAYROLL_OUTSOURCER_TYPE')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_SYS_DATE_CREATION') !== null ) {
+                                    $query->where('SYS_DATE_CREATION',"like","%".$request->get('SEARCH_BY_SYS_DATE_CREATION')."%");
                                 }
 
                             })
@@ -2116,6 +2200,30 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ( $request->get('SEARCH_BY_CODE_ISO') !== null ) {
+                                    $query->where('CODE_ISO',"like","%".$request->get('SEARCH_BY_CODE_ISO')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_CONTINENT') !== null ) {
+                                    $query->where('CONTINENT',"like","%".$request->get('SEARCH_BY_CONTINENT')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_INDICATIF_TEL') !== null ) {
+                                    $query->where('INDICATIF_TEL',"like","%".$request->get('SEARCH_BY_INDICATIF_TEL')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_NOM_PAYS') !== null ) {
+                                    $query->where('NOM_PAYS',"like","%".$request->get('SEARCH_BY_NOM_PAYS')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_LATITUDE') !== null ) {
+                                    $query->where('LATITUDE',"like","%".$request->get('SEARCH_BY_LATITUDE')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_LONGITUDE') !== null ) {
+                                    $query->where('LONGITUDE',"like","%".$request->get('SEARCH_BY_LONGITUDE')."%");
+                                }
+
                             })
                             ->toJson();
     }
@@ -2139,6 +2247,10 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ( $request->get('SEARCH_BY_SECTEUR_GEO') !== null ) {
+                                    $query->where('SECTEUR_GEO',"like","%".$request->get('SEARCH_BY_SECTEUR_GEO')."%");
                                 }
 
                             })
@@ -2166,6 +2278,10 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ( $request->get('SEARCH_BY_SEGMENT') !== null ) {
+                                    $query->where('SEGMENT',"like","%".$request->get('SEARCH_BY_SEGMENT')."%");
+                                }
+
                             })
                             ->toJson();
     }
@@ -2189,6 +2305,14 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ( $request->get('SEARCH_BY_NIVEAU') !== null ) {
+                                    $query->where('NIVEAU',"like","%".$request->get('SEARCH_BY_NIVEAU')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_SITUATION_JURIDIQUE') !== null ) {
+                                    $query->where('SITUATION_JURIDIQUE',"like","%".$request->get('SEARCH_BY_SITUATION_JURIDIQUE')."%");
                                 }
 
                             })
@@ -2216,6 +2340,10 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ( $request->get('SEARCH_BY_SUB_SECTOR') !== null ) {
+                                    $query->where('SUB_SECTOR',"like","%".$request->get('SEARCH_BY_SUB_SECTOR')."%");
+                                }
+
                             })
                             ->toJson();
     }
@@ -2241,6 +2369,22 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                if ( $request->get('SEARCH_BY_NIVEAU') !== null ) {
+                                    $query->where('NIVEAU',"like","%".$request->get('SEARCH_BY_NIVEAU')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_PARTNER') !== null ) {
+                                    $query->where('PARTNER',"like","%".$request->get('SEARCH_BY_PARTNER')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_TYPE_FICHE') !== null ) {
+                                    $query->where('TYPE_FICHE',"like","%".$request->get('SEARCH_BY_TYPE_FICHE')."%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_SUPPLIER') !== null ) {
+                                    $query->where('SUPPLIER',"like","%".$request->get('SEARCH_BY_SUPPLIER')."%");
+                                }
+
                             })
                             ->toJson();
     }
@@ -2264,6 +2408,10 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                if ( $request->get('SEARCH_BY_TYPE_ADRESSE') !== null ) {
+                                    $query->where('TYPE_ADRESSE',"like","%".$request->get('SEARCH_BY_TYPE_ADRESSE')."%");
                                 }
 
                             })

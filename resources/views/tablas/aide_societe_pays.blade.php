@@ -18,6 +18,39 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>CODE_ISO:</label>
+                        <input id="input__CODE_ISO" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>CONTINENT:</label>
+                        <input id="input__CONTINENT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>INDICATIF_TEL:</label>
+                        <input id="input__INDICATIF_TEL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOM_PAYS:</label>
+                        <input id="input__NOM_PAYS" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>LATITUDE:</label>
+                        <input id="input__LATITUDE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>LONGITUDE:</label>
+                        <input id="input__LONGITUDE" type="text" class="form-control">
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                    </div>
+                </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_societe_pays" class="table-hover" style="width:100%;">
                             <thead>
@@ -57,7 +90,12 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CODE_ISO         = $('#input__CODE_ISO').val();
+                        d.SEARCH_BY_CONTINENT        = $('#input__CONTINENT').val();
+                        d.SEARCH_BY_INDICATIF_TEL    = $('#input__INDICATIF_TEL').val();
+                        d.SEARCH_BY_NOM_PAYS         = $('#input__NOM_PAYS').val();
+                        d.SEARCH_BY_LATITUDE         = $('#input__LATITUDE').val();
+                        d.SEARCH_BY_LONGITUDE        = $('#input__LONGITUDE').val();
                     }
                 },
                 columns: [
@@ -130,6 +168,9 @@
 
         });
 
+        function buscar() {
+            TABLA_aide_societe_pays.draw();
+        }
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -137,25 +178,21 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__CODE_ISO" ).change(function() { agregar_quitar_bg_success('input__CODE_ISO'); });
+        $( "#input__CONTINENT" ).change(function() { agregar_quitar_bg_success('input__CONTINENT'); });
+        $( "#input__INDICATIF_TEL" ).change(function() { agregar_quitar_bg_success('input__INDICATIF_TEL'); });
+        $( "#input__NOM_PAYS" ).change(function() { agregar_quitar_bg_success('input__NOM_PAYS'); });
+        $( "#input__LATITUDE" ).change(function() { agregar_quitar_bg_success('input__LATITUDE'); });
+        $( "#input__LONGITUDE" ).change(function() { agregar_quitar_bg_success('input__LONGITUDE'); });
+        
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

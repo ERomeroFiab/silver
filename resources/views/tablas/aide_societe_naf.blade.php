@@ -16,6 +16,54 @@
                 <h4 class="my-0">Tabla: <b>aide_societe_naf</b></h4>
                 <p>(Total: {{ count( config('tablas')['aide_societe_naf'] ) }} columnas)</p>
             </div>
+            <div class="row">
+                <div class="col-3 form-group">
+                    <label>CODE:</label>
+                    <input id="input__CODE" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>IT_PART_TIME:</label>
+                    <input id="input__IT_PART_TIME" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>LIBELLE:</label>
+                    <input id="input__LIBELLE" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>SEGMENT:</label>
+                    <input id="input__SEGMENT" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>TGG_2017:</label>
+                    <input id="input__TGG_2017" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>TARGET_AT:</label>
+                    <input id="input__TARGET_AT" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>TARGET_INNO:</label>
+                    <input id="input__TARGET_INNO" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>TARGET_ONSS:</label>
+                    <input id="input__TARGET_ONSS" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>TARGET_PRP:</label>
+                    <input id="input__TARGET_PRP" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>TARGET_SOCIAL:</label>
+                    <input id="input__TARGET_SOCIAL" type="text" class="form-control">
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
@@ -61,7 +109,16 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CODE               = $('#input__CODE').val();
+                        d.SEARCH_BY_IT_PART_TIME       = $('#input__IT_PART_TIME').val();
+                        d.SEARCH_BY_LIBELLE            = $('#input__LIBELLE').val();
+                        d.SEARCH_BY_SEGMENT            = $('#input__SEGMENT').val();
+                        d.SEARCH_BY_TGG_2017           = $('#input__TGG_2017').val();
+                        d.SEARCH_BY_TARGET_AT          = $('#input__TARGET_AT').val();
+                        d.SEARCH_BY_TARGET_INNO        = $('#input__TARGET_INNO').val();
+                        d.SEARCH_BY_TARGET_ONSS        = $('#input__TARGET_ONSS').val();
+                        d.SEARCH_BY_TARGET_PRP         = $('#input__TARGET_PRP').val();
+                        d.SEARCH_BY_TARGET_SOCIAL      = $('#input__TARGET_SOCIAL').val();
                     }
                 },
                 columns: [
@@ -138,6 +195,9 @@
 
         });
 
+        function buscar() {
+            TABLA_aide_societe_naf.draw();
+        }
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -145,25 +205,24 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__CODE" ).change(function() { agregar_quitar_bg_success('input__CODE'); });
+        $( "#input__IT_PART_TIME" ).change(function() { agregar_quitar_bg_success('input__IT_PART_TIME'); });
+        $( "#input__LIBELLE" ).change(function() { agregar_quitar_bg_success('input__LIBELLE'); });
+        $( "#input__SEGMENT" ).change(function() { agregar_quitar_bg_success('input__SEGMENT'); });
+        $( "#input__TGG_2017" ).change(function() { agregar_quitar_bg_success('input__TGG_2017'); });
+        $( "#input__TARGET_AT" ).change(function() { agregar_quitar_bg_success('input__TARGET_AT'); });
+        $( "#input__TARGET_INNO" ).change(function() { agregar_quitar_bg_success('input__TARGET_INNO'); });
+        $( "#input__TARGET_ONSS" ).change(function() { agregar_quitar_bg_success('input__TARGET_ONSS'); });
+        $( "#input__TARGET_PRP" ).change(function() { agregar_quitar_bg_success('input__TARGET_PRP'); });
+        $( "#input__TARGET_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__TARGET_SOCIAL'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

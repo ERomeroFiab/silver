@@ -18,6 +18,31 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>DESIGNATION:</label>
+                        <input id="input__DESIGNATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>FAMILLE:</label>
+                        <input id="input__FAMILLE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PRIX_ACHAT:</label>
+                        <input id="input__PRIX_ACHAT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PRIX_VENTE:</label>
+                        <input id="input__PRIX_VENTE" type="text" class="form-control">
+                    </div>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_article" class="table-hover" style="width:100%;">
                             <thead>
@@ -56,7 +81,10 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_DESIGNATION    = $('#input__DESIGNATION').val();
+                        d.SEARCH_BY_FAMILLE        = $('#input__FAMILLE').val();
+                        d.SEARCH_BY_PRIX_ACHAT     = $('#input__PRIX_ACHAT').val();
+                        d.SEARCH_BY_PRIX_VENTE     = $('#input__DESIGNATION').val();
                     }
                 },
                 columns: [
@@ -128,6 +156,9 @@
 
         });
 
+        function buscar() {
+            TABLA_article.draw();
+        }
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -135,25 +166,18 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__DESIGNATION" ).change(function() { agregar_quitar_bg_success('input__DESIGNATION'); });
+        $( "#input__FAMILLE" ).change(function() { agregar_quitar_bg_success('input__FAMILLE'); });
+        $( "#input__PRIX_ACHAT" ).change(function() { agregar_quitar_bg_success('input__PRIX_ACHAT'); });
+        $( "#input__PRIX_VENTE" ).change(function() { agregar_quitar_bg_success('input__PRIX_VENTE'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
