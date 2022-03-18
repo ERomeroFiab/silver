@@ -101,6 +101,7 @@ class DatatableController extends Controller
                             ->filter(function ($query) use ($request, $columns) {
 
                                 foreach ($columns as $column) { // filtro por llaves foráneas
+                            
                                     if (str_contains($column, "PID_")) {
                                         if ( $request->get('SEARCH_BY_'.$column) !== null ) {
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
@@ -108,12 +109,64 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                //filtros Tabla: action
+                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
+                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CAEGORIE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_EMPLACEMENT") !== null){
+                                    $query->where("EMPLACEMENT","like","%" . $request->get('SEARCH_BY_EMPLACEMENT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_E_MAIL") !== null){
+                                    $query->where("E_MAIL","like","%" . $request->get('SEARCH_BY_E_MAIL') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NOM") !== null){
+                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NOTE") !== null){
+                                    $query->where("NOTE","like","%" . $request->get('SEARCH_BY_NOTE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RESULTAT") !== null){
+                                    $query->where("RESULTAT","like","%" . $request->get('SEARCH_BY_RESULTAT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SUIVI_PAR") !== null){
+                                    $query->where("SUIVI_PAR","like","%" . $request->get('SEARCH_BY_SUIVI_PAR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_TYPE_EVENEMENT") !== null){
+                                    $query->where("TYPE_EVENEMENT","like","%" . $request->get('SEARCH_BY_TYPE_EVENEMENT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
+
+                                    $query->whereHas('identification', function($q) use ($palabra){
+                                        $q->where('SIRET', 'like', $palabra);
+                                    });
+
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $query->where("RAZON_SOCIAL","like","%" . $request->get('SEARCH_BY_RAZON_SOCIAL') . "%");
+                                }
+
+
                             })
                             ->addColumn('rut', function ($dato) {
                                 if ( $dato->identification ) {
                                     return $dato->identification->SIRET;
                                 }
-                                return "-";
+                                return "-"; 
                             })
                             ->addColumn('razon_social', function ($dato) {
                                 if ( $dato->identification ) {
@@ -219,6 +272,87 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: affaire
+                                if ($request->get("SEARCH_BY_ID_AFFAIRE") !== null){
+                                    $query->where("ID_AFFAIRE","like","%" . $request->get('SEARCH_BY_ID_AFFAIRE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_CIVILITE") !== null){
+                                    $query->where("CIVILITE","like","%" . $request->get('SEARCH_BY_CIVILITE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_DATE_PREVISIONNEL") !== null){
+                                    $query->where("DATE_PREVISIONNEL","like","%" . $request->get('SEARCH_BY_DATE_PREVISIONNEL') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_DATE_SIGNATURE") !== null){
+                                    $query->where("DATE_SIGNATURE","like","%" . $request->get('SEARCH_BY_DATE_SIGNATURE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
+                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_PRENOM") !== null){
+                                    $query->where("PRENOM","like","%" . $request->get('SEARCH_BY_PRENOM') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NOM") !== null){
+                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_NO_AFFAIRE") !== null){
+                                    $query->where("NO_AFFAIRE","like","%" . $request->get('SEARCH_BY_NO_AFFAIRE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_PHASE") !== null){
+                                    $query->where("PHASE","like","%" . $request->get('SEARCH_BY_PHASE') . "%");
+                                }
+
+                                
+                                if ($request->get("SEARCH_BY_PROBABILITE") !== null){
+                                    $query->where("PROBABILITE","like","%" . $request->get('SEARCH_BY_PROBABILITE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_PRODUIT") !== null){
+                                    $query->where("PRODUIT","like","%" . $request->get('SEARCH_BY_PRODUIT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_STATUT") !== null){
+                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SUIVI_PAR") !== null){
+                                    $query->where("SUIVI_PAR","like","%" . $request->get('SEARCH_BY_SUIVI_PAR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_TOTAL_PREVISIONNEL") !== null){
+                                    $query->where("TOTAL_PREVISIONNEL","like","%" . $request->get('SEARCH_BY_TOTAL_PREVISIONNEL') . "%");
+                                }
+
+                                if ( $request->get('SEARCH_BY_ACTIONS_COUNT') !== null ) {
+                                    $query->having('ACTIONS_COUNT', strval($request->get('SEARCH_BY_ACTIONS_COUNT')));
+                                }
+
+
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
+                                    $query->whereHas('identification', function($q) use ($palabra){
+                                        $q->where('SIRET', 'like', $palabra);
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
+                                    $query->whereHas('identification', function($q) use ($palabra){
+                                        $q->where('RAISON_SOC', 'like', $palabra);
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -770,7 +904,6 @@ class DatatableController extends Controller
         ];
 
         $datos = AffaireConditionsFinanciere::select( $columns )->with( $relations );
-
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns) {
                                 
@@ -780,6 +913,44 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+                                //filtros Tabla: affaire_conditions_financieres
+                                if ($request->get("SEARCH_BY_TYPE") !== null){
+                                    $query->where("TYPE","like","%" . $request->get('SEARCH_BY_TYPE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_VALEUR") !== null){
+                                    $query->where("VALEUR","like","%" . $request->get('SEARCH_BY_VALEUR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_YEAR") !== null){
+                                    $query->where("YEAR","like","%" . $request->get('SEARCH_BY_YEAR') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('SIRET','like', $palabra);
+                                        });
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('RAISON_SOC','like', $palabra);
+                                        });
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -824,6 +995,50 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                //filtros Tabla: affaire_objections
+                                
+                                if ($request->get("SEARCH_BY_COMMENTS") !== null){
+                                    $query->where("COMMENTS","like","%" . $request->get('SEARCH_BY_COMMENTS') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_DATE") !== null){
+                                    $query->where("DATE","like","%" . $request->get('SEARCH_BY_DATE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SOLVED") !== null){
+                                    $query->where("SOLVED","like","%" . $request->get('SEARCH_BY_SOLVED') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_STEP") !== null){
+                                    $query->where("STEP","like","%" . $request->get('SEARCH_BY_STEP') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_OBJECTIONS") !== null){
+                                    $query->where("OBJECTIONS","like","%" . $request->get('SEARCH_BY_OBJECTIONS') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_RUT") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RUT")."%";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('SIRET','like', $palabra);
+                                        });
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
+                                    $query->whereHas('affaire',function($q1) use ($palabra){
+                                        $q1->whereHas('identification',function($q2) use ($palabra){
+                                            $q2->where('RAISON_SOC','like', $palabra);
+                                        });
+                                    });
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -987,6 +1202,27 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                //filtros Tabla: aide_action_categorie
+
+                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
+                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CATEGORIE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_EXCLUSIVE") !== null){
+                                    $query->where("EXCLUSIVE","like","%" . $request->get('SEARCH_BY_EXCLUSIVE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_GROUPE") !== null){
+                                    $query->where("GROUPE","like","%" . $request->get('SEARCH_BY_GROUPE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_MISE_A_JOUR_AGENDA") !== null){
+                                    $query->where("MISE_A_JOUR_AGENDA","like","%" . $request->get('SEARCH_BY_MISE_A_JOUR_AGENDA') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_TYPE_EVENEMENT") !== null){
+                                    $query->where("TYPE_EVENEMENT","like","%" . $request->get('SEARCH_BY_TYPE_EVENEMENT') . "%");
+                                }
                             })
                             ->toJson();
     }
@@ -1010,6 +1246,20 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
+                                }
+
+                                //filtros Tabla: aide_action_objet
+
+                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
+                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CATEGORIE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_OBJET") !== null){
+                                    $query->where("OBJET","like","%" . $request->get('SEARCH_BY_OBJET') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
+                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -1188,7 +1438,20 @@ class DatatableController extends Controller
                                     }
                                 }
 
+                                //filtros Tabla: aide_action_objet
+                                if ($request->get("SEARCH_BY_ORIGINE") !== null){
+                                    $query->where("ORIGINE","like","%" . $request->get('SEARCH_BY_ORIGINE') . "%");
+                                }
+                                
+                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
+                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
+                                }
+                                
+                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
+                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
+                                }
                             })
+                            
                             ->toJson();
     }
 

@@ -89,7 +89,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand"> Base de datos de Miguel </a>
+                        <a class="navbar-brand"> Base de datos de Silvertool  </a>
                         {{-- <a class="navbar-brand">Portal Cliente</a> --}}
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"

@@ -18,6 +18,86 @@
             </div>
             <div class="card-body">
                 <div class="row">
+
+                    <div class="col-3 form-group">
+                        <label>ID_AFFAIRE:</label>
+                        <input id="input__ID_AFFAIRE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>CIVILITE:</label>
+                        <input id="input__CIVILITE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>DATE_PREVISIONNEL:</label>
+                        <input id="input__DATE_PREVISIONNEL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>DATE_SIGNATURE:</label>
+                        <input id="input__DATE_SIGNATURE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>FAMILLE:</label>
+                        <input id="input__FAMILLE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PRENOM:</label>
+                        <input id="input__PRENOM" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOM:</label>
+                        <input id="input__NOM" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NO_AFFAIRE:</label>
+                        <input id="input__NO_AFFAIRE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PHASE:</label>
+                        <input id="input__PHASE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PROBABILITE:</label>
+                        <input id="input__PROBABILITE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PRODUIT:</label>
+                        <input id="input__PRODUIT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>STATUT:</label>
+                        <input id="input__STATUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SUIVI_PAR:</label>
+                        <input id="input__SUIVI_PAR" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>TOTAL_PREVISIONNEL:</label>
+                        <input id="input__TOTAL_PREVISIONNEL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ACTIONS_COUNT:</label>
+                        <input id="input__ACTIONS_COUNT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RUT:</label>
+                        <input id="input__RUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAZON SOCIAL:</label>
+                        <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION:</label>
+                        <input id="input__SYS_DATE_MODIFICATION" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
+                </div>
+                    
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
@@ -36,9 +116,9 @@
                                     <th>12 STATUT</th>
                                     <th>13 SUIVI_PAR</th>
                                     <th>14 TOTAL_PREVISIONNEL</th>
-                                    <th>15 Cantidad de actions</th>
-                                    <th>16 Rut</th>
-                                    <th>17 Razón Social</th>
+                                    <th>15 ACTIONS_COUNT</th>
+                                    <th>16 RUT</th>
+                                    <th>17 RAZON_SOCIAL</th>
                                     <th>18 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -70,7 +150,24 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_ID_AFFAIRE                      = $('#input__ID_AFFAIRE').val();
+                        d.SEARCH_BY_CIVILITE                        = $('#input__CIVILITE').val();
+                        d.SEARCH_BY_DATE_PREVISIONNEL               = $('#input__DATE_PREVISIONNEL').val();
+                        d.SEARCH_BY_DATE_SIGNATURE                  = $('#input__DATE_SIGNATURE').val();
+                        d.SEARCH_BY_FAMILLE                         = $('#input__FAMILLE').val();
+                        d.SEARCH_BY_PRENOM                          = $('#input__PRENOM').val();
+                        d.SEARCH_BY_NOM                             = $('#input__NOM').val();
+                        d.SEARCH_BY_NO_AFFAIRE                      = $('#input__NO_AFFAIRE').val();
+                        d.SEARCH_BY_PHASE                           = $('#input__PHASE').val();
+                        d.SEARCH_BY_PROBABILITE                     = $('#input__PROBABILITE').val();
+                        d.SEARCH_BY_PRODUIT                         = $('#input__PRODUIT').val();
+                        d.SEARCH_BY_STATUT                          = $('#input__STATUT').val();
+                        d.SEARCH_BY_SUIVI_PAR                       = $('#input__SUIVI_PAR').val();
+                        d.SEARCH_BY_TOTAL_PREVISIONNEL              = $('#input__TOTAL_PREVISIONNEL').val();
+                        d.SEARCH_BY_ACTIONS_COUNT                   = $('#input__ACTIONS_COUNT').val();
+                        d.SEARCH_BY_RUT                             = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL                    = $('#input__RAZON_SOCIAL').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION           = $('#input__SYS_DATE_MODIFICATION').val();
                     }
                 },
                 columns: [
@@ -153,8 +250,12 @@
                 // Requery the server with the new one-time export settings
                 dt.ajax.reload();
             }
+            
 
         });
+        function buscar(){
+            TABLA_ORDENES.draw();
+        }
 
 
         // Refilter the table
@@ -163,25 +264,35 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__ID_AFFAIRE" ).change(function() { agregar_quitar_bg_success('input__ID_AFFAIRE'); });
+        $( "#input__CIVILITE" ).change(function() { agregar_quitar_bg_success('input__CIVILITE'); });
+        $( "#input__DATE_PREVISIONNEL" ).change(function() { agregar_quitar_bg_success('input__DATE_PREVISIONNEL'); });
+        $( "#input__DATE_SIGNATURE" ).change(function() { agregar_quitar_bg_success('input__DATE_SIGNATURE'); });
+        $( "#input__FAMILLE" ).change(function() { agregar_quitar_bg_success('input__FAMILLE'); });
+        $( "#input__PRENOM" ).change(function() { agregar_quitar_bg_success('input__PRENOM'); });
+        $( "#input__NOM" ).change(function() { agregar_quitar_bg_success('input__NOM'); });
+        $( "#input__NO_AFFAIRE" ).change(function() { agregar_quitar_bg_success('input__NO_AFFAIRE'); });
+        $( "#input__PHASE" ).change(function() { agregar_quitar_bg_success('input__PHASE'); });
+        $( "#input__PROBABILITE" ).change(function() { agregar_quitar_bg_success('input__PROBABILITE'); });
+        $( "#input__PRODUIT" ).change(function() { agregar_quitar_bg_success('input__PRODUIT'); });
+        $( "#input__STATUT" ).change(function() { agregar_quitar_bg_success('input__STATUT'); });
+        $( "input__SUIVI_PAR" ).change(function() { agregar_quitar_bg_success('input__SUIVI_PAR'); });
+        $( "#input__TOTAL_PREVISIONNEL" ).change(function() { agregar_quitar_bg_success('input__TOTAL_PREVISIONNEL'); });
+        $( "#input__ACTIONS_COUNT" ).change(function() { agregar_quitar_bg_success('input__ACTIONS_COUNT'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
 
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
