@@ -95,9 +95,7 @@ class DatatableController extends Controller
             'documents',
         ];
         
-        $datos = Action::select( $columns )->with( $relations )->withCount( $relations );
-
-        return DataTables::eloquent( $datos )
+        return DataTables::eloquent( Action::query()->withCount( $relations ) )
                             ->filter(function ($query) use ($request, $columns) {
 
                                 foreach ($columns as $column) { // filtro por llaves foráneas
@@ -188,11 +186,11 @@ class DatatableController extends Controller
             // 'action',
         ];
         
-        $datos = ActionIntervenantsFiabilis::select( $columns )->with( $relations );
         $starts = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->subYears(100);
+        
         $ends = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->addYears(100);
 
-        return DataTables::eloquent( $datos )
+        return DataTables::eloquent( ActionIntervenantsFiabilis::query() )
                             ->filter(function ($query) use ($request, $columns, $starts, $ends){
                                 
                                 foreach ($columns as $column) { // filtro por llaves foráneas
@@ -392,9 +390,7 @@ class DatatableController extends Controller
             'societe_familles',
         ];
         
-        $datos = Identification::select( $columns )->with( $relations )->withCount($relations);
-        // dd( $request->get('SEARCH_BY_VILLE') );
-        return DataTables::eloquent( $datos )
+        return DataTables::eloquent( Identification::query()->withCount($relations) )
                             ->filter(function ($query) use ($request, $columns) {
 
                                 foreach ($columns as $column) { // filtro por llaves foráneas
