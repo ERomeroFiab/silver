@@ -38,6 +38,7 @@
                         <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
                     </div>
                 </div>
+            </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
@@ -160,7 +161,7 @@
 
         // Pintar en verde los inputs que contienen algo
         $( "#input__COMPANY_CLASSIFICATION" ).change(function() { agregar_quitar_bg_success('input__COMPANY_CLASSIFICATION'); });
-        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__DATE_CREATION'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
         $( "#input__SYS_USER_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_USER_CREATION'); });
     
         function agregar_quitar_bg_success(id){

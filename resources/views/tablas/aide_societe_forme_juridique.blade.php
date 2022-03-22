@@ -18,6 +18,26 @@
             </div>
             <div class="card-body">
                 <div class="row">
+
+                    <div class="col-3 form-group">
+                        <label>FORME_JURIDIQUE:</label>
+                        <input id="input__FORME_JURIDIQUE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SIGLE:</label>
+                        <input id="input__SIGLE" type="text" class="form-control">
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_societe_forme_juridique" class="table-hover" style="width:100%;">
                             <thead>
@@ -53,7 +73,8 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_FORME_JURIDIQUE  = $('#input__FORME_JURIDIQUE').val();
+                        d.SEARCH_BY_SIGLE            = $('#input__SIGLE').val();
                     }
                 },
                 columns: [
@@ -122,32 +143,26 @@
 
         });
 
-
+        function buscar() {
+            TABLA_aide_societe_forme_juridique.draw();
+        }
+        
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
         //     TABLA_aide_societe_forme_juridique.draw();
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__FORME_JURIDIQUE" ).change(function() { agregar_quitar_bg_success('input__FORME_JURIDIQUE'); });
+        $( "#input__SIGLE" ).change(function() { agregar_quitar_bg_success('input__SIGLE'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

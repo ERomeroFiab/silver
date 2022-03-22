@@ -18,7 +18,6 @@
             </div>
             <div class="card-body">
                 <div class="row">
-
                     <div class="col-3 form-group">
                         <label>ID_ACTION_INTERVENANTS_FIABILIS:</label>
                         <input id="input__ID_ACTION_INTERVENANTS_FIABILIS" type="text" class="form-control">

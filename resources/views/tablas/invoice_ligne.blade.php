@@ -18,6 +18,67 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>AMOUNT:</label>
+                        <input id="input__AMOUNT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ECO_AMOUNT:</label>
+                        <input id="input__ECO_AMOUNT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>FEES:</label>
+                        <input id="input__FEES" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>MOTIVE:</label>
+                        <input id="input__MOTIVE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NO_LIGNE:</label>
+                        <input id="input__NO_LIGNE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>PRODUCT:</label>
+                        <input id="input__PRODUCT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SUB_MOTIVE1:</label>
+                        <input id="input__SUB_MOTIVE1" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SUB_MOTIVE2:</label>
+                        <input id="input__SUB_MOTIVE2" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>YEAR:</label>
+                        <input id="input__YEAR" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RUT:</label>
+                        <input id="input__RUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAZON_SOCIAL:</label>
+                        <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_DESDE:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_HASTA:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
+                    </div>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_invoice_ligne" class="table-hover" style="width:100%;">
                             <thead>
@@ -31,8 +92,8 @@
                                     <th>7 SUB_MOTIVE1</th>
                                     <th>8 SUB_MOTIVE2</th>
                                     <th>9 YEAR</th>
-                                    <th>10 rut</th>
-                                    <th>11 razon_social</th>
+                                    <th>10 RUT</th>
+                                    <th>11 RAZON_SOCIAL</th>
                                     <th>12 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -64,7 +125,19 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_AMOUNT                         = $('#input__AMOUNT').val();
+                        d.SEARCH_BY_ECO_AMOUNT                     = $('#input__ECO_AMOUNT').val();
+                        d.SEARCH_BY_FEES                           = $('#input__FEES').val();
+                        d.SEARCH_BY_MOTIVE                         = $('#input__MOTIVE').val();
+                        d.SEARCH_BY_NO_LIGNE                       = $('#input__NO_LIGNE').val();
+                        d.SEARCH_BY_PRODUCT                        = $('#input__PRODUCT').val();
+                        d.SEARCH_BY_SUB_MOTIVE1                    = $('#input__SUB_MOTIVE1').val();
+                        d.SEARCH_BY_SUB_MOTIVE2                    = $('#input__SUB_MOTIVE2').val();
+                        d.SEARCH_BY_YEAR                           = $('#input__YEAR').val();
+                        d.SEARCH_BY_RUT                            = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL                   = $('#input__RAZON_SOCIAL').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE    = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA    = $('#input__SYS_DATE_MODIFICATION_HASTA').val();
                     }
                 },
                 columns: [
@@ -144,6 +217,10 @@
 
         });
 
+        function buscar() {
+            TABLA_invoice_ligne.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -151,25 +228,26 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__AMOUNT" ).change(function() { agregar_quitar_bg_success('input__AMOUNT'); });
+        $( "#input__ECO_AMOUNT" ).change(function() { agregar_quitar_bg_success('input__ECO_AMOUNT'); });
+        $( "#input__FEES" ).change(function() { agregar_quitar_bg_success('input__FEES'); });
+        $( "#input__MOTIVE" ).change(function() { agregar_quitar_bg_success('input__MOTIVE'); });
+        $( "#input__NO_LIGNE" ).change(function() { agregar_quitar_bg_success('input__NO_LIGNE'); });
+        $( "#input__PRODUCT" ).change(function() { agregar_quitar_bg_success('input__PRODUCT'); });
+        $( "#input__SUB_MOTIVE1" ).change(function() { agregar_quitar_bg_success('input__SUB_MOTIVE1'); });
+        $( "#input__SUB_MOTIVE2" ).change(function() { agregar_quitar_bg_success('input__SUB_MOTIVE2'); });
+        $( "#input__YEAR" ).change(function() { agregar_quitar_bg_success('input__YEAR'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
