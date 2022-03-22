@@ -390,9 +390,7 @@ class DatatableController extends Controller
             'societe_familles',
         ];
         
-        $datos = Identification::select( $columns )->with( $relations )->withCount($relations);
-        // dd( $request->get('SEARCH_BY_VILLE') );
-        return DataTables::eloquent( $datos )
+        return DataTables::eloquent( Identification::query()->withCount($relations) )
                             ->filter(function ($query) use ($request, $columns) {
 
                                 foreach ($columns as $column) { // filtro por llaves foráneas
