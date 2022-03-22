@@ -84,7 +84,7 @@
                         d.SEARCH_BY_DESIGNATION    = $('#input__DESIGNATION').val();
                         d.SEARCH_BY_FAMILLE        = $('#input__FAMILLE').val();
                         d.SEARCH_BY_PRIX_ACHAT     = $('#input__PRIX_ACHAT').val();
-                        d.SEARCH_BY_PRIX_VENTE     = $('#input__DESIGNATION').val();
+                        d.SEARCH_BY_PRIX_VENTE     = $('#input__PRIX_VENTE').val();
                     }
                 },
                 columns: [

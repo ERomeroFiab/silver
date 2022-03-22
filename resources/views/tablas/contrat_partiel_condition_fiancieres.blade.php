@@ -18,6 +18,42 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>REMUNERATION:</label>
+                        <input id="input__REMUNERATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SEUIL_MAX:</label>
+                        <input id="input__SEUIL_MAX" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SEUIL_MIN:</label>
+                        <input id="input__SEUIL_MIN" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>VALEUR:</label>
+                        <input id="input__VALEUR" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>YEAR:</label>
+                        <input id="input__YEAR" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RUT:</label>
+                        <input id="input__RUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAZON_SOCIAL:</label>
+                        <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                    </div>      
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_contrat_partiel_condition_fiancieres" class="table-hover" style="width:100%;">
                             <thead>
@@ -28,7 +64,7 @@
                                     <th>4 VALEUR</th>
                                     <th>5 YEAR</th>
                                     <th>5 Rut</th>
-                                    <th>6 Razón Social</th>
+                                    <th>6 RAZON_SOCIAL</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -59,7 +95,13 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_REMUNERATION             = $('#input__REMUNERATION').val();
+                        d.SEARCH_BY_SEUIL_MAX                = $('#input__SEUIL_MAX').val();
+                        d.SEARCH_BY_SEUIL_MIN                = $('#input__SEUIL_MIN').val();
+                        d.SEARCH_BY_VALEUR                   = $('#input__VALEUR').val();
+                        d.SEARCH_BY_YEAR                     = $('#input__YEAR').val();
+                        d.SEARCH_BY_RUT                      = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL             = $('#input__RAZON_SOCIAL').val();
                     }
                 },
                 columns: [
@@ -134,6 +176,9 @@
 
         });
 
+        function buscar() {
+            TABLA_contrat_partiel_condition_fiancieres.draw();
+        }
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -141,25 +186,21 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__REMUNERATION" ).change(function() { agregar_quitar_bg_success('input__REMUNERATION'); });
+        $( "#input__SEUIL_MAX" ).change(function() { agregar_quitar_bg_success('input__SEUIL_MAX'); });
+        $( "#input__SEUIL_MIN" ).change(function() { agregar_quitar_bg_success('input__SEUIL_MIN'); });
+        $( "#input__VALEUR" ).change(function() { agregar_quitar_bg_success('input__VALEUR'); });
+        $( "#input__YEAR" ).change(function() { agregar_quitar_bg_success('input__YEAR'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

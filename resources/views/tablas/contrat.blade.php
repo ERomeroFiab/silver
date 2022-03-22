@@ -17,6 +17,63 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>E_MAIL:</label>
+                        <input id="input__E_MAIL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>E_MAIL_FACTURATION:</label>
+                        <input id="input__E_MAIL_FACTURATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>MULTI_ENTITY:</label>
+                        <input id="input__MULTI_ENTITY" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOM:</label>
+                        <input id="input__NOM" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOM_FACTURATION:</label>
+                        <input id="input__NOM_FACTURATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NO_CONTRAT:</label>
+                        <input id="input__NO_CONTRAT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NO_CONTRAT_ORIGINE:</label>
+                        <input id="input__NO_CONTRAT_ORIGINE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NO_ENTITY:</label>
+                        <input id="input__NO_ENTITY" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>STATUT:</label>
+                        <input id="input__STATUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SUIVI_PAR:</label>
+                        <input id="input__SUIVI_PAR" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>DATE_FIN_CONTRAT:</label>
+                        <input id="input__DATE_FIN_CONTRAT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>DATE_SIGNATURE_CLIENT:</label>
+                        <input id="input__DATE_SIGNATURE_CLIENT" type="text" class="form-control">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                    </div>
+                </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
@@ -63,7 +120,18 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_E_MAIL                         = $('#input__E_MAIL').val();
+                        d.SEARCH_BY_E_MAIL_FACTURATION             = $('#input__E_MAIL_FACTURATION').val();
+                        d.SEARCH_BY_MULTI_ENTITY                   = $('#input__MULTI_ENTITY').val();
+                        d.SEARCH_BY_NOM                            = $('#input__NOM').val();
+                        d.SEARCH_BY_NOM_FACTURATION                = $('#input__NOM_FACTURATION').val();
+                        d.SEARCH_BY_NO_CONTRAT                     = $('#input__NO_CONTRAT').val();
+                        d.SEARCH_BY_NO_CONTRAT_ORIGINE             = $('#input__NO_CONTRAT_ORIGINE').val();
+                        d.SEARCH_BY_NO_ENTITY                      = $('#input__NO_ENTITY').val();
+                        d.SEARCH_BY_STATUT                         = $('#input__STATUT').val();
+                        d.SEARCH_BY_SUIVI_PAR                      = $('#input__SUIVI_PAR').val();
+                        d.SEARCH_BY_DATE_FIN_CONTRAT               = $('#input__DATE_FIN_CONTRAT').val();
+                        d.SEARCH_BY_DATE_SIGNATURE_CLIENT          = $('#input__DATE_SIGNATURE_CLIENT').val();
                     }
                 },
                 columns: [
@@ -143,6 +211,10 @@
 
         });
 
+        function buscar() {
+            TABLA_ORDENES.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -150,25 +222,26 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__E_MAIL" ).change(function() { agregar_quitar_bg_success('input__E_MAIL'); });
+        $( "#input__E_MAIL_FACTURATION" ).change(function() { agregar_quitar_bg_success('input__E_MAIL_FACTURATION'); });
+        $( "#input__MULTI_ENTITY" ).change(function() { agregar_quitar_bg_success('input__MULTI_ENTITY'); });
+        $( "#input__NOM" ).change(function() { agregar_quitar_bg_success('input__NOM'); });
+        $( "#input__NOM_FACTURATION" ).change(function() { agregar_quitar_bg_success('input__NOM_FACTURATION'); });
+        $( "#input__NO_CONTRAT" ).change(function() { agregar_quitar_bg_success('input__NO_CONTRAT'); });
+        $( "#input__NO_CONTRAT_ORIGINE" ).change(function() { agregar_quitar_bg_success('input__NO_CONTRAT_ORIGINE'); });
+        $( "#input__NO_ENTITY" ).change(function() { agregar_quitar_bg_success('input__NO_ENTITY'); });
+        $( "#input__STATUT" ).change(function() { agregar_quitar_bg_success('input__STATUT'); });
+        $( "#input__SUIVI_PAR" ).change(function() { agregar_quitar_bg_success('input__SUIVI_PAR'); });
+        $( "#input__DATE_FIN_CONTRAT" ).change(function() { agregar_quitar_bg_success('input__DATE_FIN_CONTRAT'); });
+        $( "#input__DATE_SIGNATURE_CLIENT" ).change(function() { agregar_quitar_bg_success('input__DATE_SIGNATURE_CLIENT'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

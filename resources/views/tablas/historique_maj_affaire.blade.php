@@ -16,6 +16,57 @@
                 <h4 class="my-0">Tabla: <b>historique_maj_affaire</b></h4>
                 <p>(Total: {{ count( config('tablas')['historique_maj_affaire'] ) }} columnas)</p>
             </div>
+            <div class="row">
+                <div class="col-3 form-group">
+                    <label>CHAMPS:</label>
+                    <input id="input__CHAMPS" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>DATE:</label>
+                    <input id="input__DATE" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>ANCIENNE_VALEUR:</label>
+                    <input id="input__ANCIENNE_VALEUR" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>ANCIENNE_VALEUR_LIBELLE:</label>
+                    <input id="input__ANCIENNE_VALEUR_LIBELLE" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>NOUVELLE_VALEUR:</label>
+                    <input id="input__NOUVELLE_VALEUR" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>NOUVELLE_VALEUR_LIBELLE:</label>
+                    <input id="input__NOUVELLE_VALEUR_LIBELLE" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>USER:</label>
+                    <input id="input__USER" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>RUT:</label>
+                    <input id="input__RUT" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>RAZON_SOCIAL:</label>
+                    <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>SYS_DATE_MODIFICATION_DESDE:</label>
+                    <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
+                </div>
+                <div class="col-3 form-group">
+                    <label>SYS_DATE_MODIFICATION_HASTA:</label>
+                    <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>               
             <div class="card-body">
                 <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
@@ -29,8 +80,8 @@
                                     <th>5 NOUVELLE_VALEUR</th>
                                     <th>6 NOUVELLE_VALEUR_LIBELLE</th>
                                     <th>7 USER</th>
-                                    <th>8 Rut</th>
-                                    <th>9 Razón Social</th>
+                                    <th>8 RUT</th>
+                                    <th>9 RAZON_SOCIAL</th>
                                     <th>10 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -62,7 +113,17 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CHAMPS                          = $('#input__CHAMPS').val();
+                        d.SEARCH_BY_DATE                            = $('#input__DATE').val();
+                        d.SEARCH_BY_ANCIENNE_VALEUR                 = $('#input__ANCIENNE_VALEUR').val();
+                        d.SEARCH_BY_ANCIENNE_VALEUR_LIBELLE         = $('#input__ANCIENNE_VALEUR_LIBELLE').val();
+                        d.SEARCH_BY_NOUVELLE_VALEUR                 = $('#input__NOUVELLE_VALEUR').val();
+                        d.SEARCH_BY_NOUVELLE_VALEUR_LIBELLE         = $('#input__NOUVELLE_VALEUR_LIBELLE').val();
+                        d.SEARCH_BY_USER                            = $('#input__USER').val();
+                        d.SEARCH_BY_RUT                             = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL                    = $('#input__RAZON_SOCIAL').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE     = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA     = $('#input__SYS_DATE_MODIFICATION_HASTA').val();
                     }
                 },
                 columns: [
@@ -140,6 +201,10 @@
 
         });
 
+        function buscar() {
+            TABLA_historique_maj_affaire.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -147,25 +212,24 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__CHAMPS" ).change(function() { agregar_quitar_bg_success('input__CHAMPS'); });
+        $( "#input__DATE" ).change(function() { agregar_quitar_bg_success('input__DATE'); });
+        $( "#input__ANCIENNE_VALEUR" ).change(function() { agregar_quitar_bg_success('input__ANCIENNE_VALEUR'); });
+        $( "#input__ANCIENNE_VALEUR_LIBELLE" ).change(function() { agregar_quitar_bg_success('input__ANCIENNE_VALEUR_LIBELLE'); });
+        $( "#input__NOUVELLE_VALEUR" ).change(function() { agregar_quitar_bg_success('input__NOUVELLE_VALEUR'); });
+        $( "#input__NOUVELLE_VALEUR_LIBELLE" ).change(function() { agregar_quitar_bg_success('input__NOUVELLE_VALEUR_LIBELLE'); });
+        $( "#input__USER" ).change(function() { agregar_quitar_bg_success('input__USER'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

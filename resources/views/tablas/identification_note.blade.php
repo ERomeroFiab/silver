@@ -18,6 +18,43 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>KOMPASS_ID:</label>
+                        <input id="input__KOMPASS_ID" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOTE:</label>
+                        <input id="input__NOTE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RUT:</label>
+                        <input id="input__RUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAZON_SOCIAL:</label>
+                        <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_DESDE:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_HASTA:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
+                    </div>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_identification_note" class="table-hover" style="width:100%;">
                             <thead>
@@ -25,8 +62,8 @@
                                     <th>1 KOMPASS_ID</th>
                                     <th>2 NOTE</th>
                                     <th>3 SYS_DATE_CREATION</th>
-                                    <th>4 Rut</th>
-                                    <th>5 Razón Social</th>
+                                    <th>4 RUT</th>
+                                    <th>5 RAZON_SOCIAL</th>
                                     <th>6 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -58,7 +95,13 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_KOMPASS_ID                     = $('#input__KOMPASS_ID').val();
+                        d.SEARCH_BY_NOTE                           = $('#input__NOTE').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION              = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_RUT                            = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL                   = $('#input__RAZON_SOCIAL').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE    = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA    = $('#input__SYS_DATE_MODIFICATION_HASTA').val();
                     }
                 },
                 columns: [
@@ -132,6 +175,9 @@
 
         });
 
+        function buscar() {
+            TABLA_identification_note.draw();
+        }
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -139,25 +185,19 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__KOMPASS_ID" ).change(function() { agregar_quitar_bg_success('input__KOMPASS_ID'); });
+        $( "#input__NOTE" ).change(function() { agregar_quitar_bg_success('input__NOTE'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
-
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
     </script>
 @endsection

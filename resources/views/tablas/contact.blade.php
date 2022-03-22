@@ -18,6 +18,51 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>E_MAIL:</label>
+                        <input id="input__E_MAIL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NOM:</label>
+                        <input id="input__NOM" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SERVICE:</label>
+                        <input id="input__SERVICE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>FONCTION:</label>
+                        <input id="input__FONCTION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>CONTACT_PRINCIPAL:</label>
+                        <input id="input__CONTACT_PRINCIPAL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RUT:</label>
+                        <input id="input__RUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAZON_SOCIAL:</label>
+                        <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_DESDE:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_HASTA:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
+                    </div>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_contact" class="table-hover" style="width:100%;">
                             <thead>
@@ -27,8 +72,8 @@
                                     <th>3 SERVICE</th>
                                     <th>4 FONCTION</th>
                                     <th>5 CONTACT_PRINCIPAL</th>
-                                    <th>6 Rut</th>
-                                    <th>7 Razón Social</th>
+                                    <th>6 RUT</th>
+                                    <th>7 RAZON_SOCIAL</th>
                                     <th>8 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -60,7 +105,15 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_E_MAIL                         = $('#input__E_MAIL').val();
+                        d.SEARCH_BY_NOM                            = $('#input__NOM').val();
+                        d.SEARCH_BY_SERVICE                        = $('#input__SERVICE').val();
+                        d.SEARCH_BY_FONCTION                       = $('#input__FONCTION').val();
+                        d.SEARCH_BY_CONTACT_PRINCIPAL              = $('#input__CONTACT_PRINCIPAL').val();
+                        d.SEARCH_BY_RUT                            = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL                   = $('#input__RAZON_SOCIAL').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE    = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA    = $('#input__SYS_DATE_MODIFICATION_HASTA').val();
                     }
                 },
                 columns: [
@@ -136,6 +189,10 @@
 
         });
 
+        function buscar() {
+            TABLA_CONTACT.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -143,25 +200,22 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__E_MAIL" ).change(function() { agregar_quitar_bg_success('input__E_MAIL'); });
+        $( "#input__NOM" ).change(function() { agregar_quitar_bg_success('input__NOM'); });
+        $( "#input__SERVICE" ).change(function() { agregar_quitar_bg_success('input__SERVICE'); });
+        $( "#input__FONCTION" ).change(function() { agregar_quitar_bg_success('input__FONCTION'); });
+        $( "#input__CONTACT_PRINCIPAL" ).change(function() { agregar_quitar_bg_success('input__CONTACT_PRINCIPAL'); });
+        $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

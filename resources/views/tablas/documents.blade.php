@@ -17,6 +17,39 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>DOCUMENT_FICHIER_NOM:</label>
+                        <input id="input__DOCUMENT_FICHIER_NOM" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>DOCUMENT_FICHIER_DATE:</label>
+                        <input id="input__DOCUMENT_FICHIER_DATE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>FICHIER_TAILLE:</label>
+                        <input id="input__DOCUMENT_FICHIER_TAILLE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>FICHIER_TYPE:</label>
+                        <input id="input__DOCUMENT_FICHIER_TYPE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ORIGINE:</label>
+                        <input id="input__ORIGINE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_action" class="table-hover" style="width:100%;">
                             <thead>
@@ -57,7 +90,12 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_DOCUMENT_FICHIER_NOM                 = $('#input__DOCUMENT_FICHIER_NOM').val();
+                        d.SEARCH_BY_DOCUMENT_FICHIER_DATE                = $('#input__DOCUMENT_FICHIER_DATE').val();
+                        d.SEARCH_BY_DOCUMENT_FICHIER_TAILLE              = $('#input__DOCUMENT_FICHIER_TAILLE').val();
+                        d.SEARCH_BY_DOCUMENT_FICHIER_TYPE                = $('#input__DOCUMENT_FICHIER_TYPE').val();
+                        d.SEARCH_BY_ORIGINE                              = $('#input__ORIGINE').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION                    = $('#input__SYS_DATE_CREATION').val(); 
                     }
                 },
                 columns: [
@@ -131,6 +169,10 @@
 
         });
 
+        function buscar() {
+            TABLA_ORDENES.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -138,25 +180,20 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__DOCUMENT_FICHIER_NOM" ).change(function() { agregar_quitar_bg_success('input__DOCUMENT_FICHIER_NOM'); });
+        $( "#input__DOCUMENT_FICHIER_DATE" ).change(function() { agregar_quitar_bg_success('input__DOCUMENT_FICHIER_DATE'); });
+        $( "#input__DOCUMENT_FICHIER_TAILLE" ).change(function() { agregar_quitar_bg_success('input__DOCUMENT_FICHIER_TAILLE'); });
+        $( "#input__DOCUMENT_FICHIER_TYPE" ).change(function() { agregar_quitar_bg_success('input__DOCUMENT_FICHIER_TYPE'); });
+        $( "#input__ORIGINE" ).change(function() { agregar_quitar_bg_success('input__ORIGINE'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection
