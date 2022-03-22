@@ -18,6 +18,39 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>ACTIF:</label>
+                        <input id="input__ACTIF" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>CONSULTANT:</label>
+                        <input id="input__CONSULTANT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>DATE_DEBUT:</label>
+                        <input id="input__DATE_DEBUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_DESDE:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_HASTA:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
+                    </div>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_mission_team" class="table-hover" style="width:100%;">
                             <thead>
@@ -58,7 +91,13 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_ACTIF                           = $('#input__ACTIF').val();
+                        d.SEARCH_BY_CONSULTANT                      = $('#input__CONSULTANT').val();
+                        d.SEARCH_BY_DATE_DEBUT                      = $('#input__DATE_DEBUT').val();
+                        d.SEARCH_BY_DATE_FIN                        = $('#input__DATE_FIN').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION               = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE     = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA     = $('#input__SYS_DATE_MODIFICATION_HASTA').val();
                     }
                 },
                 columns: [
@@ -132,6 +171,10 @@
 
         });
 
+        function buscar() {
+            TABLA_mission_team.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -139,25 +182,20 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
-
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        $( "#input__ACTIF" ).change(function() { agregar_quitar_bg_success('input__ACTIF'); });
+        $( "#input__CONSULTANT" ).change(function() { agregar_quitar_bg_success('input__CONSULTANT'); });
+        $( "#input__DATE_DEBUT" ).change(function() { agregar_quitar_bg_success('input__DATE_DEBUT'); });
+        $( "#input__DATE_FIN" ).change(function() { agregar_quitar_bg_success('input__DATE_FIN'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
+        
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

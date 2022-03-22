@@ -18,6 +18,38 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>COMMENTS_SITE:</label>
+                        <input id="input__COMMENTS_SITE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>CONSULTANT:</label>
+                        <input id="input__CONSULTANT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>DATE_LIMITE:</label>
+                        <input id="input__DATE_LIMITE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ETAPE_COURANTE:</label>
+                        <input id="input__ETAPE_COURANTE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>MOTIF:</label>
+                        <input id="input__MOTIF" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>POURCENTAGE:</label>
+                        <input id="input__POURCENTAGE" type="text" class="form-control">
+                    </div>     
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-sm btn-success float-right"  type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_mission_motive" class="table-hover" style="width:100%;">
                             <thead>
@@ -58,7 +90,12 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_COMMENTS_SITE         = $('#input__COMMENTS_SITE').val();
+                        d.SEARCH_BY_CONSULTANT            = $('#input__CONSULTANT').val();
+                        d.SEARCH_BY_DATE_LIMITE           = $('#input__DATE_LIMITE').val();
+                        d.SEARCH_BY_ETAPE_COURANTE        = $('#input__ETAPE_COURANTE').val();
+                        d.SEARCH_BY_MOTIF                 = $('#input__MOTIF').val();
+                        d.SEARCH_BY_POURCENTAGE           = $('#input__POURCENTAGE').val();
                     }
                 },
                 columns: [
@@ -132,6 +169,10 @@
 
         });
 
+        function buscar() {
+            TABLA_mission_motive.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
@@ -139,25 +180,20 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
+        $( "#input__COMMENTS_SITE" ).change(function() { agregar_quitar_bg_success('input__COMMENTS_SITE'); });
+        $( "#input__CONSULTANT" ).change(function() { agregar_quitar_bg_success('input__CONSULTANT'); });
+        $( "#input__DATE_LIMITE" ).change(function() { agregar_quitar_bg_success('input__DATE_LIMITE'); });
+        $( "#input__ETAPE_COURANTE" ).change(function() { agregar_quitar_bg_success('input__ETAPE_COURANTE'); });
+        $( "#input__MOTIF" ).change(function() { agregar_quitar_bg_success('input__MOTIF'); });
+        $( "#input__POURCENTAGE" ).change(function() { agregar_quitar_bg_success('input__POURCENTAGE'); });
 
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

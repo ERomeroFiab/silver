@@ -35,11 +35,11 @@
                         <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
                     </div>
                     <div class="col-3 form-group">
-                        <label>SYS_DATE_MODIFICATION desde:</label>
+                        <label>SYS_DATE_MODIFICATION_DESDE:</label>
                         <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
                     </div>
                     <div class="col-3 form-group">
-                        <label>SYS_DATE_MODIFICATION hasta:</label>
+                        <label>SYS_DATE_MODIFICATION_HASTA:</label>
                         <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
                     </div>
                     <div class="col-3 form-group">

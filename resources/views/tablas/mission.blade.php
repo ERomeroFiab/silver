@@ -36,8 +36,20 @@
                         <input id="input__PRODUIT" type="text" class="form-control">
                     </div>
                     <div class="col-3 form-group">
-                        <label>Rut:</label>
+                        <label>RUT:</label>
                         <input id="input__RUT" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>RAZON_SOCIAL:</label>
+                        <input id="input__RAZON_SOCIAL" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_DESDE:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_DESDE" type="date" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_MODIFICATION_HASTA:</label>
+                        <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
                     </div>
 
                 </div>
@@ -59,8 +71,8 @@
                                     <th>6 NO_CONTRAT</th>
                                     <th>7 PRODUIT</th>
                                     <th>7 Cantidad de actions</th>
-                                    <th>8 Rut</th>
-                                    <th>9 Razón Social</th>
+                                    <th>8 RUT</th>
+                                    <th>9 RAZON_SOCIAL</th>
                                     <th>10 SYS_DATE_MODIFICATION</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -92,11 +104,15 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        d.SEARCH_BY_NO_MISSION   = document.querySelector('#input__NO_MISSION').value;
-                        d.SEARCH_BY_CURRENT_STEP = document.querySelector('#input__CURRENT_STEP').value;
-                        d.SEARCH_BY_NO_CONTRAT   = document.querySelector('#input__NO_CONTRAT').value;
-                        d.SEARCH_BY_PRODUIT      = document.querySelector('#input__PRODUIT').value;
-                        d.SEARCH_BY_RUT          = document.querySelector('#input__RUT').value;
+                        d.SEARCH_BY_NO_MISSION                     = document.querySelector('#input__NO_MISSION').value;
+                        d.SEARCH_BY_CURRENT_STEP                   = document.querySelector('#input__CURRENT_STEP').value;
+                        d.SEARCH_BY_NO_CONTRAT                     = document.querySelector('#input__NO_CONTRAT').value;
+                        d.SEARCH_BY_PRODUIT                        = document.querySelector('#input__PRODUIT').value;
+                        d.SEARCH_BY_RUT                            = document.querySelector('#input__RUT').value;
+                        d.SEARCH_BY_RUT                            = $('#input__RUT').val();
+                        d.SEARCH_BY_RAZON_SOCIAL                   = $('#input__RAZON_SOCIAL').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE    = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
+                        d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA    = $('#input__SYS_DATE_MODIFICATION_HASTA').val();
                     }
                 },
                 columns: [
@@ -187,6 +203,8 @@
         $( "#input__NO_CONTRAT" ).change(function() { agregar_quitar_bg_success('input__NO_CONTRAT'); });
         $( "#input__PRODUIT" ).change(function() { agregar_quitar_bg_success('input__PRODUIT'); });
         $( "#input__RUT" ).change(function() { agregar_quitar_bg_success('input__RUT'); });
+        $( "#input__RAZON_SOCIAL" ).change(function() { agregar_quitar_bg_success('input__RAZON_SOCIAL'); });
+        $( "#input__SYS_DATE_MODIFICATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_MODIFICATION'); });
 
         function agregar_quitar_bg_success(id){
             if ( $(`#${id}`).val() !== "" ) {
