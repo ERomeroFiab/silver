@@ -18,6 +18,23 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>MODE_SIGNATURE:</label>
+                        <input id="input__MODE_SIGNATURE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_USER_CREATION:</label>
+                        <input id="input__SYS_USER_CREATION" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_contrat_mode_signature" class="table-hover" style="width:100%;">
                             <thead>
@@ -42,10 +59,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_contrat_mode_signature;
+        let TABLA_AIDE_CONTRAT_MODE_SIGNATURE;
         $(document).ready(function() {
 
-            TABLA_aide_contrat_mode_signature = $('#tabla_aide_contrat_mode_signature').DataTable({
+            TABLA_AIDE_CONTRAT_MODE_SIGNATURE = $('#tabla_aide_contrat_mode_signature').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -54,7 +71,9 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_MODE_SIGNATURE              = $('#input__MODE_SIGNATURE').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION           = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_SYS_USER_CREATION           = $('#input__SYS_USER_CREATION').val();
                     }
                 },
                 columns: [
@@ -123,6 +142,9 @@
             }
 
         });
+        function buscar(){
+            TABLA_AIDE_CONTRAT_MODE_SIGNATURE.draw(); 
+        }
 
 
         // Refilter the table
@@ -131,9 +153,9 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
+        $( "#input__MODE_SIGNATURE" ).change(function() { agregar_quitar_bg_success('input__MODE_SIGNATURE'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__SYS_USER_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_USER_CREATION'); });
         // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
         // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
         // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
@@ -143,13 +165,13 @@
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

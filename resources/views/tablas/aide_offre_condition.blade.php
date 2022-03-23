@@ -18,6 +18,31 @@
             </div>
             <div class="card-body">
                 <div class="row">
+                    <div class="col-3 form-group">
+                        <label>CONDITION:</label>
+                        <input id="input__CONDITION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>FIN_DE_MOIS:</label>
+                        <input id="input__FIN_DE_MOIS" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>NB_JOURS:</label>
+                        <input id="input__FAMILLE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_DATE_CREATION:</label>
+                        <input id="input__SYS_DATE_CREATION" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SYS_USER_CREATION:</label>
+                        <input id="input__SYS_USER_CREATION" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Buscar</button>
+                    </div>
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_aide_offre_condition" class="table-hover" style="width:100%;">
                             <thead>
@@ -44,10 +69,10 @@
 @section('customjs')
     
     <script>
-        let TABLA_aide_offre_condition;
+        let TABLA_AIDE_OFFRE_CONDITION;
         $(document).ready(function() {
 
-            TABLA_aide_offre_condition = $('#tabla_aide_offre_condition').DataTable({
+            TABLA_AIDE_OFFRE_CONDITION = $('#tabla_aide_offre_condition').DataTable({
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -56,7 +81,11 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_CONDITION             = $('#input__CONDITION').val();
+                        d.SEARCH_BY_FIN_DE_MOIS           = $('#input__FIN_DE_MOIS').val();
+                        d.SEARCH_BY_NB_JOURS              = $('#input__NB_JOURS').val();
+                        d.SEARCH_BY_SYS_DATE_CREATION     = $('#input__SYS_DATE_CREATION').val();
+                        d.SEARCH_BY_SYS_USER_CREATION     = $('#input__SYS_USER_CREATION').val();
                     }
                 },
                 columns: [
@@ -127,6 +156,9 @@
             }
 
         });
+        function buscar(){
+            TABLA_AIDE_OFFRE_CONDITION.draw(); 
+        }
 
 
         // Refilter the table
@@ -135,11 +167,11 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
+        $( "#input__CONDITION" ).change(function() { agregar_quitar_bg_success('input__CONDITION'); });
+        $( "#input__FIN_DE_MOIS" ).change(function() { agregar_quitar_bg_success('input__FIN_DE_MOIS'); });
+        $( "#input__NB_JOURS" ).change(function() { agregar_quitar_bg_success('input__NB_JOURS'); });
+        $( "#input__SYS_DATE_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_DATE_CREATION'); });
+        $( "#input__SYS_USER_CREATION" ).change(function() { agregar_quitar_bg_success('input__SYS_USER_CREATION'); });
         // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
         // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
         // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
@@ -147,13 +179,13 @@
         // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
         // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
 
-        // function agregar_quitar_bg_success(id){
-        //     if ( $(`#${id}`).val() !== "" ) {
-        //         $(`#${id}`).addClass('bg-success');
-        //     } else {
-        //         $(`#${id}`).removeClass('bg-success');
-        //     }
-        // }
+        function agregar_quitar_bg_success(id){
+            if ( $(`#${id}`).val() !== "" ) {
+                $(`#${id}`).addClass('bg-success');
+            } else {
+                $(`#${id}`).removeClass('bg-success');
+            }
+        }
 
     </script>
 @endsection

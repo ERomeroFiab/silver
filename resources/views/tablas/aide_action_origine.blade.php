@@ -143,7 +143,7 @@
 
         });
         function buscar(){
-            TABLA_AIDE_ACTION_ORIGINE.draw();
+            TABLA_AIDE_ACTION_ORIGINE.draw(); 
         }
 
 

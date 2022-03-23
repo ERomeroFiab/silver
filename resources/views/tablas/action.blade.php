@@ -140,7 +140,9 @@
                     { data: "rut"},
                     { data: "razon_social"},
                     { data: 'action', orderable: false, searchable: false}
+                    
                 ],
+                
                 // order: [[ 1, 'desc' ]],
                 pageLength: 10,
                 language: {
