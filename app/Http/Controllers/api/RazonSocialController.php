@@ -12,16 +12,7 @@ class RazonSocialController extends Controller
 {
     public function get_razones_sociales()
     {
-        $columns = [
-            "SIRET",
-            "ADRESSE1",
-            "GROUP",
-            "RAISON_SOC",
-            "TYPE_FICHE",
-            "CODE_POSTAL",
-            "HEAD_OFFICE",
-        ];
-        $razones_sociales = Identification::select( $columns )->where('TYPE_FICHE', 'Client')->get();
+        $razones_sociales = Identification::where('TYPE_FICHE', 'Client')->get();
         return response()->json($razones_sociales);
     }
     public function get_razones_sociales_by_group_name( Request $request )
@@ -36,8 +27,15 @@ class RazonSocialController extends Controller
                 'message' => $validator->errors(),
             ], 400);
         }
+
+        $relations = [
+            'invoices',
+            'missions',
+            'missions.mission_motives',
+            'missions.mission_motives.mission_motive_ecos',
+        ];
         
-        $razones_sociales = Identification::where( 'GROUP', $request->get('group_name') )->get()->toArray();
+        $razones_sociales = Identification::where( 'GROUP', $request->get('group_name') )->with( $relations )->get()->toArray();
         // $razones_sociales = mb_convert_encoding($razones_sociales, 'UTF-8', 'UTF-8');
         return response()->json($razones_sociales);
     }
