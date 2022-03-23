@@ -898,9 +898,12 @@ class DatatableController extends Controller
         ];
 
         $datos = Mission::select( $columns )->with( $relations )->withCount( $relations );
+        $starts = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->subYears(100);
+        $ends = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->addYears(100);
+
         
         return DataTables::eloquent( $datos )
-                            ->filter(function ($query) use ($request, $columns) {
+                            ->filter(function ($query) use ($request, $columns,$starts,$ends) {
                                 
                                 foreach ($columns as $column) { // filtro por llaves foráneas
                                     if (str_contains($column, "PID_")) {
@@ -933,6 +936,16 @@ class DatatableController extends Controller
                                     });
                                 }
 
+                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
+                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
+                                    $query->whereHas('identification', function($q) use ($palabra){
+                                        $q->where('RAISON_SOC', 'like', $palabra);
+                                    });
+                                }
+
+                                $query->whereBetween('SYS_DATE_MODIFICATION', [$starts, $ends]);
+
+
                             })
                             ->addColumn('rut', function($dato){
                                 if ( $dato->identification ) {
@@ -963,7 +976,6 @@ class DatatableController extends Controller
         $datos = MissionTeam::select( $columns )->with( $relations );
         $starts = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_DESDE') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->subYears(100);
         $ends = $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ? Carbon::parse( $request->get('SEARCH_BY_SYS_DATE_MODIFICATION_HASTA') ) : Carbon::now('America/Santiago')->setTimeZone('America/Santiago')->addYears(100);
-
 
         return DataTables::eloquent( $datos )
                             ->filter(function ($query) use ($request, $columns,$starts,$ends) {
@@ -1198,14 +1210,18 @@ class DatatableController extends Controller
                                 if ( $request->get('SEARCH_BY_RUT') !== null ) {
                                     $rut = $request->get('SEARCH_BY_RUT');
                                     $query->whereHas('contrat', function($q) use ($rut){
-                                        $q->where('SIRET', 'like', "%".$rut."%");
+                                        $q->whereHas('identification', function($q2) use ($rut){
+                                            $q2->where('SIRET', 'like', "%".$rut."%");
+                                        });
                                     });
                                 }
 
                                 if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
                                     $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
-                                    $query->whereHas('identification', function($q) use ($palabra){
-                                        $q->where('RAISON_SOC', 'like', $palabra);
+                                    $query->whereHas('contrat', function($q) use ($palabra){
+                                        $q->whereHas('identification', function($q2) use ($palabra){
+                                            $q2->where('RAISON_SOC', 'like', "%".$palabra."%");
+                                        });
                                     });
                                 }
 
@@ -1530,6 +1546,14 @@ class DatatableController extends Controller
                                 $query->whereBetween('SYS_DATE_MODIFICATION', [$starts, $ends]);
 
                             })
+                            ->addColumn('razon_social', function ($dato) {
+                                if ( $dato->affaire ) {
+                                    if ( $dato->affaire->identification ) {
+                                        return $dato->affaire->identification->RAISON_SOC;
+                                    }
+                                }
+                                return "-";
+                            })    
                             ->addColumn('action', function ($dato) {
                                 return '<a href="'.route('mission_motive_eco.show', ['id_mission_motive_eco' => $dato->ID_MISSION_MOTIVE_ECO]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
@@ -2829,11 +2853,11 @@ class DatatableController extends Controller
                                 }
 
                                 if ( $request->get('SEARCH_BY_CODE') !== null ) {
-                                    $query->where('CODE',"like","%".$request('SEARCH_BY_CODE')."%");
+                                    $query->where('CODE',"like","%".strval($request->get('SEARCH_BY_CODE'))."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_IT_PART_TIME') !== null ) {
-                                    $query->where('IT_PART_TIME',"like","%".$request('SEARCH_BY_IT_PART_TIME')."%");
+                                    $query->where('IT_PART_TIME',"like","%".strval($request->get('SEARCH_BY_IT_PART_TIME'))."%");
                                 }
 
                                 if ( $request->get('SEARCH_BY_LIBELLE') !== null ) {

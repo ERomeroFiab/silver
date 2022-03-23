@@ -109,7 +109,6 @@
                         d.SEARCH_BY_NO_CONTRAT                     = document.querySelector('#input__NO_CONTRAT').value;
                         d.SEARCH_BY_PRODUIT                        = document.querySelector('#input__PRODUIT').value;
                         d.SEARCH_BY_RUT                            = document.querySelector('#input__RUT').value;
-                        d.SEARCH_BY_RUT                            = $('#input__RUT').val();
                         d.SEARCH_BY_RAZON_SOCIAL                   = $('#input__RAZON_SOCIAL').val();
                         d.SEARCH_BY_SYS_DATE_MODIFICATION_DESDE    = $('#input__SYS_DATE_MODIFICATION_DESDE').val();
                         d.SEARCH_BY_SYS_DATE_MODIFICATION_HASTA    = $('#input__SYS_DATE_MODIFICATION_HASTA').val();

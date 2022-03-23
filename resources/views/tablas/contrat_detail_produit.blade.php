@@ -39,7 +39,7 @@
                         <input id="input__SYS_DATE_MODIFICATION_HASTA" type="date" class="form-control">
                     </div>
                     <div class="col-3 form-group">
-                        <label>CANTIDAD_DE_MISSIONS:</label>
+                        <label>CANTIDAD_DE_MISIONS:</label>
                         <input id="input__CANTIDAD_DE_MISIONS" type="text" class="form-control">
                     </div>
                 </div>               

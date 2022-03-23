@@ -63,7 +63,7 @@
                                     <th>3 SEUIL_MIN</th>
                                     <th>4 VALEUR</th>
                                     <th>5 YEAR</th>
-                                    <th>5 Rut</th>
+                                    <th>5 RUT</th>
                                     <th>6 RAZON_SOCIAL</th>
                                     <th>&nbsp;</th>
                                 </tr>
