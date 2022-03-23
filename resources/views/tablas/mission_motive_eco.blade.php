@@ -188,6 +188,10 @@
 
         });
 
+        function buscar(){
+            TABLA_mission_motive_eco.draw();
+        }
+
 
         // Refilter the table
         // $('#input__search_by_fecha_starts, #input__search_by_fecha_ends').on('change', function() {
