@@ -45,11 +45,11 @@
                     </div>
                     <div class="col-3 form-group">
                         <label>SOUS_MOTIF_1:</label>
-                        <input id="input__SOUS_MOTIF_1" type="date" class="form-control">
+                        <input id="input__SOUS_MOTIF_1" type="text" class="form-control">
                     </div>
                     <div class="col-3 form-group">
                         <label>SOUS_MOTIF_2:</label>
-                        <input id="input__SOUS_MOTIF_2" type="date" class="form-control">
+                        <input id="input__SOUS_MOTIF_2" type="text" class="form-control">
                     </div>
 
                 </div>
@@ -195,8 +195,8 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        $( "#input__DATE_PREVISIONNELLE" ).change(function() { agregar_quitar_bg_success('input__PREVISIONNELLE'); });
-        $( "#input__ECO_ABANDONNEE" ).change(function() { agregar_quitar_bg_success('input__ABANDONNEE'); });
+        $( "#input__DATE_PREVISIONNELLE" ).change(function() { agregar_quitar_bg_success('input__DATE_PREVISIONNELLE'); });
+        $( "#input__ECO_ABANDONNEE" ).change(function() { agregar_quitar_bg_success('input__ECO_ABANDONNEE'); });
         $( "#input__ECO_A_FACTURER" ).change(function() { agregar_quitar_bg_success('input__ECO_A_FACTURER'); });
         $( "#input__ECO_ECART" ).change(function() { agregar_quitar_bg_success('input__ECO_ECART'); });
         $( "#input__ECO_PRESENTEE" ).change(function() { agregar_quitar_bg_success('input__ECO_PRESENTEE'); });

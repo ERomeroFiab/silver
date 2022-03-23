@@ -173,7 +173,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('action.show', ['id_action' => $dato->ID_ACTION]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('action.show', ['id_action' => $dato->ID_ACTION]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -239,7 +239,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('action_intervenants_fiabilis.show', ['id_action_intervenants_fiabilis' => $dato->ID_ACTION_INTERVENANTS_FIABILIS]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('action_intervenants_fiabilis.show', ['id_action_intervenants_fiabilis' => $dato->ID_ACTION_INTERVENANTS_FIABILIS]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -367,7 +367,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('affaire.show', ['id_affaire' => $dato->ID_AFFAIRE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('affaire.show', ['id_affaire' => $dato->ID_AFFAIRE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -439,7 +439,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('identification.show', ['id_identification' => $dato->ID_IDENTIFICATION]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('identification.show', ['id_identification' => $dato->ID_IDENTIFICATION]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -514,7 +514,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('contrat.show', ['id_contrat' => $dato->ID_CONTRAT]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('contrat.show', ['id_contrat' => $dato->ID_CONTRAT]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -565,7 +565,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('documents.show', ['id_document' => $dato->ID_DOCUMENTS]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('documents.show', ['id_document' => $dato->ID_DOCUMENTS]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -651,7 +651,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('contact.show', ['id_contact' => $dato->ID_CONTACT]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('contact.show', ['id_contact' => $dato->ID_CONTACT]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -708,7 +708,7 @@ class DatatableController extends Controller
                                 return $dato->identification->SIRET;
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('contrat_detail_produit.show', ['id_contrat_detail_produit' => $dato->ID_CONTRAT_DETAIL_PRODUIT]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('contrat_detail_produit.show', ['id_contrat_detail_produit' => $dato->ID_CONTRAT_DETAIL_PRODUIT]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -778,7 +778,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('identification_note.show', ['id_identification_note' => $dato->ID_IDENTIFICATION_NOTE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('identification_note.show', ['id_identification_note' => $dato->ID_IDENTIFICATION_NOTE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -877,7 +877,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('invoice.show', ['id_invoice' => $dato->ID_INVOICE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('invoice.show', ['id_invoice' => $dato->ID_INVOICE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -960,7 +960,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('mission.show', ['id_mission' => $dato->ID_MISSION]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('mission.show', ['id_mission' => $dato->ID_MISSION]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1012,7 +1012,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('mission_team.show', ['id_mission_team' => $dato->ID_MISSION_TEAM]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('mission_team.show', ['id_mission_team' => $dato->ID_MISSION_TEAM]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1056,7 +1056,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('societe_famille.show', ['id_societe_famille' => $dato->ID_SOCIETE_FAMILLE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('societe_famille.show', ['id_societe_famille' => $dato->ID_SOCIETE_FAMILLE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1103,7 +1103,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('mission_motive.show', ['id_mission_motive' => $dato->ID_MISSION_MOTIVE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('mission_motive.show', ['id_mission_motive' => $dato->ID_MISSION_MOTIVE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1155,7 +1155,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('mission_motive_historique_maj.show', ['id_mission_motive_historique_maj' => $dato->ID_MISSION_MOTIVE_HISTORIQUE_MAJ]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('mission_motive_historique_maj.show', ['id_mission_motive_historique_maj' => $dato->ID_MISSION_MOTIVE_HISTORIQUE_MAJ]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1243,7 +1243,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1324,7 +1324,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1412,7 +1412,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('affaire_objections.show', ['id_affaire_objection' => $dato->ID_AFFAIRE_OBJECTIONS]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('affaire_objections.show', ['id_affaire_objection' => $dato->ID_AFFAIRE_OBJECTIONS]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1506,7 +1506,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('historique_maj_affaire.show', ['id_historique_maj_affaire' => $dato->ID_HISTORIQUE_MAJ_AFFAIRE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('historique_maj_affaire.show', ['id_historique_maj_affaire' => $dato->ID_HISTORIQUE_MAJ_AFFAIRE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1534,28 +1534,44 @@ class DatatableController extends Controller
                                     }
                                 }
 
-                                if ($request->get("SEARCH_BY_RAZON_SOCIAL") !== null){
-                                    $palabra = "%".$request->get("SEARCH_BY_RAZON_SOCIAL")."%";
-                                    $query->whereHas('affaire',function($q1) use ($palabra){
-                                        $q1->whereHas('identification',function($q2) use ($palabra){
-                                            $q2->where('RAISON_SOC','like', $palabra);
-                                        });
-                                    });
+                                if ($request->get("SEARCH_BY_DATE_PREVISIONNELLE") !== null){
+                                    $query->where("DATE_PREVISIONNELLE","like","%" . $request->get('SEARCH_BY_DATE_PREVISIONNELLE') . "%");
                                 }
 
-                                $query->whereBetween('SYS_DATE_MODIFICATION', [$starts, $ends]);
-
-                            })
-                            ->addColumn('razon_social', function ($dato) {
-                                if ( $dato->affaire ) {
-                                    if ( $dato->affaire->identification ) {
-                                        return $dato->affaire->identification->RAISON_SOC;
-                                    }
+                                if ($request->get("SEARCH_BY_ECO_ABANDONNEE") !== null){
+                                    $query->where("ECO_ABANDONNEE","like","%" . $request->get('SEARCH_BY_ECO_ABANDONNEE') . "%");
                                 }
-                                return "-";
-                            })    
+
+                                if ($request->get("SEARCH_BY_ECO_A_FACTURER") !== null){
+                                    $query->where("ECO_A_FACTURER","like","%" . $request->get('SEARCH_BY_ECO_A_FACTURER') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_ECO_ECART") !== null){
+                                    $query->where("ECO_ECART","like","%" . $request->get('SEARCH_BY_ECO_ECART') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_ECO_PRESENTEE") !== null){
+                                    $query->where("ECO_PRESENTEE","like","%" . $request->get('SEARCH_BY_ECO_PRESENTEE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_ECO_VALIDEE") !== null){
+                                    $query->where("ECO_VALIDEE","like","%" . $request->get('SEARCH_BY_ECO_VALIDEE') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SOUS_MOTIF_1") !== null){
+                                    $query->where("SOUS_MOTIF_1","like","%" . $request->get('SEARCH_BY_SOUS_MOTIF_1') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_SOUS_MOTIF_2") !== null){
+                                    $query->where("SOUS_MOTIF_2","like","%" . $request->get('SEARCH_BY_SOUS_MOTIF_2') . "%");
+                                }
+
+                                if ($request->get("SEARCH_BY_YEAR") !== null){
+                                    $query->where("YEAR","like","%" . $request->get('SEARCH_BY_YEAR') . "%");
+                                }
+                            })   
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('mission_motive_eco.show', ['id_mission_motive_eco' => $dato->ID_MISSION_MOTIVE_ECO]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('mission_motive_eco.show', ['id_mission_motive_eco' => $dato->ID_MISSION_MOTIVE_ECO]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1600,7 +1616,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('article.show', ['id_article' => $dato->ID_ARTICLE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('article.show', ['id_article' => $dato->ID_ARTICLE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1710,16 +1726,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_mission_motif
-                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
-                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_MOTIF") !== null){
-                                    $query->where("MOTIF","like","%" . $request->get('SEARCH_BY_MOTIF') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_PRODUIT") !== null){
-                                    $query->where("PRODUIT","like","%" . $request->get('SEARCH_BY_PRODUIT') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -1744,25 +1750,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_mission_step
-                                if ($request->get("SEARCH_BY_DUREE") !== null){
-                                    $query->where("DUREE","like","%" . $request->get('SEARCH_BY_DUREE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_ETAPE") !== null){
-                                    $query->where("ETAPE","like","%" . $request->get('SEARCH_BY_ETAPE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
-                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_MOTIF") !== null){
-                                    $query->where("MOTIF","like","%" . $request->get('SEARCH_BY_MOTIF') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_POURCENTAGE") !== null){
-                                    $query->where("POURCENTAGE","like","%" . $request->get('SEARCH_BY_POURCENTAGE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_PRODUIT") !== null){
-                                    $query->where("PRODUIT","like","%" . $request->get('SEARCH_BY_PRODUIT') . "%");
                                 }
 
                             })
@@ -1867,7 +1854,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('invoice_ligne.show', ['id_invoice_ligne' => $dato->ID_INVOICE_LIGNE]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('invoice_ligne.show', ['id_invoice_ligne' => $dato->ID_INVOICE_LIGNE]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1917,7 +1904,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('journal_deleted.show', ['id_journal_deleted' => $dato->ID_JOURNAL_DELETED]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('journal_deleted.show', ['id_journal_deleted' => $dato->ID_JOURNAL_DELETED]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -1961,7 +1948,7 @@ class DatatableController extends Controller
 
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('settings.show', ['id_setting' => $dato->ID_SETTINGS]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('settings.show', ['id_setting' => $dato->ID_SETTINGS]).'" class="btn btn-sm btn-info">Ver</a>';
                             })
                             ->toJson();
     }
@@ -2024,19 +2011,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_action_resultat
-                                if ($request->get("SEARCH_BY_RESULTAT") !== null){
-                                    $query->where("RESULTAT","like","%" . $request->get('SEARCH_BY_RESULTAT') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_CATEGORIE") !== null){
-                                    $query->where("CATEGORIE","like","%" . $request->get('SEARCH_BY_CATEGORIE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2061,16 +2035,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_affaire_objections
-                                if ($request->get("SEARCH_BY_OBJECTIONS") !== null){
-                                    $query->where("OBJECTIONS","like","%" . $request->get('SEARCH_BY_OBJECTIONS') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -2097,20 +2061,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_affaire_perte
-                                if ($request->get("SEARCH_BY_MOTIF_PERTE") !== null){
-                                    $query->where("MOTIF_PERTE","like","%" . $request->get('SEARCH_BY_MOTIF_PERTE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_NO_GO") !== null){
-                                    $query->where("NO_GO","like","%" . $request->get('SEARCH_BY_NO_GO') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-
 
                             })
                             ->toJson();
@@ -2136,23 +2086,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_affaire_perte
-                                if ($request->get("SEARCH_BY_PHASE") !== null){
-                                        $query->where("PHASE","like","%" . $request->get('SEARCH_BY_PHASE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_PROBABILITE") !== null){
-                                        $query->where("PROBABILITE","like","%" . $request->get('SEARCH_BY_PROBABILITE') . "%");           
-                                }
-                                if ($request->get("SEARCH_BY_STATUT") !== null){
-                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                
 
                             })
                             ->toJson();
@@ -2177,16 +2110,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_affaire_statut
-                                if ($request->get("SEARCH_BY_STATUT") !== null){
-                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
                                 }
 
                             })
@@ -2213,22 +2136,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_affaire_year
-                                if ($request->get("SEARCH_BY_VALUE") !== null){
-                                    $query->where("VALUE","like","%" . $request->get('SEARCH_BY_VALUE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_MODIFICATION") !== null){
-                                    $query->where("SYS_USER_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_USER_MODIFICATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2253,19 +2160,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_article_famille
-                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
-                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_CODE_ANALYTIQUE_SAGE") !== null){
-                                    $query->where("CODE_ANALYTIQUE_SAGE","like","%" . $request->get('SEARCH_BY_CODE_ANALYTIQUE_SAGE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -2292,16 +2186,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_article_provider
-                                if ($request->get("SEARCH_BY_PROVIDER") !== null){
-                                    $query->where("PROVIDER","like","%" . $request->get('SEARCH_BY_PROVIDER') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2326,16 +2210,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_contact_civilite
-                                if ($request->get("SEARCH_BY_CIVILITE") !== null){
-                                    $query->where("CIVILITE","like","%" . $request->get('SEARCH_BY_CIVILITE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_LIBELLE") !== null){
-                                    $query->where("LIBELLE","like","%" . $request->get('SEARCH_BY_LIBELLE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_PREFIX") !== null){
-                                    $query->where("PREFIX","like","%" . $request->get('SEARCH_BY_PREFIX') . "%");
                                 }
 
                             })
@@ -2362,19 +2236,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_contact_fonction
-                                if ($request->get("SEARCH_BY_FONCTION") !== null){
-                                    $query->where("FONCTION","like","%" . $request->get('SEARCH_BY_FONCTION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SERVICE") !== null){
-                                    $query->where("SERVICE","like","%" . $request->get('SEARCH_BY_SERVICE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2399,13 +2260,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_contact_language
-                                if ($request->get("SEARCH_BY_CODE") !== null){
-                                    $query->where("CODE","like","%" . $request->get('SEARCH_BY_CODE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_LANGUAGE") !== null){
-                                    $query->where("LANGUAGE","like","%" . $request->get('SEARCH_BY_LANGUAGE') . "%");
                                 }
 
                             })
@@ -2432,16 +2286,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_contact_service
-                                if ($request->get("SEARCH_BY_SERVICE") !== null){
-                                    $query->where("SERVICE","like","%" . $request->get('SEARCH_BY_SERVICE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2466,22 +2310,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_contrat_entity
-                                if ($request->get("SEARCH_BY_IBAN") !== null){
-                                    $query->where("IBAN","like","%" . $request->get('SEARCH_BY_IBAN') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_INITIALS") !== null){
-                                    $query->where("INITIALS","like","%" . $request->get('SEARCH_BY_INITIALS') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_NAME") !== null){
-                                    $query->where("NAME","like","%" . $request->get('SEARCH_BY_NAME') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_NB_ANNEE_A_SOUSTRAIRE") !== null){
-                                    $query->where("NB_ANNEE_A_SOUSTRAIRE","like","%" . $request->get('SEARCH_BY_NB_ANNEE_A_SOUSTRAIRE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_PREFIX_COMPTEUR") !== null){
-                                    $query->where("PREFIX_COMPTEUR","like","%" . $request->get('SEARCH_BY_PREFIX_COMPTEUR') . "%");
                                 }
 
                             })
@@ -2508,16 +2336,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_contrat_mode_signature
-                                if ($request->get("SEARCH_BY_MODE_SIGNATURE") !== null){
-                                    $query->where("MODE_SIGNATURE","like","%" . $request->get('SEARCH_BY_MODE_SIGNATURE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2542,19 +2360,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_contrat_statut
-                                if ($request->get("SEARCH_BY_STATUT") !== null){
-                                    $query->where("STATUT","like","%" . $request->get('SEARCH_BY_STATUT') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -2581,19 +2386,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_contrat_type
-                                if ($request->get("SEARCH_BY_TYPE") !== null){
-                                    $query->where("TYPE","like","%" . $request->get('SEARCH_BY_TYPE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2618,19 +2410,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_contrat_type_reconduction
-                                if ($request->get("SEARCH_BY_TYPE_RECONDUCTION") !== null){
-                                    $query->where("TYPE_RECONDUCTION","like","%" . $request->get('SEARCH_BY_TYPE_RECONDUCTION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -2657,19 +2436,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_events_qualification
-                                if ($request->get("SEARCH_BY_QUALIFICATION") !== null){
-                                    $query->where("QUALIFICATION","like","%" . $request->get('SEARCH_BY_QUALIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2694,19 +2460,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_events_status
-                                if ($request->get("SEARCH_BY_STATUS") !== null){
-                                    $query->where("STATUS","like","%" . $request->get('SEARCH_BY_STATUS') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -2733,25 +2486,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_famille_indicators
-                                if ($request->get("SEARCH_BY_FAMILLE") !== null){
-                                    $query->where("FAMILLE","like","%" . $request->get('SEARCH_BY_FAMILLE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_INDICATORS") !== null){
-                                    $query->where("INDICATORS","like","%" . $request->get('SEARCH_BY_INDICATORS') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_THRESHOLD") !== null){
-                                    $query->where("THRESHOLD","like","%" . $request->get('SEARCH_BY_THRESHOLD') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_MODIFICATION") !== null){
-                                    $query->where("SYS_DATE_MODIFICATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_MODIFICATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2776,19 +2510,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_international_responsible
-                                if ($request->get("SEARCH_BY_CODE") !== null){
-                                    $query->where("CODE","like","%" . $request->get('SEARCH_BY_CODE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_NOM") !== null){
-                                    $query->where("NOM","like","%" . $request->get('SEARCH_BY_NOM') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_PAYS") !== null){
-                                    $query->where("PAYS","like","%" . $request->get('SEARCH_BY_PAYS') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SERVICE") !== null){
-                                    $query->where("SERVICE","like","%" . $request->get('SEARCH_BY_SERVICE') . "%");
                                 }
 
                             })
@@ -2815,16 +2536,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_international_sector
-                                if ($request->get("SEARCH_BY_DETAIL") !== null){
-                                    $query->where("DETAIL","like","%" . $request->get('SEARCH_BY_DETAIL') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SECTOR") !== null){
-                                    $query->where("SECTOR","like","%" . $request->get('SEARCH_BY_SECTOR') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2849,16 +2560,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_mission_sous_motif1
-                                if ($request->get("SEARCH_BY_SOUS_MOTIF") !== null){
-                                    $query->where("SOUS_MOTIF","like","%" . $request->get('SEARCH_BY_SOUS_MOTIF') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
@@ -2885,16 +2586,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_mission_sous_motif2
-                                if ($request->get("SEARCH_BY_SOUS_MOTIF") !== null){
-                                    $query->where("SOUS_MOTIF","like","%" . $request->get('SEARCH_BY_SOUS_MOTIF') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2920,22 +2611,6 @@ class DatatableController extends Controller
                                         }
                                     }
                                 }
-                                //filtros Tabla: aide_offre_condition
-                                if ($request->get("SEARCH_BY_CONDITION") !== null){
-                                    $query->where("CONDITION","like","%" . $request->get('SEARCH_BY_CONDITION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_FIN_DE_MOIS") !== null){
-                                    $query->where("FIN_DE_MOIS","like","%" . $request->get('SEARCH_BY_FIN_DE_MOIS') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_NB_JOURS") !== null){
-                                    $query->where("NB_JOURS","like","%" . $request->get('SEARCH_BY_NB_JOURS') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
-                                }
 
                             })
                             ->toJson();
@@ -2960,19 +2635,6 @@ class DatatableController extends Controller
                                             $query->where($column, $request->get('SEARCH_BY_'.$column));
                                         }
                                     }
-                                }
-                                //filtros Tabla: aide_renumeration_type
-                                if ($request->get("SEARCH_BY_RENUMERATION_TYPE") !== null){
-                                    $query->where("RENUMERATION_TYPE","like","%" . $request->get('SEARCH_BY_RENUMERATION_TYPE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYMBOLE") !== null){
-                                    $query->where("SYMBOLE","like","%" . $request->get('SEARCH_BY_SYMBOLE') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_DATE_CREATION") !== null){
-                                    $query->where("SYS_DATE_CREATION","like","%" . $request->get('SEARCH_BY_SYS_DATE_CREATION') . "%");
-                                }
-                                if ($request->get("SEARCH_BY_SYS_USER_CREATION") !== null){
-                                    $query->where("SYS_USER_CREATION","like","%" . $request->get('SEARCH_BY_SYS_USER_CREATION') . "%");
                                 }
 
                             })
