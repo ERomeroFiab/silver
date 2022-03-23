@@ -18,6 +18,48 @@
             </div>
             <div class="card-body">
                 <div class="row">
+
+                    <div class="col-3 form-group">
+                        <label>DATE_PREVISIONNELLE:</label>
+                        <input id="input__DATE_PREVISIONNELLE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ECO_ABANDONNEE:</label>
+                        <input id="input__ECO_ABANDONNEE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ECO_A_FACTURER:</label>
+                        <input id="input__ECO_A_FACTURER" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ECO_ECART:</label>
+                        <input id="input__ECO_ECART" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ECO_PRESENTEE:</label>
+                        <input id="input__ECO_PRESENTEE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>ECO_VALIDEE:</label>
+                        <input id="input__ECO_VALIDEE" type="text" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SOUS_MOTIF_1:</label>
+                        <input id="input__SOUS_MOTIF_1" type="date" class="form-control">
+                    </div>
+                    <div class="col-3 form-group">
+                        <label>SOUS_MOTIF_2:</label>
+                        <input id="input__SOUS_MOTIF_2" type="date" class="form-control">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success float-right" type="button" onclick="buscar()">Filtrar</button>
+                    </div>
+                </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-12" style="overflow-x: scroll;">
                         <table id="tabla_mission_motive_eco" class="table-hover" style="width:100%;">
                             <thead>
@@ -61,7 +103,15 @@
                     //     console.log("error: " + thrownError + "\n\n" + "status: " + jqXHR.statusText + "\n\n" + "response: "+jqXHR.responseText + "\n\n" + "options: "+ajaxOptions.responseText);
                     // },
                     data: function ( d ) {
-                        //
+                        d.SEARCH_BY_DATE_PREVISIONNELLE     = $('#input__DATE_PREVISIONNELLE').val();
+                        d.SEARCH_BY_ECO_ABANDONNEE          = $('#input__ECO_ABANDONNEE').val();
+                        d.SEARCH_BY_ECO_A_FACTURER          = $('#input__ECO_A_FACTURER').val();
+                        d.SEARCH_BY_ECO_ECART               = $('#input__ECO_ECART').val();
+                        d.SEARCH_BY_ECO_PRESENTEE           = $('#input__ECO_PRESENTEE').val();
+                        d.SEARCH_BY_ECO_VALIDEE             = $('#input__ECO_VALIDEE').val();
+                        d.SEARCH_BY_SOUS_MOTIF_1            = $('#input__SOUS_MOTIF_1').val();
+                        d.SEARCH_BY_SOUS_MOTIF_2            = $('#input__SOUS_MOTIF_2').val();
+                        d.SEARCH_BY_YEAR                    = $('#input__YEAR').val();
                     }
                 },
                 columns: [
@@ -145,18 +195,16 @@
         // });
 
         // Pintar en verde los inputs que contienen algo
-        // $( "#input__total" ).change(function() { agregar_quitar_bg_success('input__total'); });
-        // $( "#input__fecha_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__fecha_final_de_transaccion'); });
-        // $( "#input__hora_final_de_transaccion" ).change(function() { agregar_quitar_bg_success('input__hora_final_de_transaccion'); });
-        // $( "#input__nombre_del_comprador" ).change(function() { agregar_quitar_bg_success('input__nombre_del_comprador'); });
-        // $( "#input__email_del_comprador" ).change(function() { agregar_quitar_bg_success('input__email_del_comprador'); });
-        // $( "#input__productos" ).change(function() { agregar_quitar_bg_success('input__productos'); });
-        // $( "#input__compra_o_regalo" ).change(function() { agregar_quitar_bg_success('input__compra_o_regalo'); });
-        // $( "#input__status" ).change(function() { agregar_quitar_bg_success('input__status'); });
-
-        // $( "#input__search_by_fecha_starts" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_starts'); });
-        // $( "#input__search_by_fecha_ends" ).change(function() { agregar_quitar_bg_success('input__search_by_fecha_ends'); });
-
+        $( "#input__DATE_PREVISIONNELLE" ).change(function() { agregar_quitar_bg_success('input__PREVISIONNELLE'); });
+        $( "#input__ECO_ABANDONNEE ).change(function() { agregar_quitar_bg_success('input__ABANDONNEE'); });
+        $( "#input__ECO_A_FACTURER" ).change(function() { agregar_quitar_bg_success('input__ECO_A_FACTURER'); });
+        $( "#input__ECO_ECART" ).change(function() { agregar_quitar_bg_success('input__ECO_ECART'); });
+        $( "#input__ECO_PRESENTEE" ).change(function() { agregar_quitar_bg_success('input__ECO_PRESENTEE'); });
+        $( "#input__ECO_VALIDEE" ).change(function() { agregar_quitar_bg_success('input__ECO_VALIDEE'); });
+        $( "#input__SOUS_MOTIF_1" ).change(function() { agregar_quitar_bg_success('input__SOUS_MOTIF_1'); });
+        $( "#input__SOUS_MOTIF_2" ).change(function() { agregar_quitar_bg_success('input__SOUS_MOTIF_2'); });
+        $( "#input__YEAR" ).change(function() { agregar_quitar_bg_success('input__YEAR'); });
+        
         // function agregar_quitar_bg_success(id){
         //     if ( $(`#${id}`).val() !== "" ) {
         //         $(`#${id}`).addClass('bg-success');
