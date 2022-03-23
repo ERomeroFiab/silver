@@ -196,7 +196,7 @@
 
         // Pintar en verde los inputs que contienen algo
         $( "#input__DATE_PREVISIONNELLE" ).change(function() { agregar_quitar_bg_success('input__PREVISIONNELLE'); });
-        $( "#input__ECO_ABANDONNEE ).change(function() { agregar_quitar_bg_success('input__ABANDONNEE'); });
+        $( "#input__ECO_ABANDONNEE" ).change(function() { agregar_quitar_bg_success('input__ABANDONNEE'); });
         $( "#input__ECO_A_FACTURER" ).change(function() { agregar_quitar_bg_success('input__ECO_A_FACTURER'); });
         $( "#input__ECO_ECART" ).change(function() { agregar_quitar_bg_success('input__ECO_ECART'); });
         $( "#input__ECO_PRESENTEE" ).change(function() { agregar_quitar_bg_success('input__ECO_PRESENTEE'); });
