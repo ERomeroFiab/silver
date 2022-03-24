@@ -1324,7 +1324,7 @@ class DatatableController extends Controller
                                 return "-";
                             })
                             ->addColumn('action', function ($dato) {
-                                return '<a href="'.route('contrat_partiel_condition_fiancieres.show', ['id_contrat_partiel_condition_fianciere' => $dato->ID_CONTRAT_PARTIEL_CONDITION_FIANCIERES]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
+                                return '<a href="'.route('affaire_conditions_financieres.show', ['id_affaire_conditions_financiere' => $dato->ID_AFFAIRE_CONDITIONS_FINANCIERES]).'" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>';
                             })
                             ->toJson();
     }
