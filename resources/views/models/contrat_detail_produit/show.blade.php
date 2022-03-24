@@ -1,5 +1,17 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_contrat_partiel_condition_fiancieres_filter {
+            display: none;
+        }
+
+        #tabla_mission_filter{
+            display: none;
+        }
+    </style>
+@endsection
+
 
 
 @section('content')

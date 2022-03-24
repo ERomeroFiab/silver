@@ -1,5 +1,36 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_action_filter {
+            display: none;
+        }
+
+        #tabla_affaire_filter{
+            display:none;
+        }
+
+        #tabla_contrat_detail_produit_filter{
+            display:none;
+        }
+
+        #tabla_contrat_partiel_condition_fiancieres_filter{
+            display: none;
+        }
+
+        #tabla_documents_filter{
+            display:none;
+        }
+
+        #tabla_invoice_filter{
+            display:none;
+        }
+
+        #tabla_mission_filter{
+            display:none;
+        }
+    </style>
+@endsection
 
 
 @section('content')

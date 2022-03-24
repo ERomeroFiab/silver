@@ -1664,7 +1664,9 @@ class DatatableController extends Controller
                                     $query->where("TYPE_EVENEMENT","like","%" . $request->get('SEARCH_BY_TYPE_EVENEMENT') . "%");
                                 }
                             })
+
                             ->toJson();
+                            
     }
 
     public function get_tabla_aide_action_objet( Request $request )
@@ -1704,6 +1706,8 @@ class DatatableController extends Controller
 
                             })
                             ->toJson();
+                            
+                            
     }
 
     public function get_tabla_aide_mission_motif( Request $request )

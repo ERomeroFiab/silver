@@ -1,6 +1,17 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_mission_motive_eco_filter {
+            display: none;
+        }
+        
+        #tabla_mission_motive_historique_maj_filter{
+            display: none;
+        }
 
+    </style>
+@endsection
 
 @section('content')
 <div class="row">

@@ -1,6 +1,28 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_action_filter{
+            display: none;
+        }
 
+        #tabla_affaire_conditions_financieres_filter{
+            display: none;
+        }
+
+        #tabla_affaire_objections_filter{
+            display: none;
+        }
+
+        #tabla_documents_filter{
+            display: none;
+        }
+
+        #tabla_historique_maj_affaire_filter{
+            display: none;
+        }
+    </style>
+@endsection
 
 @section('content')
 <div class="row">

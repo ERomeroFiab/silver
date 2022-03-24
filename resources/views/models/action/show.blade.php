@@ -1,6 +1,17 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
 
+        #tabla_action_intervenants_fiabilis_filter{
+            display: none;
+        }
+
+        #tabla_documents_filter{
+            display: none;
+        }
+    </style>
+@endsection
 
 @section('content')
 <div class="row">

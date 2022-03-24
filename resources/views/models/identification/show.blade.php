@@ -1,5 +1,52 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_documents_filter {
+            display: none;
+        }
+
+        #tabla_action_filter{
+            display: none;
+        }
+
+        #tabla_affaire_filter{
+            display: none;
+        }
+
+        #tabla_contact_filter{
+            display:none;
+        }
+
+        #tabla_contrat_filter{
+            display: none;
+        }
+
+        #tabla_contrat_detail_produit_filter{
+            display: none;
+        }
+
+        #tabla_identification_note_filter{
+            display: none;
+        }
+
+        #tabla_invoice_filter{
+            display: none;
+        }
+
+        #tabla_mission_filter{
+            display: none;
+        }
+
+        #tabla_mission_team_filter{
+            display: none;
+        }
+
+        #tabla_societe_famille_filter{
+            display: none;
+        }
+    </style>
+@endsection
 
 
 @section('content')

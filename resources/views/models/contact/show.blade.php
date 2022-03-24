@@ -1,6 +1,24 @@
 @extends('listado')
 
+@section('customcss')
+    <style>
+        #tabla_action_filter {
+            display: none;
+        }
 
+        #tabla_affaire_filter{
+            display: none;
+        }
+
+        #tabla_contrat_filter{
+            display: none;
+        }
+
+        #tabla_document_filter{
+            display:none;
+        }
+    </style>
+@endsection
 
 @section('content')
 <div class="row">
