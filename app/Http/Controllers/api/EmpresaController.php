@@ -15,10 +15,11 @@ class EmpresaController extends Controller
         $empresas = Identification::select( "GROUP" )->distinct('GROUP')->where('TYPE_FICHE', 'Client')->get();
 
         $relations = [
-            'invoices',
             'missions',
             'missions.mission_motives',
             'missions.mission_motives.mission_motive_ecos',
+            'missions.mission_motives.mission_motive_ecos.invoice_lignes',
+            'missions.mission_motives.mission_motive_ecos.invoice_lignes.invoice',
         ];
 
         foreach ($empresas as $key => $empresa) {
