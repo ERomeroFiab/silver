@@ -18,8 +18,8 @@ class EmpresaController extends Controller
             'missions',
             'missions.mission_motives',
             'missions.mission_motives.mission_motive_ecos',
-            'missions.mission_motives.mission_motive_ecos.invoice_lignes',
-            'missions.mission_motives.mission_motive_ecos.invoice_lignes.invoice',
+            'missions.mission_motives.mission_motive_ecos.invoice_ligne',
+            'missions.mission_motives.mission_motive_ecos.invoice_ligne.invoice',
         ];
 
         foreach ($empresas as $key => $empresa) {
