@@ -1,30 +1,35 @@
 # SILVER  
 
-_Este proyecto trata de disponibilizar de manera organizada, en interfaz y en api's, la información que se encuentra en la base de datos del software SilverTool. _
+Este proyecto trata de disponibilizar de manera organizada, en interfaz y en api's, la información que se encuentra en la base de datos del software SilverTool.
 
 ## Comenzando 🚀
 
-_Para poder ocupar este proyecto necesitamos clonar el repositorio desde [GitHub](https://github.com/ERomeroFiab/silver), una vez ya realizado ello necesitamos copiar el link que aparece en code - HTTPS, luego debemos ir a nuestro proyecto y hacer el comando " git clone (link)" en la terminal y lo podremos utilizar de forma local._
-
+_Para poder ocupar este proyecto necesitamos ejecutar un comando en la terminal  y lo podremos utilizar de forma local_
+* el comando a emplear es el siguiente:
+ ```
+       git clone https://github.com/ERomeroFiab/silver.git
+ ```
 
 ### Pre-requisitos (Windows) 📋
 
-_Para poder proceder con la instalación se necesita tener lo siguiente : *(en caso de no tenerlos instalados abajo se explica todo paso por paso)*_
+_Para poder proceder con la instalación se necesita tener un entorno de servidor, los más usados son XAMPP, y LARAGON los cuales se encargan de instalar las siguientes aplicaciones: *(en caso de no tenerlos instalados abajo se explica todo paso por paso)*_
 * PHP
 * COMPOSER
-* Gestores de base de datos (XAMPP,LARAGON,ETC)
+
 ### Pre-requisitos (Linux) 📋
  
 _Para poder proceder con la instalación se necesita tener lo siguiente : *(en caso de no tenerlos instalados abajo se explica todo paso por paso)*_
 * PHP
 * NGINX O APACHE
 * MYSQL
-* COMPOSER
+
+### INSTALANDO COMPOSER
+* para ello necesitamos abrir el "CMD" y se debe abrir el directorio (depende si tiene XAMPP,LARAGON,ETC) donde se debe instalar Laravel.
 
 ### Instalación de laravel (Windows) 🔧
 
 
-1) Para comenzar la instalción de Laravel debemos tener instalado el gestor de paquetes llamado "COMPOSER".
+1) Para comenzar la instalación de Laravel debemos tener instalado el gestor de paquetes llamado "COMPOSER".
 * para esto debemos descargarlo  desde [la pagina oficial](https://getcomposer.org/download/):
 
      ```
@@ -42,18 +47,14 @@ _Para poder proceder con la instalación se necesita tener lo siguiente : *(en c
      ```
 *(luego se debe reiniciar el pc)*
 
-2) Ya teniendo composer instalado debemos movernos al directorio.
-* para ello necesitamos abrir el "CMD" y se debe abrir el directorio (depende si tiene XAMPP,LARAGON,ETC) donde se debe instalar Laravel.
-
-
-3) Encontrandonos ya en el directorio procedemos a instalar Laravel.
+2) Encontrandonos ya en el directorio procedemos a instalar Laravel.
 * para esto se necesita  ejecutar el siguiente comando :
 
      ```
-     composer global requiere laravel / installer.
+     composer global require laravel/install.
      ```
 
-4) Ahora debemos configurar la base de datos.
+3) Ahora debemos configurar la base de datos.
 * Para esto debemos seguir los siguientes pasos:
 
      ```
@@ -64,40 +65,42 @@ _Para poder proceder con la instalación se necesita tener lo siguiente : *(en c
      * Presione el botón crear. 
      ```
 
-5) Debemos actualizar el archivo ".ENV".
+4) hacer una copia del env.example Debemos actualizar el archivo ".ENV".
 * Debemos hacer lo siguiente:
 
      ```
-     APP_NAME = Laravel ( es el nombre que uno le quiere dar a la aplicación)
-     APP_ENV = local 
-     APP_KEY=base64:TJ9Sob7KFPhL5XkqT+TyQux3x7UbW08QLb0xtirLWSs= 
-     APP_DEBUG = verdadero 
-     APP_URL = http://localhost (es oopcional, se le puede cambiar por el nombre que sea) 
+     APP_NAME= Laravel ( es el nombre que uno le quiere dar a la aplicación)
+     APP_ENV= local 
+     APP_KEY=base64:TJ9Sob7KFPhL5XkqT+TyQux3x7UbW08QLb0xtirLWSs=
+     (En caso de no generarse la key se puede generar con el comando "php artisan key:generate")
+     APP_DEBUG= verdadero 
+     APP_URL= http://localhost (es oopcional, se le puede cambiar por el nombre que sea) 
 
-     LOG_CHANNEL = pila 
-     LOG_LEVEL = depurar 
+     LOG_CHANNEL=stack
+     LOG_DEPRECATIONS_CHANNEL=null
+     LOG_LEVEL=debug 
 
-     DB_CONNECTION = mysql 
-     DB_HOST = 127.0.0.1 
-     DB_PORT = 3306 
-     DB_DATABASE = test_laravel ( acá va el nombre de la base de datos anteriormente creada) 
-     DB_USERNAME = root 
-     DB_PASSWORD = . 
+     DB_CONNECTION= mysql 
+     DB_HOST= 127.0.0.1 
+     DB_PORT= 3306 (puerto por defecto de MYSQL)
+     DB_DATABASE= test_laravel ( acá va el nombre de la base de datos anteriormente creada) 
+     DB_USERNAME= root 
+     DB_PASSWORD= . 
      ```
 
-6) Como siguiente paso debemos Crear tablas en la base de datos para el acceso a Laravel, también ayuda en el control de la versión de la base de datos.
+5) Como siguiente paso debemos Crear tablas en la base de datos para el acceso a Laravel, también ayuda en el control de la versión de la base de datos.
 * la migración se hace con el siguiente comando desde la terminal (debe estar posicionado dentro de su proyecto):
    ```
      php artisan migrate
    ```
 
-7) Luego se debe iniciar el servidor de desarrollo.
+6) Luego se debe iniciar el servidor de desarrollo.
 * El cual se inicia con el siguiente comando desde la terminal (debe estar posicionado dentro de su proyecto):
    ```
      php artisan serve
    ```
 
-8) Para finalizar debe dirigirse a la url que le proporciona el cmd y listo, tiene instalado laravel .
+7) Para finalizar debe dirigirse a la url que le proporciona el cmd y listo, tiene instalado laravel .
 
 ### Instalación de laravel (Linux) 🔧
 
@@ -144,15 +147,7 @@ _Para poder proceder con la instalación se necesita tener lo siguiente : *(en c
      sudo mv composer.phar /usr/local/bin/composer
      ```
 
-6) Teniendo listo el paso anterioir debemos seguir con la instalación de Laravel Project.
-* que efectua con el siguiente comando :
-
-     ```
-    cd /var/www/html
-    git clone “github_url” “Project_name.com” (El "Project_name.com" es opcional)
-     ```
-
-7) Para finalizar se debe dar los permisos correspondientes a Laravel Project.
+6) Para finalizar se debe dar los permisos correspondientes a Laravel Project.
 * que se hacen con los siguientes comandos :
 
      ```
