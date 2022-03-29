@@ -15,12 +15,13 @@ _Para poder ocupar este proyecto necesitamos ejecutar un comando en la terminal 
 _Para poder proceder con la instalación se necesita tener un entorno de servidor, los más usados son XAMPP, y LARAGON los cuales se encargan de instalar las siguientes aplicaciones: *(en caso de no tenerlos instalados abajo se explica todo paso por paso)*_
 * PHP
 * COMPOSER
+* NGINX Ó APACHE
 
 ### Pre-requisitos (Linux) 📋
  
 _Para poder proceder con la instalación se necesita tener lo siguiente : *(en caso de no tenerlos instalados abajo se explica todo paso por paso)*_
 * PHP
-* NGINX O APACHE
+* NGINX Ó APACHE
 * MYSQL
 
 ### INSTALANDO COMPOSER
@@ -65,27 +66,27 @@ _Para poder proceder con la instalación se necesita tener lo siguiente : *(en c
      * Presione el botón crear. 
      ```
 
-4) hacer una copia del env.example Debemos actualizar el archivo ".ENV".
-* Debemos hacer lo siguiente:
+4) hacer una copia del env.example donde lo debemos pegar en el mismo archivo y cambiarle el nombre a ".ENV".
+* Donde debemos hacer lo siguiente:
 
      ```
-     APP_NAME= Laravel ( es el nombre que uno le quiere dar a la aplicación)
-     APP_ENV= local 
+     APP_NAME=Laravel ( es el nombre que uno le quiere dar a la aplicación)
+     APP_ENV=local (local ó production) 
      APP_KEY=base64:TJ9Sob7KFPhL5XkqT+TyQux3x7UbW08QLb0xtirLWSs=
      (En caso de no generarse la key se puede generar con el comando "php artisan key:generate")
-     APP_DEBUG= verdadero 
-     APP_URL= http://localhost (es oopcional, se le puede cambiar por el nombre que sea) 
+     APP_DEBUG=true (true ó false para mostrar o no más detalles de los errores que se presenten) 
+     APP_URL=http://localhost (es oopcional, se le puede cambiar por el nombre que sea) 
 
      LOG_CHANNEL=stack
      LOG_DEPRECATIONS_CHANNEL=null
      LOG_LEVEL=debug 
 
      DB_CONNECTION= mysql 
-     DB_HOST= 127.0.0.1 
-     DB_PORT= 3306 (puerto por defecto de MYSQL)
-     DB_DATABASE= test_laravel ( acá va el nombre de la base de datos anteriormente creada) 
-     DB_USERNAME= root 
-     DB_PASSWORD= . 
+     DB_HOST=127.0.0.1 
+     DB_PORT=3306 (puerto por defecto de MYSQL)
+     DB_DATABASE=test_laravel ( acá va el nombre de la base de datos anteriormente creada) 
+     DB_USERNAME=root 
+     DB_PASSWORD=  
      ```
 
 5) Como siguiente paso debemos Crear tablas en la base de datos para el acceso a Laravel, también ayuda en el control de la versión de la base de datos.
@@ -93,11 +94,14 @@ _Para poder proceder con la instalación se necesita tener lo siguiente : *(en c
    ```
      php artisan migrate
    ```
-
+* Para crear las tablas en la base de datos y al mismo tiempo agregar el usuario administrador automáticamente, ejecuta el siguiente comando:
+   ```
+     php artisan migrate --seed
+   ```
 6) Luego se debe iniciar el servidor de desarrollo.
 * El cual se inicia con el siguiente comando desde la terminal (debe estar posicionado dentro de su proyecto):
    ```
-     php artisan serve
+     php artisan serve --port=8002 (El puerto puede variar ya que uno lo escoge)
    ```
 
 7) Para finalizar debe dirigirse a la url que le proporciona el cmd y listo, tiene instalado laravel .
