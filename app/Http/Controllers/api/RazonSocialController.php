@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Identification;
+use App\Models\MissionMotiveEco;
 use Illuminate\Support\Facades\Validator;
 
 class RazonSocialController extends Controller
@@ -113,5 +114,55 @@ class RazonSocialController extends Controller
         $razon_social = mb_convert_encoding($razon_social, 'UTF-8', 'UTF-8');
         
         return response()->json($razon_social);
+    }
+
+    public function get_ecos()
+    {
+        $relations = [
+            'invoice_ligne',
+            'mission_motive',
+            'mission_motive.mission',
+            'mission_motive.mission.identification',
+            'mission_motive.mission.contrat',
+            'mission_motive.mission.contrat_detail_produit',
+        ];
+        $ecos = MissionMotiveEco::with($relations)->get();
+        return response()->json($ecos);
+    }
+
+    public function get_ecos_by_razon_social( Request $request )
+    {
+        $validator = Validator::make($request->all(), [
+            'rut'  => 'required|string|exists:identification,SIRET',
+        ]);
+
+        if ( $validator->fails() ) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => $validator->errors(),
+            ], 400);
+        }
+
+        $relations = [
+            'invoice_ligne',
+            'mission_motive',
+            'mission_motive.mission',
+            'mission_motive.mission.identification',
+            'mission_motive.mission.contrat',
+            'mission_motive.mission.contrat_detail_produit',
+        ];
+        
+        $rut = $request->get('rut');
+
+        $ecos = MissionMotiveEco::whereHas('mission_motive', function($q) use ($rut){
+            $q->whereHas('mission', function($q2) use ($rut){
+                $q2->whereHas('identification', function ($q3) use ($rut){
+                    $q3->where('SIRET', $rut);
+                });
+            });
+        })
+        ->with($relations)->get();
+
+        return response()->json($ecos);
     }
 }
