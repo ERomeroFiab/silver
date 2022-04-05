@@ -126,7 +126,8 @@ class RazonSocialController extends Controller
             'mission_motive.mission.contrat',
             'mission_motive.mission.contrat_detail_produit',
         ];
-        $ecos = MissionMotiveEco::with($relations)->get();
+        $ecos = MissionMotiveEco::with($relations)->get()->toArray();
+        $ecos = mb_convert_encoding($ecos, 'UTF-8', 'UTF-8');
         return response()->json($ecos);
     }
 
