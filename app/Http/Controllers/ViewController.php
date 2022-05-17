@@ -10,6 +10,11 @@ use App\Models\ContratDetailProduit;
 
 class ViewController extends Controller
 {
+    public function home()
+    {
+        return "working";
+    }
+
     public function listado()
     {
         return view('listado');

@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\ViewController::class, 'listado']);
+Route::get('/', [App\Http\Controllers\ViewController::class, 'home']);
+Route::get('/listado', [App\Http\Controllers\ViewController::class, 'listado']);
 Route::get('/pruebas/{table_name}', [App\Http\Controllers\ViewController::class, 'pruebas'])->name('pruebas');
 
 
