@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\checkHeaderMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::middleware(['checkHeaderMiddleware'])->group(function () {
+Route::middleware([checkHeaderMiddleware::class])->group(function () {
 
     Route::get('/empresas/get_empresas_name', [App\Http\Controllers\api\EmpresaController::class, 'get_empresas_name']);
     Route::get('/empresas/get_razones_sociales', [App\Http\Controllers\api\RazonSocialController::class, 'get_razones_sociales']);
